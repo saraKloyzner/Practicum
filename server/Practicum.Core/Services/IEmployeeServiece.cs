@@ -14,5 +14,6 @@ namespace Practicum.Core.Services
         Task<Employee> AddAsync(Employee employee);
         Task<Employee> UpdateAsync(Employee employee);
         Task DeleteAsync(string employeeId);
+        
     }
 }

@@ -18,14 +18,14 @@ namespace Practicum.Data.Repositories
             _dataContext = dataContext;
         }
 
-         public async Task<Employee> AddAsync(Employee employee)
+        public async Task<Employee> AddAsync(Employee employee)
         {
-           _dataContext.Employees.Add(employee);
+            _dataContext.Employees.Add(employee);
             await _dataContext.SaveChangesAsync();
             return employee;
         }
 
-         public async Task DeleteAsync(string employeeId)
+        public async Task DeleteAsync(string employeeId)
         {
             var employee = await GetByIdAsync(employeeId);
             _dataContext.Employees.Remove(employee);
@@ -39,19 +39,14 @@ namespace Practicum.Data.Repositories
 
         public async Task<Employee> GetByIdAsync(string employeeId)
         {
-            return await _dataContext.Employees.Include(c=>c.rolesArr).FirstOrDefaultAsync(c => c.Identity == employeeId);
-
+            return await _dataContext.Employees.Include(c => c.rolesArr).FirstOrDefaultAsync(c => c.Identity == employeeId);
         }
-
-       
-
         public async Task<Employee> UpdateAsync(Employee employee)
         {
-            var existEmployee=await GetByIdAsync(employee.Identity);
+            var existEmployee = await GetByIdAsync(employee.Identity);
             _dataContext.Entry(existEmployee).CurrentValues.SetValues(existEmployee);
             return employee;
         }
-
-     
+       
     }
 }
