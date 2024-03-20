@@ -9,7 +9,7 @@ namespace Practicum.Core.Models
     public class Role
     {
         public int Id { get; set; }
-        public string RoleName { get; set; }
+        public RoleName RoleName { get; set; }
         public bool ManagerialPosition { get; set; }//ניהולי?
         public DateTime DateOfStartingWork { get; set; }
         //public Employee Employee { get; set; }//לבדוק אם יש צורך

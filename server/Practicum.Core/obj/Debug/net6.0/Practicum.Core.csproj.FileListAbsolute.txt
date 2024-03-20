@@ -10,3 +10,15 @@ Y:\Groups\Group_3\קלויזנר  שרה לאה\פרקטיקום\Practicum\Pract
 Y:\Groups\Group_3\קלויזנר  שרה לאה\פרקטיקום\Practicum\Practicum.Core\obj\Debug\net6.0\refint\Practicum.Core.dll
 Y:\Groups\Group_3\קלויזנר  שרה לאה\פרקטיקום\Practicum\Practicum.Core\obj\Debug\net6.0\Practicum.Core.pdb
 Y:\Groups\Group_3\קלויזנר  שרה לאה\פרקטיקום\Practicum\Practicum.Core\obj\Debug\net6.0\ref\Practicum.Core.dll
+Y:\Groups\Group_3\קלויזנר  שרה לאה\פרקטיקום\Practicum\server\Practicum.Core\bin\Debug\net6.0\Practicum.Core.deps.json
+Y:\Groups\Group_3\קלויזנר  שרה לאה\פרקטיקום\Practicum\server\Practicum.Core\bin\Debug\net6.0\Practicum.Core.dll
+Y:\Groups\Group_3\קלויזנר  שרה לאה\פרקטיקום\Practicum\server\Practicum.Core\bin\Debug\net6.0\Practicum.Core.pdb
+Y:\Groups\Group_3\קלויזנר  שרה לאה\פרקטיקום\Practicum\server\Practicum.Core\obj\Debug\net6.0\Practicum.Core.csproj.AssemblyReference.cache
+Y:\Groups\Group_3\קלויזנר  שרה לאה\פרקטיקום\Practicum\server\Practicum.Core\obj\Debug\net6.0\Practicum.Core.GeneratedMSBuildEditorConfig.editorconfig
+Y:\Groups\Group_3\קלויזנר  שרה לאה\פרקטיקום\Practicum\server\Practicum.Core\obj\Debug\net6.0\Practicum.Core.AssemblyInfoInputs.cache
+Y:\Groups\Group_3\קלויזנר  שרה לאה\פרקטיקום\Practicum\server\Practicum.Core\obj\Debug\net6.0\Practicum.Core.AssemblyInfo.cs
+Y:\Groups\Group_3\קלויזנר  שרה לאה\פרקטיקום\Practicum\server\Practicum.Core\obj\Debug\net6.0\Practicum.Core.csproj.CoreCompileInputs.cache
+Y:\Groups\Group_3\קלויזנר  שרה לאה\פרקטיקום\Practicum\server\Practicum.Core\obj\Debug\net6.0\Practicum.Core.dll
+Y:\Groups\Group_3\קלויזנר  שרה לאה\פרקטיקום\Practicum\server\Practicum.Core\obj\Debug\net6.0\refint\Practicum.Core.dll
+Y:\Groups\Group_3\קלויזנר  שרה לאה\פרקטיקום\Practicum\server\Practicum.Core\obj\Debug\net6.0\Practicum.Core.pdb
+Y:\Groups\Group_3\קלויזנר  שרה לאה\פרקטיקום\Practicum\server\Practicum.Core\obj\Debug\net6.0\ref\Practicum.Core.dll

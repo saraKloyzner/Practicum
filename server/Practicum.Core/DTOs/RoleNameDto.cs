@@ -4,9 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Practicum.Core.Repositories
+namespace Practicum.Core.DTOs
 {
-    public interface IRolesRepository
+    public class RoleNameDto
     {
+        public string RoleName { get; set; }
     }
 }

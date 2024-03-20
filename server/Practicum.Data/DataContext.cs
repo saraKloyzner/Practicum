@@ -12,11 +12,12 @@ namespace Practicum.Data
     public class DataContext : DbContext
     {
         public DbSet<Employee> Employees { get; set; }
-        public DbSet<Role> RolesArr { get; set; }
+        public DbSet<RoleName> RoleNamesArr { get; set; }
 
+        
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer("Server=(localdb)\\mssqllocaldb;Database=my_db");
+            optionsBuilder.UseSqlServer("Server=(localdb)\\mssqllocaldb;Database=my_database");
             optionsBuilder.LogTo((message) => Debug.Write(message));
         }
        

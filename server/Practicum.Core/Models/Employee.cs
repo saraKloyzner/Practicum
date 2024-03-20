@@ -9,13 +9,15 @@ namespace Practicum.Core.Models
 {
     public class Employee
     {
+        public int Id { get; set; } 
+        public string Identity { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
-        public string Id { get; set; }
+       
         public DateTime StartOfWorkDate { get; set; }
         public DateTime DateOfBirth { get; set; }
         public bool MaleOrFemale { get; set; }
-        public List<Role> rolesArr { get; set; }
+        public IEnumerable<Role> rolesArr { get; set; }
       
     }
 }

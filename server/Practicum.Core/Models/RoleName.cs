@@ -4,9 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Practicum.Core.Services
+namespace Practicum.Core.Models
 {
-    public interface IRolesService
+    public class RoleName
     {
+        public int  Id { get; set; }
+        public string Name { get; set; }
     }
 }

@@ -1,8 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "TbRh18ujmY4c1ZeKBLBDW9EjkG40wThvc3xegR0Fs/9vUA67bFB9pOopd59gEUekmkH4vWSfIX+KS6XH/PPwRw==",
+  "dgSpecHash": "DWJhA8MnIETDLzzeaNhCUDiUAXWO0oaj9OOAkgkgwVy56Yg/nBngEuPAroAlLX8+Hs6BSDNzGSNkDRd18aIFHA==",
   "success": true,
-  "projectFilePath": "Y:\\Groups\\Group_3\\קלויזנר  שרה לאה\\פרקטיקום\\Practicum\\Practicum.Service\\Practicum.Service.csproj",
-  "expectedPackageFiles": [],
+  "projectFilePath": "Y:\\Groups\\Group_3\\קלויזנר  שרה לאה\\פרקטיקום\\Practicum\\server\\Practicum.Service\\Practicum.Service.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\hitmachut\\.nuget\\packages\\automapper\\12.0.1\\automapper.12.0.1.nupkg.sha512",
+    "C:\\Users\\hitmachut\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512"
+  ],
   "logs": []
 }

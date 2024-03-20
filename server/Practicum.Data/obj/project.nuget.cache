@@ -1,11 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "z9BQ2xFFYHPPbfFZIlT0sy9bjpnBekIHCBvLrGabZh65Qbwag9ZKF5XQYK/bUaPuSG7m2X+ASrKaSoMWVRNIeA==",
+  "dgSpecHash": "OQasaOIfdUXkocuWxXEJY+ClO2Q6v5WOCVbfGW3oDpG3fSN+t1zOdv7XMu1UWgYWV2jPHT8ONXlUgknx0YYuMQ==",
   "success": true,
-  "projectFilePath": "Y:\\Groups\\Group_3\\קלויזנר  שרה לאה\\פרקטיקום\\Practicum\\Practicum.Data\\Practicum.Data.csproj",
+  "projectFilePath": "Y:\\Groups\\Group_3\\קלויזנר  שרה לאה\\פרקטיקום\\Practicum\\server\\Practicum.Data\\Practicum.Data.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\hitmachut\\.nuget\\packages\\automapper\\12.0.1\\automapper.12.0.1.nupkg.sha512",
     "C:\\Users\\hitmachut\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
-    "C:\\Users\\hitmachut\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",
+    "C:\\Users\\hitmachut\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
     "C:\\Users\\hitmachut\\.nuget\\packages\\microsoft.data.sqlclient\\2.1.7\\microsoft.data.sqlclient.2.1.7.nupkg.sha512",
     "C:\\Users\\hitmachut\\.nuget\\packages\\microsoft.data.sqlclient.sni.runtime\\2.1.1\\microsoft.data.sqlclient.sni.runtime.2.1.1.nupkg.sha512",
     "C:\\Users\\hitmachut\\.nuget\\packages\\microsoft.entityframeworkcore\\6.0.28\\microsoft.entityframeworkcore.6.0.28.nupkg.sha512",

@@ -1,5 +1,7 @@
 ﻿using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
+using Practicum.API.Models;
+using Practicum.Core.DTOs;
 using Practicum.Core.Models;
 using Practicum.Core.Services;
 
@@ -26,8 +28,8 @@ namespace Practicum.API.Controllers
         public async Task<ActionResult> Get()
         {
             var employees = await _employeeService.GetAllAsync();
-            //return Ok(_mapper.Map<IEnumerable<EmployeeDto>>(employees));
-            return Ok(employees);
+            return Ok(_mapper.Map<IEnumerable<EmployeeDto>>(employees));
+            
         }
 
         // GET api/<EmployeeController>/5
@@ -35,34 +37,33 @@ namespace Practicum.API.Controllers
         public async Task<ActionResult> Get(string id)
         {
             var employee = await _employeeService.GetByIdAsync(id);
-            //return Ok(_mapper.Map<EmployeeDto>(employee));
             return Ok(employee);
         }
 
         // POST api/<EmployeeController>
         [HttpPost]
-        public async Task<ActionResult> Post([FromBody] Employee employee)
+        public async Task<ActionResult> Post([FromBody] EmployeePostModel employee)
         {
-            var newEmployee=await _employeeService.AddAsync(employee);
+            var newEmployee=await _employeeService.AddAsync(_mapper.Map<Employee>(employee));
+
             //return Ok(_mapper.Map<EmployeeDto>(newEmployee));
             return Ok(newEmployee);
         }
 
         // PUT api/<EmployeeController>/5
         [HttpPut("{id}")]
-        public async Task<AcceptedResult> Put(string id, [FromBody] Employee employee)
+        public async Task<ActionResult> Put(string id, [FromBody] EmployeePostModel employee)
         {
             var putEmployee = await _employeeService.GetByIdAsync(id);
-            //if (putEmployee is null)
-            //{
-            //    return NotFound();
-            //}
-            putEmployee= await _employeeService.UpdateAsync(employee);
-            return putEmployee;
-            
-            //_mapper.Map(model, employee);
-            //await _employeeService.UpdateAsync(putEmployee);
-            //em
+            if (putEmployee is null)
+            {
+                return NotFound();
+            }
+            _mapper.Map(employee, putEmployee);
+            await _employeeService.UpdateAsync(putEmployee);
+            //putEmployee=await _employeeService.GetByIdAsync(id);
+            //return Ok(_mapper.Map<EmployeeDto>(putEmployee));
+            return Ok(putEmployee);
         }
 
         // DELETE api/<EmployeeController>/5

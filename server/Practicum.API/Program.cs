@@ -1,3 +1,7 @@
+using Practicum.API.Mapping;
+using Practicum.Core;
+using Practicum.Core.Mapping;
+//using Practicum.Core.Mapping;
 using Practicum.Core.Repositories;
 using Practicum.Core.Services;
 using Practicum.Data;
@@ -20,12 +24,14 @@ builder.Services.AddSwaggerGen();
 
 builder.Services.AddScoped<IEmployeeServiece, EmployeeService>();
 builder.Services.AddScoped<IEmployeeRepository, EmployeeRepository>();
-builder.Services.AddScoped<IRolesService, RoleService>();
-builder.Services.AddScoped<IRolesRepository, RoleRepository>();
+builder.Services.AddScoped<IRoleNameServiece,RoleNameService >();
+builder.Services.AddScoped<IRoleNameRepository, RoleNameRepository>();
+
+
+//builder.Services.AddAutoMapper(typeof(MappingProfile));
+builder.Services.AddAutoMapper(typeof(MappingProfile),typeof(PostModelMappingProfile));
 
 builder.Services.AddDbContext<DataContext>();
-
-
 
 
 var app = builder.Build();

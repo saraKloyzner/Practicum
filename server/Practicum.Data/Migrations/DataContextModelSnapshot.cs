@@ -24,13 +24,20 @@ namespace Practicum.Data.Migrations
 
             modelBuilder.Entity("Practicum.Core.Models.Employee", b =>
                 {
-                    b.Property<string>("Id")
-                        .HasColumnType("nvarchar(450)");
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
                     b.Property<DateTime>("DateOfBirth")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("FirstName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Identity")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
@@ -60,21 +67,39 @@ namespace Practicum.Data.Migrations
                     b.Property<DateTime>("DateOfStartingWork")
                         .HasColumnType("datetime2");
 
-                    b.Property<string>("EmployeeId")
-                        .HasColumnType("nvarchar(450)");
+                    b.Property<int?>("EmployeeId")
+                        .HasColumnType("int");
 
                     b.Property<bool>("ManagerialPosition")
                         .HasColumnType("bit");
 
-                    b.Property<string>("RoleName")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int>("RoleNameId")
+                        .HasColumnType("int");
 
                     b.HasKey("Id");
 
                     b.HasIndex("EmployeeId");
 
-                    b.ToTable("RolesArr");
+                    b.HasIndex("RoleNameId");
+
+                    b.ToTable("Role");
+                });
+
+            modelBuilder.Entity("Practicum.Core.Models.RoleName", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("RoleNamesArr");
                 });
 
             modelBuilder.Entity("Practicum.Core.Models.Role", b =>
@@ -82,6 +107,14 @@ namespace Practicum.Data.Migrations
                     b.HasOne("Practicum.Core.Models.Employee", null)
                         .WithMany("rolesArr")
                         .HasForeignKey("EmployeeId");
+
+                    b.HasOne("Practicum.Core.Models.RoleName", "RoleName")
+                        .WithMany()
+                        .HasForeignKey("RoleNameId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("RoleName");
                 });
 
             modelBuilder.Entity("Practicum.Core.Models.Employee", b =>
