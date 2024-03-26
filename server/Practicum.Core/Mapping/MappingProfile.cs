@@ -13,8 +13,14 @@ namespace Practicum.Core.Mapping
     {
       public MappingProfile()
         {
-            CreateMap<Employee,EmployeeDto>();
-            CreateMap<RoleName,RoleNameDto>();
+            //CreateMap<Employee,EmployeeDto>();
+            //CreateMap<EmployeeRole,EmployeeRoleDto>();
+            //CreateMap<RoleName,RoleNameDto>();
+            CreateMap<Employee, EmployeeDto>()
+           .ForMember(dest => dest.employeeRolesDto, opt => opt.MapFrom(src => src.roleEmployees));
+            CreateMap<EmployeeRole, EmployeeRoleDto>();
+            CreateMap<RoleName, RoleNameDto>()
+         .ForMember(dest => dest.RoleName, opt => opt.MapFrom(src => src.Name));
         }
     }
 }

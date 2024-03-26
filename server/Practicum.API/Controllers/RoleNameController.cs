@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Practicum.API.Models;
 using Practicum.Core.DTOs;
@@ -11,6 +12,7 @@ namespace Practicum.API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+   
     public class RoleNameController : ControllerBase
     {
         private readonly IRoleNameServiece _roleName;

@@ -1,8 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "S2IBZ1tbIGJtuRr+y1SjDC5PnWkgIyi9QuBMKMbDA8PtRIRUbohyKpNk33YvMkqj/IYfJ/AloKxRduvr1y3glQ==",
+  "dgSpecHash": "ldwMYRurl4DKZ0l2b55/QZ2ru5sOzbmVZcdYh9qrzNxBSEnIUP7UK1NbKolpUcgNo2Fu4JB09FHL7hssWlXRaQ==",
   "success": true,
   "projectFilePath": "Y:\\Groups\\Group_3\\קלויזנר  שרה לאה\\פרקטיקום\\Practicum\\server\\Practicum.Core\\Practicum.Core.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\hitmachut\\.nuget\\packages\\automapper\\12.0.1\\automapper.12.0.1.nupkg.sha512",
+    "C:\\Users\\hitmachut\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512"
+  ],
   "logs": []
 }

@@ -17,7 +17,7 @@ namespace Practicum.Core.Models
         public DateTime StartOfWorkDate { get; set; }
         public DateTime DateOfBirth { get; set; }
         public bool MaleOrFemale { get; set; }
-        public IEnumerable<Role> rolesArr { get; set; }
+        public IEnumerable<EmployeeRole> roleEmployees { get; set; }
       
     }
 }

@@ -41,26 +41,39 @@ namespace Practicum.Data.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Role",
+                name: "Users",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    RoleNameId = table.Column<int>(type: "int", nullable: false),
-                    ManagerialPosition = table.Column<bool>(type: "bit", nullable: false),
-                    DateOfStartingWork = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    EmployeeId = table.Column<int>(type: "int", nullable: true)
+                    Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Password = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Role", x => x.Id);
+                    table.PrimaryKey("PK_Users", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "employeeRoles",
+                columns: table => new
+                {
+                    RoleNameId = table.Column<int>(type: "int", nullable: false),
+                    EmployeeId = table.Column<int>(type: "int", nullable: false),
+                    ManagerialPosition = table.Column<bool>(type: "bit", nullable: false),
+                    DateOfStartingWork = table.Column<DateTime>(type: "datetime2", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_employeeRoles", x => new { x.RoleNameId, x.EmployeeId });
                     table.ForeignKey(
-                        name: "FK_Role_Employees_EmployeeId",
+                        name: "FK_employeeRoles_Employees_EmployeeId",
                         column: x => x.EmployeeId,
                         principalTable: "Employees",
-                        principalColumn: "Id");
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_Role_RoleNamesArr_RoleNameId",
+                        name: "FK_employeeRoles_RoleNamesArr_RoleNameId",
                         column: x => x.RoleNameId,
                         principalTable: "RoleNamesArr",
                         principalColumn: "Id",
@@ -68,20 +81,18 @@ namespace Practicum.Data.Migrations
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_Role_EmployeeId",
-                table: "Role",
+                name: "IX_employeeRoles_EmployeeId",
+                table: "employeeRoles",
                 column: "EmployeeId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Role_RoleNameId",
-                table: "Role",
-                column: "RoleNameId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "Role");
+                name: "employeeRoles");
+
+            migrationBuilder.DropTable(
+                name: "Users");
 
             migrationBuilder.DropTable(
                 name: "Employees");

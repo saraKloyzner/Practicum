@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Practicum.API.Models;
 using Practicum.Core.DTOs;
@@ -11,6 +12,7 @@ namespace Practicum.API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+   
     public class EmployeeController : ControllerBase
     {
         private readonly IEmployeeServiece _employeeService;
@@ -28,7 +30,7 @@ namespace Practicum.API.Controllers
         public async Task<ActionResult> Get()
         {
             var employees = await _employeeService.GetAllAsync();
-            return Ok(_mapper.Map<IEnumerable<EmployeeDto>>(employees));
+            return Ok(/*_mapper.Map<IEnumerable<EmployeeDto>>(*/employees/*)*/);
             
         }
 
@@ -42,16 +44,18 @@ namespace Practicum.API.Controllers
 
         // POST api/<EmployeeController>
         [HttpPost]
+        //[Authorize]
         public async Task<ActionResult> Post([FromBody] EmployeePostModel employee)
         {
             var newEmployee=await _employeeService.AddAsync(_mapper.Map<Employee>(employee));
 
-            //return Ok(_mapper.Map<EmployeeDto>(newEmployee));
-            return Ok(newEmployee);
+            return Ok(_mapper.Map<EmployeeDto>(newEmployee));
+            //return Ok(newEmployee);
         }
 
         // PUT api/<EmployeeController>/5
         [HttpPut("{id}")]
+        //[Authorize]
         public async Task<ActionResult> Put(string id, [FromBody] EmployeePostModel employee)
         {
             var putEmployee = await _employeeService.GetByIdAsync(id);
@@ -68,6 +72,7 @@ namespace Practicum.API.Controllers
 
         // DELETE api/<EmployeeController>/5
         [HttpDelete("{id}")]
+        //[Authorize]
         public async Task<ActionResult> Delete(string id)
         {
             var employee = await _employeeService.GetByIdAsync(id);

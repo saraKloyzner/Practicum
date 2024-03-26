@@ -56,33 +56,25 @@ namespace Practicum.Data.Migrations
                     b.ToTable("Employees");
                 });
 
-            modelBuilder.Entity("Practicum.Core.Models.Role", b =>
+            modelBuilder.Entity("Practicum.Core.Models.EmployeeRole", b =>
                 {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
+                    b.Property<int>("RoleNameId")
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+                    b.Property<int>("EmployeeId")
+                        .HasColumnType("int");
 
                     b.Property<DateTime>("DateOfStartingWork")
                         .HasColumnType("datetime2");
 
-                    b.Property<int?>("EmployeeId")
-                        .HasColumnType("int");
-
                     b.Property<bool>("ManagerialPosition")
                         .HasColumnType("bit");
 
-                    b.Property<int>("RoleNameId")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
+                    b.HasKey("RoleNameId", "EmployeeId");
 
                     b.HasIndex("EmployeeId");
 
-                    b.HasIndex("RoleNameId");
-
-                    b.ToTable("Role");
+                    b.ToTable("employeeRoles");
                 });
 
             modelBuilder.Entity("Practicum.Core.Models.RoleName", b =>
@@ -102,24 +94,50 @@ namespace Practicum.Data.Migrations
                     b.ToTable("RoleNamesArr");
                 });
 
-            modelBuilder.Entity("Practicum.Core.Models.Role", b =>
+            modelBuilder.Entity("Practicum.Core.Models.User", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Password")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Users");
+                });
+
+            modelBuilder.Entity("Practicum.Core.Models.EmployeeRole", b =>
                 {
                     b.HasOne("Practicum.Core.Models.Employee", null)
-                        .WithMany("rolesArr")
-                        .HasForeignKey("EmployeeId");
-
-                    b.HasOne("Practicum.Core.Models.RoleName", "RoleName")
-                        .WithMany()
-                        .HasForeignKey("RoleNameId")
+                        .WithMany("roleEmployees")
+                        .HasForeignKey("EmployeeId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("RoleName");
+                    b.HasOne("Practicum.Core.Models.RoleName", null)
+                        .WithMany("roleEmployees")
+                        .HasForeignKey("RoleNameId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("Practicum.Core.Models.Employee", b =>
                 {
-                    b.Navigation("rolesArr");
+                    b.Navigation("roleEmployees");
+                });
+
+            modelBuilder.Entity("Practicum.Core.Models.RoleName", b =>
+                {
+                    b.Navigation("roleEmployees");
                 });
 #pragma warning restore 612, 618
         }

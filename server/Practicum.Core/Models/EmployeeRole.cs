@@ -6,15 +6,12 @@ using System.Threading.Tasks;
 
 namespace Practicum.Core.Models
 {
-    public class Role
+    public class EmployeeRole
     {
-        public int Id { get; set; }
-        public RoleName RoleName { get; set; }
+
+        public int RoleNameId { get; set; }
+        public int EmployeeId { get; set; }
         public bool ManagerialPosition { get; set; }//ניהולי?
         public DateTime DateOfStartingWork { get; set; }
-        //public Employee Employee { get; set; }//לבדוק אם יש צורך
-        //public int EmployeeId { get; set; }//לבדוק האם צריך מפתח זר
-
-       
     }
 }

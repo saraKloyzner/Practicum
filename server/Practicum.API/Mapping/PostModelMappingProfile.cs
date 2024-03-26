@@ -10,7 +10,7 @@ namespace Practicum.API.Mapping
        public PostModelMappingProfile()
         {
             CreateMap<EmployeePostModel, Employee>();
-            CreateMap<RolePostModel,Role>();
+            CreateMap<RolePostModel, EmployeeRole>();
             CreateMap<RoleNamePostModel, RoleName>();
         }
     }

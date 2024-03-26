@@ -10,5 +10,6 @@ namespace Practicum.Core.Models
     {
         public int  Id { get; set; }
         public string Name { get; set; }
+        public List<EmployeeRole> roleEmployees { get; set; }
     }
 }

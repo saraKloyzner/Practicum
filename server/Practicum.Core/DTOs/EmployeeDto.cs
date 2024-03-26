@@ -12,6 +12,7 @@ namespace Practicum.Core.DTOs
         public string LastName { get; set; }
         public string Id { get; set; }
         public DateTime StartOfWorkDate { get; set; }
-       
+        public List<EmployeeRoleDto> employeeRolesDto { get; set; }
+
     }
 }
