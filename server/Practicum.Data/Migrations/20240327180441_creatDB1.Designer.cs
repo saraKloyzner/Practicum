@@ -12,8 +12,8 @@ using Practicum.Data;
 namespace Practicum.Data.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20240326141802_creatDB")]
-    partial class creatDB
+    [Migration("20240327180441_creatDB1")]
+    partial class creatDB1
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

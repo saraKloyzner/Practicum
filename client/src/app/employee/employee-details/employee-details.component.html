@@ -1,0 +1,50 @@
+<p>employee-details works!</p>
+<p>You can bind our <code>NgbPagination</code> component with slicing the data list</p>
+
+<table class="table table-striped">
+	<thead>
+		<tr>
+			<th scope="col">ID</th>
+			<th scope="col">First Name</th>
+			<th scope="col">Last Name</th>
+			<th scope="col">Start Of Work Date</th>
+		</tr>
+	</thead>
+	<tbody>
+		@for (employee of employees ; track employee.firstName) {
+			<tr>
+				<!-- <th scope="row">{{ employee.id }}</th> -->
+				<td>
+					<!-- <img
+						[src]="'https://upload.wikimedia.org/wikipedia/commons/' + country.flag"
+						[alt]="'The flag of ' + country.name"
+						class="me-2"
+						style="width: 20px"
+					/> -->
+					{{ employee.identity }}
+				</td>
+				<td>{{ employee.firstName }}</td>
+				<td>{{ employee.lastName }}</td>
+                <td>{{ employee.startOfWorkDate  }}</td>
+			</tr>
+		}
+	</tbody>
+</table>
+
+<div class="d-flex justify-content-between p-2">
+	<ngb-pagination
+		[collectionSize]="collectionSize"
+		[(page)]="page"
+		[pageSize]="pageSize"
+		
+	>
+	</ngb-pagination>
+
+	<!-- <select class="form-select" style="width: auto" [(ngModel)]="pageSize" (ngModelChange)="refreshCountries()">
+		<option [ngValue]="2">2 items per page</option>
+		<option [ngValue]="4">4 items per page</option>
+		<option [ngValue]="6">6 items per page</option>
+	</select> -->
+</div>
+
+<!-- (pageChange)="refreshCountries()" -->

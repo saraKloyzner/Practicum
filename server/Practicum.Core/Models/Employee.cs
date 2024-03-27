@@ -9,7 +9,7 @@ namespace Practicum.Core.Models
 {
     public class Employee
     {
-        public int Id { get; set; } 
+        public int Id { get; set; }
         public string Identity { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
@@ -17,7 +17,7 @@ namespace Practicum.Core.Models
         public DateTime StartOfWorkDate { get; set; }
         public DateTime DateOfBirth { get; set; }
         public bool MaleOrFemale { get; set; }
-        public IEnumerable<EmployeeRole> roleEmployees { get; set; }
+        public List<EmployeeRole> roleEmployees { get; set; }
       
     }
 }

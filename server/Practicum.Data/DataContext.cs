@@ -17,7 +17,7 @@ namespace Practicum.Data
         public DbSet<User> Users { get; set; }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer("Server=(localdb)\\mssqllocaldb;Database=my_database");
+            optionsBuilder.UseSqlServer("Server=(localdb)\\mssqllocaldb;Database=my_db");
             optionsBuilder.LogTo((message) => Debug.Write(message));
         }
         protected override void OnModelCreating(ModelBuilder modelBuilder)

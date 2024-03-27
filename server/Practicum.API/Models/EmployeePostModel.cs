@@ -12,6 +12,6 @@ namespace Practicum.API.Models
         public DateTime StartOfWorkDate { get; set; }
         public DateTime DateOfBirth { get; set; }
         public bool MaleOrFemale { get; set; }
-        public IEnumerable<RolePostModel> rolesArr { get; set; }
+        public List<EmployeeRolePostModel> rolesArr { get; set; }
     }
 }

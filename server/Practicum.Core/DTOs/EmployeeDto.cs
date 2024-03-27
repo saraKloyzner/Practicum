@@ -8,11 +8,12 @@ namespace Practicum.Core.DTOs
 {
     public class EmployeeDto
     {
+        //public string Identity { get; set; }//אולי כדאי להוריד
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string Id { get; set; }
         public DateTime StartOfWorkDate { get; set; }
-        public List<EmployeeRoleDto> employeeRolesDto { get; set; }
+       
 
     }
 }

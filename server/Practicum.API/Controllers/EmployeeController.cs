@@ -30,35 +30,40 @@ namespace Practicum.API.Controllers
         public async Task<ActionResult> Get()
         {
             var employees = await _employeeService.GetAllAsync();
-            return Ok(/*_mapper.Map<IEnumerable<EmployeeDto>>(*/employees/*)*/);
+            return Ok(_mapper.Map<IEnumerable<EmployeeDto>>(employees));
             
         }
 
         // GET api/<EmployeeController>/5
-        [HttpGet("{id}")]
-        public async Task<ActionResult> Get(string id)
+        [HttpGet("{identity}")]
+        public async Task<ActionResult> Get(string identity)
         {
-            var employee = await _employeeService.GetByIdAsync(id);
+            var employee = await _employeeService.GetByIdAsync(identity);
+            if(employee == null)
+            {
+                return NotFound();
+            }
             return Ok(employee);
         }
 
         // POST api/<EmployeeController>
         [HttpPost]
         //[Authorize]
-        public async Task<ActionResult> Post([FromBody] EmployeePostModel employee)
+        public async Task<ActionResult> Post([FromBody] Employee employee)
         {
-            var newEmployee=await _employeeService.AddAsync(_mapper.Map<Employee>(employee));
-
-            return Ok(_mapper.Map<EmployeeDto>(newEmployee));
+            //var c = _mapper.Map<Employee>(employee);
+            var newEmployee=await _employeeService.AddAsync(employee);
+            var x = _mapper.Map<EmployeeDto>(newEmployee);
+            return Ok(x);
             //return Ok(newEmployee);
         }
 
         // PUT api/<EmployeeController>/5
-        [HttpPut("{id}")]
+        [HttpPut("{identity}")]
         //[Authorize]
-        public async Task<ActionResult> Put(string id, [FromBody] EmployeePostModel employee)
+        public async Task<ActionResult> Put(string identity, [FromBody] EmployeePostModel employee)
         {
-            var putEmployee = await _employeeService.GetByIdAsync(id);
+            var putEmployee = await _employeeService.GetByIdAsync(identity);
             if (putEmployee is null)
             {
                 return NotFound();
@@ -71,16 +76,16 @@ namespace Practicum.API.Controllers
         }
 
         // DELETE api/<EmployeeController>/5
-        [HttpDelete("{id}")]
+        [HttpDelete("{identity}")]
         //[Authorize]
-        public async Task<ActionResult> Delete(string id)
+        public async Task<ActionResult> Delete(string identity)
         {
-            var employee = await _employeeService.GetByIdAsync(id);
+            var employee = await _employeeService.GetByIdAsync(identity);
             if(employee is null)
             {
                 return NotFound();
             }
-            await _employeeService.DeleteAsync(id);
+            await _employeeService.DeleteAsync(identity);
             return NoContent();
         }
     }
