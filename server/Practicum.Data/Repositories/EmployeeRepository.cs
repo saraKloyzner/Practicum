@@ -40,7 +40,7 @@ namespace Practicum.Data.Repositories
 
         public async Task<Employee> GetByIdAsync(string employeeId)
         {
-            return await _dataContext.Employees.Include(c => c.roleEmployees)
+            return await _dataContext.Employees.Include(c => c.RoleEmployees)
              .FirstOrDefaultAsync(c => c.Identity == employeeId);
         }
         public async Task<Employee> UpdateAsync(Employee employee)

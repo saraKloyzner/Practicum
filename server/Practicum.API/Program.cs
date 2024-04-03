@@ -50,7 +50,11 @@ builder.Services.AddSwaggerGen(options =>
         }
     });
 });
-
+var policy = "policy";
+builder.Services.AddCors(option => option.AddPolicy(name: policy, policy =>
+{
+    policy.AllowAnyOrigin(); policy.AllowAnyHeader(); policy.AllowAnyMethod();
+}));
 
 builder.Services.AddScoped<IEmployeeServiece, EmployeeService>();
 builder.Services.AddScoped<IEmployeeRepository, EmployeeRepository>();
@@ -97,7 +101,7 @@ app.UseHttpsRedirection();
 app.UseAuthentication();
 
 app.UseAuthorization();
-
+app.UseCors(policy);
 
 app.MapControllers();
 

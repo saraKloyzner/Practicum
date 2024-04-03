@@ -1,7 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Employee } from './employee.model';
-import { Observable } from 'rxjs';
+import { EmployeeDto } from './employee-Dto';
+import { Observable, identity } from 'rxjs';
+import { Employee } from './all-employee-details.module';
 @Injectable({
   providedIn: 'root'
 })
@@ -11,12 +12,17 @@ export class EmployeeService {
 
   constructor(private http: HttpClient) { }
 
-addEmployee(employee :Employee): Observable<Employee[]> {
-  return this.http.post<Employee[]>(this.baseUrl, employee)
+addEmployee(employee :Employee): Observable<Employee> {
+  return this.http.post<Employee>(this.baseUrl, employee)
 }
 
-getEmployeesFromSever(): Observable<Employee[]> {
-  return this.http.get<Employee[]>(this.baseUrl)
+getEmployeesFromServer(): Observable<EmployeeDto[]> {
+  return this.http.get<EmployeeDto[]>(this.baseUrl)
 }
-
+getEmployeeByIdentity(identity:string):Observable<Employee>{
+  return this.http.get<Employee>(`${this.baseUrl}/${identity}`)
+}
+deleteById(identity:string):Observable<any>{
+  return this.http.delete(`${this.baseUrl}/${identity}`)
+}
 }

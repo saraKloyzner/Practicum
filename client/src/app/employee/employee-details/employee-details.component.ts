@@ -1,132 +1,83 @@
 import { Component, OnInit } from '@angular/core';
 import { DecimalPipe } from '@angular/common';
-import { FormGroup, FormsModule } from '@angular/forms';
+import { FormsModule } from '@angular/forms';
 import { NgbPaginationModule, NgbTypeaheadModule } from '@ng-bootstrap/ng-bootstrap';
-import { Employee } from '../employee.model';
+import { EmployeeDto } from '../employee-Dto';
 import { EmployeeService } from '../employee.service';
+import { MatIconModule } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
+import { Router } from '@angular/router';
+import { CommonModule } from '@angular/common';
 
-interface Country {
-	id?: number;
-	name: string;
-	flag: string;
-	area: number;
-	population: number;
-}
 
-const COUNTRIES: Country[] = [
-	{
-		name: 'Russia',
-		flag: 'f/f3/Flag_of_Russia.svg',
-		area: 17075200,
-		population: 146989754,
-	},
-	{
-		name: 'France',
-		flag: 'c/c3/Flag_of_France.svg',
-		area: 640679,
-		population: 64979548,
-	},
-	{
-		name: 'Germany',
-		flag: 'b/ba/Flag_of_Germany.svg',
-		area: 357114,
-		population: 82114224,
-	},
-	{
-		name: 'Portugal',
-		flag: '5/5c/Flag_of_Portugal.svg',
-		area: 92090,
-		population: 10329506,
-	},
-	{
-		name: 'Canada',
-		flag: 'c/cf/Flag_of_Canada.svg',
-		area: 9976140,
-		population: 36624199,
-	},
-	{
-		name: 'Vietnam',
-		flag: '2/21/Flag_of_Vietnam.svg',
-		area: 331212,
-		population: 95540800,
-	},
-	{
-		name: 'Brazil',
-		flag: '0/05/Flag_of_Brazil.svg',
-		area: 8515767,
-		population: 209288278,
-	},
-	{
-		name: 'Mexico',
-		flag: 'f/fc/Flag_of_Mexico.svg',
-		area: 1964375,
-		population: 129163276,
-	},
-	{
-		name: 'United States',
-		flag: 'a/a4/Flag_of_the_United_States.svg',
-		area: 9629091,
-		population: 324459463,
-	},
-	{
-		name: 'India',
-		flag: '4/41/Flag_of_India.svg',
-		area: 3287263,
-		population: 1324171354,
-	},
-	{
-		name: 'Indonesia',
-		flag: '9/9f/Flag_of_Indonesia.svg',
-		area: 1910931,
-		population: 263991379,
-	},
-	{
-		name: 'Tuvalu',
-		flag: '3/38/Flag_of_Tuvalu.svg',
-		area: 26,
-		population: 11097,
-	},
-	{
-		name: 'China',
-		flag: 'f/fa/Flag_of_the_People%27s_Republic_of_China.svg',
-		area: 9596960,
-		population: 1409517397,
-	},
-];
 
 @Component({
   selector: 'app-employee-details',
   standalone: true,
-  imports: [DecimalPipe, FormsModule, NgbTypeaheadModule, NgbPaginationModule],
+  imports: [DecimalPipe, FormsModule, NgbTypeaheadModule, NgbPaginationModule, MatIconModule, MatButtonModule,CommonModule],
   templateUrl: './employee-details.component.html',
   styleUrl: './employee-details.component.scss'
 })
 export class EmployeeDetailsComponent implements OnInit {
 
+  canAddEmployee = true;
 
-  public addForm!: FormGroup;
-	page = 1;
-	pageSize = 4;
-	collectionSize = COUNTRIES.length;
-	employees: Employee[] =[];
-	constructor(private _employeeSeviece : EmployeeService) {
-		// this.refreshCountries();
-	}
+  page = 1;
+  pageSize = 4;
+  public collectionSize!: number;
+  employees: EmployeeDto[] = [];
+  filteredEmployees: EmployeeDto[] = []; // New array to hold filtered employees
+  employee: EmployeeDto | undefined
+  constructor(private router: Router, private _employeeService: EmployeeService) { }
+
   ngOnInit(): void {
-    this._employeeSeviece.getEmployeesFromSever().subscribe({
+    this.loadEmployees();
+  }
+  loadEmployees() {
+    this._employeeService.getEmployeesFromServer().subscribe({
       next: (res) => {
-        this.employees = res;
-        console.log(this.employees)
+        // this.employees = res;
+        this.employees = res.filter(employee => employee.status === true); // Filter employees based on status
+
+        // this.filteredEmployees = this.employees.filter(employee => employee.status === true); // Filter employees based on status
+        this.collectionSize = this.employees.length;
+        console.log(this.employees);
       },
       error: (err) => {
         console.log(err);
+
       }
     });
   }
-	// refreshCountries() {
-	// 	employees = COUNTRIES.map((country, i) => ({ id: i + 1, ...country })).slice(
-	// 		(this.page - 1) * this.pageSize,
-	// 		(this.page - 1) * this.pageSize + this.pageSize,
-	// 	);
-	// }
+
+  edit(identity:string){
+
+  }
+  addEmployee() {
+    this.router.navigate(["addEmployee"]);
+  }
+  del(identity: string) {
+    this._employeeService.deleteById(identity).subscribe({
+      next:(res)=>{
+        console.log(res)
+        this.loadEmployees();
+      },
+      error:(err)=>
+      {
+        console.log(err)
+      }
+    })
+    console.log(this.employees.find(employee => employee.identity !== identity)?.status === false)
+  
+    
+
+
+  }
+
 }
+
+  // del(identity: string): void {
+  //   // Update status locally instead of server
+  //   this.employees = this.employees.filter(employee => employee.identity !== identity);
+  // }
+

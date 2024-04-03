@@ -27,8 +27,8 @@ namespace Practicum.API.Controllers
         [HttpGet]
         public async Task<ActionResult> Get()
         {
-            var Roles=await _roleName.GetAllAsync();
-            return Ok(_mapper.Map<IEnumerable<RoleNameDto>>(Roles));
+            var roles=await _roleName.GetAllAsync();
+            return Ok(_mapper.Map<IEnumerable<RoleNameDto>>(roles));
         }
 
         // GET api/<RolesController>/5

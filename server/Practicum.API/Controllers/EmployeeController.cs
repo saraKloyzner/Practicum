@@ -49,13 +49,15 @@ namespace Practicum.API.Controllers
         // POST api/<EmployeeController>
         [HttpPost]
         //[Authorize]
-        public async Task<ActionResult> Post([FromBody] Employee employee)
+        public async Task<ActionResult> Post([FromBody] EmployeePostModel employee)
         {
-            //var c = _mapper.Map<Employee>(employee);
-            var newEmployee=await _employeeService.AddAsync(employee);
-            var x = _mapper.Map<EmployeeDto>(newEmployee);
-            return Ok(x);
-            //return Ok(newEmployee);
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(new { errors = ModelState.Values.SelectMany(v => v.Errors.Select(e => e.ErrorMessage)) });
+            }
+            var newEmployee=await _employeeService.AddAsync(_mapper.Map<Employee>(employee));
+            return Ok(_mapper.Map<EmployeeDto>(newEmployee));
+          
         }
 
         // PUT api/<EmployeeController>/5

@@ -28,3 +28,19 @@ Y:\Groups\Group_3\קלויזנר  שרה לאה\פרקטיקום\Practicum\serve
 Y:\Groups\Group_3\קלויזנר  שרה לאה\פרקטיקום\Practicum\server\Practicum.Service\obj\Debug\net6.0\refint\Practicum.Service.dll
 Y:\Groups\Group_3\קלויזנר  שרה לאה\פרקטיקום\Practicum\server\Practicum.Service\obj\Debug\net6.0\Practicum.Service.pdb
 Y:\Groups\Group_3\קלויזנר  שרה לאה\פרקטיקום\Practicum\server\Practicum.Service\obj\Debug\net6.0\ref\Practicum.Service.dll
+E:\practicum\server\Practicum.Service\bin\Debug\net6.0\Practicum.Service.deps.json
+E:\practicum\server\Practicum.Service\bin\Debug\net6.0\Practicum.Service.dll
+E:\practicum\server\Practicum.Service\bin\Debug\net6.0\Practicum.Service.pdb
+E:\practicum\server\Practicum.Service\bin\Debug\net6.0\Practicum.Core.dll
+E:\practicum\server\Practicum.Service\bin\Debug\net6.0\Practicum.Core.pdb
+E:\practicum\server\Practicum.Service\obj\Debug\net6.0\Practicum.Service.csproj.AssemblyReference.cache
+E:\practicum\server\Practicum.Service\obj\Debug\net6.0\Practicum.Service.GeneratedMSBuildEditorConfig.editorconfig
+E:\practicum\server\Practicum.Service\obj\Debug\net6.0\Practicum.Service.AssemblyInfoInputs.cache
+E:\practicum\server\Practicum.Service\obj\Debug\net6.0\Practicum.Service.AssemblyInfo.cs
+E:\practicum\server\Practicum.Service\obj\Debug\net6.0\Practicum.Service.csproj.CoreCompileInputs.cache
+E:\practicum\server\Practicum.Service\obj\Debug\net6.0\Practicum.Service.sourcelink.json
+E:\practicum\server\Practicum.Service\obj\Debug\net6.0\Practicu.4D4A796A.Up2Date
+E:\practicum\server\Practicum.Service\obj\Debug\net6.0\Practicum.Service.dll
+E:\practicum\server\Practicum.Service\obj\Debug\net6.0\refint\Practicum.Service.dll
+E:\practicum\server\Practicum.Service\obj\Debug\net6.0\Practicum.Service.pdb
+E:\practicum\server\Practicum.Service\obj\Debug\net6.0\ref\Practicum.Service.dll

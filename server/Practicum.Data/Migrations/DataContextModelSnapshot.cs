@@ -51,6 +51,9 @@ namespace Practicum.Data.Migrations
                     b.Property<DateTime>("StartOfWorkDate")
                         .HasColumnType("datetime2");
 
+                    b.Property<bool>("Status")
+                        .HasColumnType("bit");
+
                     b.HasKey("Id");
 
                     b.ToTable("Employees");
