@@ -8,21 +8,24 @@ import { Employee } from './all-employee-details.module';
 })
 export class EmployeeService {
 
-  public baseUrl= 'https://localhost:7215/api/Employee'
+  public baseUrl = 'https://localhost:7215/api/Employee'
 
   constructor(private http: HttpClient) { }
 
-addEmployee(employee :Employee): Observable<Employee> {
-  return this.http.post<Employee>(this.baseUrl, employee)
-}
+  addEmployee(employee: Employee): Observable<Employee> {
+    return this.http.post<Employee>(this.baseUrl, employee)
+  }
 
-getEmployeesFromServer(): Observable<EmployeeDto[]> {
-  return this.http.get<EmployeeDto[]>(this.baseUrl)
-}
-getEmployeeByIdentity(identity:string):Observable<Employee>{
-  return this.http.get<Employee>(`${this.baseUrl}/${identity}`)
-}
-deleteById(identity:string):Observable<any>{
-  return this.http.delete(`${this.baseUrl}/${identity}`)
-}
+  getEmployeesFromServer(): Observable<EmployeeDto[]> {
+    return this.http.get<EmployeeDto[]>(this.baseUrl)
+  }
+  getEmployeeByIdentity(identity: string): Observable<Employee> {
+    return this.http.get<Employee>(`${this.baseUrl}/${identity}`)
+  }
+  deleteById(identity: string): Observable<any> {
+    return this.http.delete(`${this.baseUrl}/${identity}`)
+  }
+  updateEmployeeByIdentity( employee: Employee): Observable<Employee> {
+    return this.http.put<Employee>(`${this.baseUrl}/${employee.identity}`, employee)
+  }
 }

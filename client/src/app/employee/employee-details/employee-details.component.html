@@ -23,8 +23,11 @@
 			<td>{{ employee.firstName }}</td>
 			<td>{{ employee.lastName }}</td>
 			<td>{{ employee.startOfWorkDate }}</td>
-			<td><mat-icon (click)="del(employee.identity)">delete</mat-icon></td>
-			<td><mat-icon (click)="edit(employee.identity)">edit</mat-icon></td>
+			<td>
+			<!-- <td (mouseenter)="showIcons(employee)" (mouseleave)="hideIcons(employee)"  *ngIf="isKeyboardNavigation" (keydown)="handleKeyboardNavigation(employee, $event)"> -->
+			<mat-icon (click)="del(employee.identity)">delete</mat-icon>
+			<mat-icon (click)="edit(employee.identity)">edit</mat-icon>
+		</td>
 		</tr>
 		}
 	</tbody>
@@ -33,12 +36,12 @@
 <div class="d-flex justify-content-between p-2">
 	<ngb-pagination [collectionSize]="collectionSize" [(page)]="page" [pageSize]="pageSize">
 	</ngb-pagination>
-	<!-- (pageChange)="refreshCountries()" -->
+
 	<select class="form-select" style="width: auto" [(ngModel)]="pageSize">
 		<option [ngValue]="2">2 items per page</option>
 		<option [ngValue]="4">4 items per page</option>
 		<option [ngValue]="6">6 items per page</option>
 	</select>
 </div>
-<!-- (ngModelChange)="refreshCountries()" -->
+
 <mat-icon>group</mat-icon>
