@@ -8,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators, FormArray, AbstractControl, ValidationErrors } from '@angular/forms';
 import { ValidatorFn } from '@angular/forms';
 import { EmployeeService } from '../employee.service';
-import { Employee } from '../all-employee-details.module';
+import { Employee } from '../models/all-employee-details.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
@@ -23,7 +23,7 @@ import { RoleNameService } from '../../role-name.service';
 import { RoleName } from '../../role-name';
 import { MatSelectModule } from '@angular/material/select';
 import { FormsModule } from '@angular/forms';
-import { EmployeeRole } from '../employee-role.module';
+import { EmployeeRole } from '../models/employee-role.module';
 
 
 import { MatExpansionModule } from '@angular/material/expansion';
@@ -35,7 +35,7 @@ import {
   MatSnackBarVerticalPosition,
 } from '@angular/material/snack-bar';
 
-import { AlertComponent } from '../../alert/alert.component';
+
 import { Router } from '@angular/router';
 
 
@@ -66,7 +66,7 @@ import { Router } from '@angular/router';
     // BrowserAnimationsModule,
     // MatNativeDateModule,
     MatExpansionModule,
-    AlertComponent,
+    
 
   ]
 })

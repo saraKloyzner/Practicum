@@ -3,7 +3,7 @@ import { AbstractControl, FormArray, FormBuilder, FormGroup, ReactiveFormsModule
 import { FormsModule } from '@angular/forms';
 import { EmployeeService } from '../employee.service';
 import { ActivatedRoute } from '@angular/router';
-import { Employee } from '../all-employee-details.module';
+import { Employee } from '../models/all-employee-details.module';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatButtonModule } from '@angular/material/button';
@@ -16,7 +16,7 @@ import { CommonModule } from '@angular/common';
 import { MatCardModule } from '@angular/material/card';
 import { provideNativeDateAdapter } from '@angular/material/core';
 import { RoleName } from '../../role-name';
-import { EmployeeRole } from '../employee-role.module';
+import { EmployeeRole } from '../models/employee-role.module';
 import { RoleNameService } from '../../role-name.service';
 import { ValidatorFn } from '@angular/forms';
 import { MatDatepicker } from '@angular/material/datepicker';
@@ -104,44 +104,56 @@ export class EditEmployeeComponent implements OnInit {
     }
     return null;
   }
-  private minAgeValidator: ValidatorFn = (control: AbstractControl): Promise<ValidationErrors | null> => {
-    return new Promise((resolve) => {
-      this.birthDate = control.value;
-      const today: Date = new Date();
-      const minAgeDate: Date = new Date(today.getFullYear() - 16, today.getMonth(), today.getDate());
+  // private minAgeValidator: ValidatorFn = (control: AbstractControl): Promise<ValidationErrors | null> => {
+  //   return new Promise((resolve) => {
+  //     this.birthDate = control.value;
+  //     const today: Date = new Date();
+  //     const minAgeDate: Date = new Date(today.getFullYear() - 16, today.getMonth(), today.getDate());
 
-      if (this.birthDate > today) {
-        resolve({ 'worngBirthDate': true })
-      }
-      else if (this.birthDate > minAgeDate) {
-        resolve({ 'tooYoung': true });
+  //     if (this.birthDate > today) {
+  //       resolve({ 'worngBirthDate': true })
+  //     }
+  //     else if (this.birthDate > minAgeDate) {
+  //       resolve({ 'tooYoung': true });
 
-      }
-      else resolve(null)
-    });
-  };
-  private startOfWorkValidator: ValidatorFn = (control: AbstractControl): Promise<ValidationErrors | null> => {
+  //     }
+  //     else resolve(null)
+  //   });
+  // };
+  // private startOfWorkValidator: ValidatorFn = (control: AbstractControl): Promise<ValidationErrors | null> => {
 
-    return new Promise((resolve) => {
-      this.startOfWorkDate = control.value;
-      if (!this.birthDate || !this.startOfWorkDate) {
-        console.log("null")
-        resolve(null);
-      }
-      if (this.birthDate > this.startOfWorkDate)
-        resolve({ 'tooEarlyToWork': true });
+  //   return new Promise((resolve) => {
+  //     this.startOfWorkDate = control.value;
+  //     if (!this.birthDate || !this.startOfWorkDate) {
+  //       console.log("null")
+  //       resolve(null);
+  //     }
+  //     if (this.birthDate > this.startOfWorkDate)
+  //       resolve({ 'tooEarlyToWork': true });
 
-      const minAgeDate: Date = new Date(this.birthDate.getFullYear() + 16, this.birthDate.getMonth(), this.birthDate.getDate());
-      console.log("minAgeDate", minAgeDate)
-      if (this.startOfWorkDate < minAgeDate) {
-        console.log("startOfWorkDate", this.startOfWorkDate, "minAgeDate", minAgeDate)
-        resolve({ 'lessThan16Age': true });
-      } else {
-        resolve(null);
+  //     const minAgeDate: Date = new Date(this.birthDate.getFullYear() + 16, this.birthDate.getMonth(), this.birthDate.getDate());
+  //     console.log("minAgeDate", minAgeDate)
+  //     if (this.startOfWorkDate < minAgeDate) {
+  //       console.log("startOfWorkDate", this.startOfWorkDate, "minAgeDate", minAgeDate)
+  //       resolve({ 'lessThan16Age': true });
+  //     } else {
+  //       resolve(null);
 
-      }
-    });
-  };
+  //     }
+  //   });
+  // };
+
+
+
+
+
+
+
+
+
+
+
+
   // initForm(): void {
   //   this.editForm = this.fb.group({
   //     identity: ['', [Validators.required, this.validateIdentity]],
@@ -180,8 +192,11 @@ export class EditEmployeeComponent implements OnInit {
       identity: [this.employee.identity, [Validators.required, this.validateIdentity]],
       firstName: [this.employee.firstName, [Validators.required, Validators.minLength(3)]],
       lastName: [this.employee.lastName, [Validators.required, Validators.minLength(3)]],
-      dateOfBirth: [new Date(this.employee.dateOfBirth), [Validators.required, this.minAgeValidator]],
-      startOfWorkDate: [new Date(this.employee.startOfWorkDate), [Validators.required, this.startOfWorkValidator]],
+      //dateOfBirth: [new Date(this.employee.dateOfBirth), [Validators.required, this.minAgeValidator]],
+      //startOfWorkDate: [new Date(this.employee.startOfWorkDate), [Validators.required, this.startOfWorkValidator]],
+      dateOfBirth: [new Date(this.employee.dateOfBirth), [Validators.required]],
+      startOfWorkDate: [new Date(this.employee.startOfWorkDate), [Validators.required]],
+     
       maleOrFemale: [this.employee.maleOrFemale.toString(), Validators.required],
       roleEmployees: this.fb.array([]) // Initialize form array for employee roles
     });
@@ -193,37 +208,26 @@ export class EditEmployeeComponent implements OnInit {
     });
 
     // Subscribe to changes in dateOfBirth to trigger re-validation of startOfWorkDate
-    const dateOfBirthControl = this.editForm.get('dateOfBirth');
-    if (dateOfBirthControl) {
-      dateOfBirthControl.valueChanges.subscribe(() => {
-        this.editForm.get('startOfWorkDate')?.updateValueAndValidity(); // Trigger re-validation
-      });
-    }
+    // const dateOfBirthControl = this.editForm.get('dateOfBirth');
+    // if (dateOfBirthControl) {
+    //   dateOfBirthControl.valueChanges.subscribe(() => {
+    //     this.editForm.get('startOfWorkDate')?.updateValueAndValidity(); // Trigger re-validation
+    //   });
+    // }
 
-    // Subscribe to changes in startOfWorkDate to trigger re-validation of dateOfStartingWork for each roleEmployee
-    this.editForm.get('startOfWorkDate')?.valueChanges.subscribe(() => {
-      const roleEmployeesArray = this.editForm.get('roleEmployees') as FormArray;
-      roleEmployeesArray.controls.forEach(control => {
-        control.get('dateOfStartingWork')?.updateValueAndValidity();
-      });
-    });
+    // // Subscribe to changes in startOfWorkDate to trigger re-validation of dateOfStartingWork for each roleEmployee
+    // this.editForm.get('startOfWorkDate')?.valueChanges.subscribe(() => {
+    //   const roleEmployeesArray = this.editForm.get('roleEmployees') as FormArray;
+    //   roleEmployeesArray.controls.forEach(control => {
+    //     control.get('dateOfStartingWork')?.updateValueAndValidity();
+    //   });
+    // });
   }
-
-
-
-  // addRole(role?: EmployeeRole): void {
-  //   const roleGroup = this.fb.group({
-  //     roleNameId: [role ? role.roleNameId : '', Validators.required],
-  //     managerialPosition: [role ? role.managerialPosition : '', Validators.required],
-  //     dateOfStartingWork: [role ? new Date(role.dateOfStartingWork) : '', Validators.required]
-  //   });
-  //   this.rolesFormArray.push(roleGroup);
-  // }
   editAddRole(): void {
-    if (!this.startOfWorkDate) {
-      // אם המשתנה this.startOfWorkDate אינו מוגדר, התעלם מהוספת תפקיד והחזר מהפונקציה
-      return;
-    }
+    // if (!this.startOfWorkDate) {
+    //   // אם המשתנה this.startOfWorkDate אינו מוגדר, התעלם מהוספת תפקיד והחזר מהפונקציה
+    //   return;
+    // }
     const roleGroup = this.fb.group({
       roleNameId: ['', Validators.required], // שורה 57: הוספת Validators.required
       managerialPosition: ['', Validators.required],
@@ -253,7 +257,7 @@ export class EditEmployeeComponent implements OnInit {
   addRole(role: EmployeeRole): void {
     console.log("role", role)
     this.roleEmployeesFormArray.push(this.fb.group({
-      roleName: [role.roleNameId, Validators.required],
+      roleNameId: [role.roleNameId, Validators.required],
       managerialPosition: [role ? role.managerialPosition : '', Validators.required],
       dateOfStartingWork: [role ? new Date(role.dateOfStartingWork) : '', Validators.required]
       // Add additional fields for the role if needed
@@ -359,10 +363,3 @@ export class EditEmployeeComponent implements OnInit {
   }
   
 }
-
-
-
-
-
-
-

@@ -1,4 +1,4 @@
-import { EmployeeRole } from "./employee/employee-role.module"
+import { EmployeeRole } from "./employee/models/employee-role.module"
 
 export class RoleName {
 

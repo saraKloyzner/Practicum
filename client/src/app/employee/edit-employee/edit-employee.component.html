@@ -95,33 +95,17 @@
                   </mat-panel-title>
                 </mat-expansion-panel-header>
                 <div [formGroupName]="i">
-
-
-
-
-
-                  <!-- <mat-form-field appearance="fill">
-                      <mat-label>שם תפקיד</mat-label>
-                      <mat-select formControlName="roleNameId" required >
-                        <mat-option *ngFor="let position of filteredPositions(i)" [value]="position.id" >{{ position.roleName }}</mat-option>
-                      </mat-select>
-                    </mat-form-field> -->
-
                   <mat-form-field appearance="fill">
                     <mat-label>שם תפקיד</mat-label>
                     <mat-select formControlName="roleNameId" required>
-                      <mat-option *ngFor="let position of filteredPositions(i)"
-                        [value]="getNameOfPosition(roleGroup.value.roleName)">
+                      <!-- <mat-option *ngFor="let position of filteredPositions(i)" -->
+                         <mat-option *ngFor="let position of filteredPositions(i)" [value]="position.id">
+                         
+                        <!-- [value]="getNameOfPosition(roleGroup.value.roleName)"> -->
                         {{ position.roleName }}
                       </mat-option>
                     </mat-select>
                   </mat-form-field>
-
-
-
-
-
-
 
                   <mat-radio-group formControlName="managerialPosition" aria-label="בחר סוג תפקיד"
                     [value]="roleGroup.value.managerialPosition.toString()">
@@ -130,21 +114,6 @@
                     <mat-radio-button value="false" [checked]="roleGroup.value.managerialPosition === false">תפקיד לא
                       ניהולי</mat-radio-button>
                   </mat-radio-group>
-
-
-                  <!-- <mat-form-field appearance="fill">
-                      <mat-label>תאריך תחילת עבודה בתפקיד</mat-label>
-                      <input matInput [matDatepicker]="pickerPositionDate" formControlName="dateOfStartingWork"
-                        required [value]="roleGroup.value.dateOfStartingWork">
-                      <mat-datepicker-toggle matSuffix [for]="pickerPositionDate"></mat-datepicker-toggle>
-                      <mat-datepicker #pickerPositionDate></mat-datepicker>
-                      <mat-error *ngIf="roleGroup.get('dateOfStartingWork')?.hasError('beforStartTheWork')">
-                        התאריך לא יכול להיות לפני תאריך התחלת העבודה
-                      </mat-error>
-                    
-                    </mat-form-field> -->
-
-
                   <mat-form-field appearance="fill">
                     <mat-label>תאריך תחילת עבודה בתפקיד</mat-label>
                     <input matInput [matDatepicker]="pickerPositionDate" formControlName="dateOfStartingWork" required
@@ -168,10 +137,6 @@
           </div>
           <button mat-raised-button color="primary" (click)="editAddRole()">הוסף תפקיד</button>
         </mat-expansion-panel>
-
-
-
-
         <button mat-raised-button color="primary" type="submit" [disabled]="editForm.invalid">שמור</button>
       </form>
     </mat-card-content>
