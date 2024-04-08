@@ -13,11 +13,10 @@ namespace Practicum.Core.Models
         public string Identity { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
-       
         public DateTime StartOfWorkDate { get; set; }
         public DateTime DateOfBirth { get; set; }
         public bool MaleOrFemale { get; set; }
-        public List<EmployeeRole> RoleEmployees { get; set; }
+        public List<EmployeePosition> EmployeePositions { get; set; }
         public bool Status { get; set; } = true;
 
 

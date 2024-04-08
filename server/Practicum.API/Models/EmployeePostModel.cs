@@ -13,6 +13,6 @@ namespace Practicum.API.Models
         public DateTime DateOfBirth { get; set; }
         public bool MaleOrFemale { get; set; }
         public bool Status { get; set; }
-        public List<EmployeeRolePostModel> RoleEmployees { get; set; }
+        public List<EmployeePositionPostModel> EmployeePositions { get; set; }
     }
 }

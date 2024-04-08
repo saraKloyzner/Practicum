@@ -9,7 +9,7 @@ using Practicum.Core.Repositories;
 using Practicum.Core.Services;
 using Practicum.Data;
 using Practicum.Data.Repositories;
-using Practicum.Service;
+using Practicum.Service.Services;
 using System.Text;
 using System.Text.Json.Serialization;
 
@@ -58,8 +58,8 @@ builder.Services.AddCors(option => option.AddPolicy(name: policy, policy =>
 
 builder.Services.AddScoped<IEmployeeServiece, EmployeeService>();
 builder.Services.AddScoped<IEmployeeRepository, EmployeeRepository>();
-builder.Services.AddScoped<IRoleNameServiece,RoleNameService >();
-builder.Services.AddScoped<IRoleNameRepository, RoleNameRepository>();
+builder.Services.AddScoped<IPositionServiece,PositionService >();
+builder.Services.AddScoped<IPositionRepository, PositionRepository>();
 builder.Services.AddScoped<IUserRepository, UserRepository>();
 builder.Services.AddScoped<IUserServiece, UserServiece>();
 

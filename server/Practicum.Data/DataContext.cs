@@ -12,8 +12,8 @@ namespace Practicum.Data
     public class DataContext : DbContext
     {
         public DbSet<Employee> Employees { get; set; }
-        public DbSet<RoleName> RoleNamesArr { get; set; }
-        public DbSet<EmployeeRole> employeeRoles { get; set; }
+        public DbSet<Position> PositionsArr { get; set; }
+        public DbSet<EmployeePosition> EmployeePositions { get; set; }
         public DbSet<User> Users { get; set; }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -22,8 +22,8 @@ namespace Practicum.Data
         }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<EmployeeRole>()
-                .HasKey(e => new { e.RoleNameId, e.EmployeeId });
+            modelBuilder.Entity<EmployeePosition>()
+                .HasKey(e => new { e.PositionId, e.EmployeeId });
         }
 
     }

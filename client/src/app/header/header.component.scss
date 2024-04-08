@@ -9,3 +9,30 @@
    
     background-color: #e5b813;
 }
+mat-toolbar {
+    margin-bottom: 40px; /* כאן ניתן להוסיף ערך מתאים למרחק הרצוי */
+  }
+  /* הסגנון הבא מוסיף עיצוב לאייקונים ומונע צביעה כחולה בלחיצה */
+/* סגנון להסרת הצביעה הכחולה בלחיצה על אייקון */
+.mat-icon-button:focus {
+    outline: none; /* מונע קווים סביב האייקון */
+  }
+  
+  /* סגנון לשינוי צבע הרקע עם הריחוף של העכבר */
+  .mat-icon-button:hover {
+    background-color: transparent; /* שקיפות במקום צבע רקע */
+  }
+  
+  /* סגנון לשינוי צבע הרקע עם הלחיצה על האייקון */
+  .mat-icon-button:active {
+    background-color: transparent; /* שקיפות במקום צבע רקע */
+  }
+  header,
+  mat-expansion-panel {
+    flex: 1;
+  }
+  
+  
+  
+  
+  

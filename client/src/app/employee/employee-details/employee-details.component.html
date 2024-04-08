@@ -1,75 +1,54 @@
-<button mat-raised-button color="accent" [disabled]="!canAddEmployee" (click)="addEmployee()">
+
+  
+  <button mat-raised-button class="color my-fixed-button" [disabled]="!canAddEmployee" (click)="addEmployee()">
 	<mat-icon>group_add</mat-icon>
 	Add Employee
-</button>
-<!-- <div>
-	<input type="text" placeholder="Search employees..." [(ngModel)]="searchQuery" (input)="filterEmployees()">
-</div> -->
-<!-- <mat-form-field class="search-field">
-	<input matInput type="text" placeholder="Search employees..." [(ngModel)]="searchQuery" (input)="filterEmployees()">
-  </mat-form-field> -->
-<!-- <div *ngFor="let employee of filteredEmployees"> -->
-	<!-- <input type="text" placeholder="Search employees..." [(ngModel)]="searchQuery" (input)="filterEmployees()"> -->
-	
-	<div class="input-group">
-		<input type="text" class="form-control" placeholder="Search employees..." [(ngModel)]="searchQuery" (input)="filterEmployees()">
-		<div class="input-group-append">
-		  <span class="input-group-text">
-			<mat-icon>search</mat-icon>
-		  </span>
-		</div>
-	  </div>
-<!-- 	  
-	  <div class="input-group">
-	  <input matInput type="text" class="form-control" placeholder="Search employees..." [(ngModel)]="searchQuery" (input)="filterEmployees()"  >
-	  <div class="input-group-append">
-		<span class="input-group-text">
-		  <mat-icon>search</mat-icon>
-		</span>
-	  </div>
-	</div> -->
-	<table class="table table-striped">
-		<thead>
-			<tr>
-				<th scope="col">ID</th>
-				<th scope="col">First Name</th>
-				<th scope="col">Last Name</th>
-				<th scope="col">Start Of Work Date</th>
+  </button>
+  
 
-			</tr>
-		</thead>
-		<!-- <div class="employee-list">
-		<div *ngFor="let employee of filteredEmployees" class="employee-item"> -->
-		<tbody>
-			<!-- @for (employee of employees ; track employee.identity) { -->
-				<tr *ngFor="let employee of filteredEmployees | slice:(page-1)*pageSize:page*pageSize">
-				<th scope="row">{{ employee.identity }}</th>
-
-				<td>{{ employee.firstName }}</td>
-				<td>{{ employee.lastName }}</td>
-				<td>{{ employee.startOfWorkDate }}</td>
-				<td>
-					<!-- <td (mouseenter)="showIcons(employee)" (mouseleave)="hideIcons(employee)"  *ngIf="isKeyboardNavigation" (keydown)="handleKeyboardNavigation(employee, $event)"> -->
-					<mat-icon (click)="del(employee.identity)">delete</mat-icon>
-				</td>
-				<td><mat-icon (click)="edit(employee.identity)">edit</mat-icon>
-				</td>
-			</tr>
-			<!-- } -->
-		</tbody>
-		<!-- </div>
-</div> -->
-	</table>
-<!-- </div> -->
-<div class="d-flex justify-content-between p-2">
+  <div class="example-container">
+	<div class="input-icon-container">
+	  <input type="text" class="custom-input" placeholder="search employees..." [(ngModel)]="searchQuery" (input)="filterEmployees()">
+	  <i class="material-icons search-icon">search</i>
+	</div>
+  </div>
+  
+  <table class="table table-striped">
+	<thead>
+	  <tr>
+		<th scope="col">ID</th>
+		<th scope="col">First Name</th>
+		<th scope="col">Last Name</th>
+		<th scope="col">Start Of Work Date</th>
+	  </tr>
+	</thead>
+	<tbody>
+	  <tr *ngFor="let employee of filteredEmployees | slice:(page-1)*pageSize:page*pageSize">
+		<th scope="row">{{ employee.identity }}</th>
+		<td>{{ employee.firstName }}</td>
+		<td>{{ employee.lastName }}</td>
+		<td>{{ employee.startOfWorkDate }}</td>
+		<td>
+		  <mat-icon (click)="del(employee.identity)">delete</mat-icon>
+		  
+		</td>
+		<td>
+		  <mat-icon (click)="edit(employee.identity)">edit</mat-icon>
+		</td>
+		
+	  </tr>
+	</tbody>
+  </table>
+  
+  <div class="d-flex justify-content-between p-2">
 	<ngb-pagination [collectionSize]="collectionSize" [(page)]="page" [pageSize]="pageSize">
 	</ngb-pagination>
-
 	<select class="form-select" style="width: auto" [(ngModel)]="pageSize">
-		<option [ngValue]="8">8 items per page</option>
-		<option [ngValue]="15">15 items per page</option>
-		<option [ngValue]="20">20 items per page</option>
+	  <option [ngValue]="8">8 items per page</option>
+	  <option [ngValue]="15">15 items per page</option>
+	  <option [ngValue]="20">20 items per page</option>
 	</select>
-</div>
+  </div>
+  
 
-<mat-icon>group</mat-icon>
+  

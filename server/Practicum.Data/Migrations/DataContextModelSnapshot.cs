@@ -59,9 +59,9 @@ namespace Practicum.Data.Migrations
                     b.ToTable("Employees");
                 });
 
-            modelBuilder.Entity("Practicum.Core.Models.EmployeeRole", b =>
+            modelBuilder.Entity("Practicum.Core.Models.EmployeePosition", b =>
                 {
-                    b.Property<int>("RoleNameId")
+                    b.Property<int>("PositionId")
                         .HasColumnType("int");
 
                     b.Property<int>("EmployeeId")
@@ -73,14 +73,14 @@ namespace Practicum.Data.Migrations
                     b.Property<bool>("ManagerialPosition")
                         .HasColumnType("bit");
 
-                    b.HasKey("RoleNameId", "EmployeeId");
+                    b.HasKey("PositionId", "EmployeeId");
 
                     b.HasIndex("EmployeeId");
 
-                    b.ToTable("employeeRoles");
+                    b.ToTable("EmployeePositions");
                 });
 
-            modelBuilder.Entity("Practicum.Core.Models.RoleName", b =>
+            modelBuilder.Entity("Practicum.Core.Models.Position", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -94,7 +94,7 @@ namespace Practicum.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("RoleNamesArr");
+                    b.ToTable("PositionsArr");
                 });
 
             modelBuilder.Entity("Practicum.Core.Models.User", b =>
@@ -118,29 +118,29 @@ namespace Practicum.Data.Migrations
                     b.ToTable("Users");
                 });
 
-            modelBuilder.Entity("Practicum.Core.Models.EmployeeRole", b =>
+            modelBuilder.Entity("Practicum.Core.Models.EmployeePosition", b =>
                 {
                     b.HasOne("Practicum.Core.Models.Employee", null)
-                        .WithMany("roleEmployees")
+                        .WithMany("EmployeePositions")
                         .HasForeignKey("EmployeeId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("Practicum.Core.Models.RoleName", null)
-                        .WithMany("roleEmployees")
-                        .HasForeignKey("RoleNameId")
+                    b.HasOne("Practicum.Core.Models.Position", null)
+                        .WithMany("EmployeePositions")
+                        .HasForeignKey("PositionId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
 
             modelBuilder.Entity("Practicum.Core.Models.Employee", b =>
                 {
-                    b.Navigation("roleEmployees");
+                    b.Navigation("EmployeePositions");
                 });
 
-            modelBuilder.Entity("Practicum.Core.Models.RoleName", b =>
+            modelBuilder.Entity("Practicum.Core.Models.Position", b =>
                 {
-                    b.Navigation("roleEmployees");
+                    b.Navigation("EmployeePositions");
                 });
 #pragma warning restore 612, 618
         }

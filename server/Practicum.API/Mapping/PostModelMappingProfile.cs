@@ -10,8 +10,8 @@ namespace Practicum.API.Mapping
        public PostModelMappingProfile()
         {
             CreateMap<EmployeePostModel, Employee>().ReverseMap();
-            CreateMap<EmployeeRolePostModel, EmployeeRole>();
-            CreateMap<RoleNamePostModel, RoleName>();
+            CreateMap<EmployeePositionPostModel, EmployeePosition>();
+            CreateMap<PositionPostModel, Position>();
             
         }
     }

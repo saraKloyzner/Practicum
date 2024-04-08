@@ -19,11 +19,11 @@ import { MatDatepicker } from '@angular/material/datepicker';
 import { MatIconModule } from '@angular/material/icon';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { provideNativeDateAdapter } from '@angular/material/core';
-import { RoleNameService } from '../../role-name.service';
-import { RoleName } from '../../role-name';
+import { PositionService } from '../../position.service';
+import { Position } from '../models/position';
 import { MatSelectModule } from '@angular/material/select';
 import { FormsModule } from '@angular/forms';
-import { EmployeeRole } from '../models/employee-role.module';
+import { EmployeePosition } from '../models/employee-position.module';
 
 
 import { MatExpansionModule } from '@angular/material/expansion';
@@ -66,7 +66,7 @@ import { Router } from '@angular/router';
     // BrowserAnimationsModule,
     // MatNativeDateModule,
     MatExpansionModule,
-    
+
 
   ]
 })
@@ -74,67 +74,52 @@ import { Router } from '@angular/router';
 export class AddEmployeeComponent implements OnInit {
   [x: string]: any;
   public addForm!: FormGroup;
-  public allPositions!: RoleName[];
+  public allPositions!: Position[];
   showWorkDetails: boolean = false;
   private birthDate!: Date
   private startOfWorkDate!: Date
   durationInSeconds = 1.5;
   horizontalPosition: MatSnackBarHorizontalPosition = 'center';
-  verticalPosition: MatSnackBarVerticalPosition = 'top';
+  verticalPosition: MatSnackBarVerticalPosition = 'bottom';
   constructor(
     private router: Router,
     private _employeeService: EmployeeService,
-    private _roleNameService: RoleNameService,
+    private _positionService: PositionService,
     private fb: FormBuilder,
     private _snackBar: MatSnackBar
-  ) { this.createForm(); }
+  ) {
+    this.createForm();
+
+  }
 
   ngOnInit(): void {
-    this.returnAllRolesName()
-   
+    this.returnAllPositions()
+    console.log("----------allPosition--------", this.allPositions)
   }
-  returnAllRolesName() {
-    this._roleNameService.getRolesName().subscribe({
+  returnAllPositions() {
+    this._positionService.getPositions().subscribe({
       next: (res) => {
         this.allPositions = res;
         console.log("allPositions", this.allPositions)
-        // this.createForm();
+
       },
       error: (err) => {
         console.log(err);
       }
     });
   }
-
-
-
-
-
-
-  // פונקציה זו מחזירה את רשימת התפקידים הזמינים לבחירה ללא תפקידים כפולים
-  // availablePositions() {
-    
-  //   // רשימת התפקידים שלא נבחרו עדיין
-  //   const selectedRoles = this.roleEmployeesFormArray.controls
-  //     .map(roleGroup => roleGroup.get('roleNameId')?.value)
-  //     .filter(roleNameId => roleNameId !== null && roleNameId !== undefined);
-  //   console.log("selectedRoles", selectedRoles)
-  //   // מסנן את כל התפקידים שלא נבחרו עדיין מהרשימה המקורית של כל התפקידים
-  //   return this.allPositions.filter(position => !selectedRoles.includes(position.id));
-  // }
-
   private minAgeValidator: ValidatorFn = (control: AbstractControl): Promise<ValidationErrors | null> => {
     return new Promise((resolve) => {
       this.birthDate = control.value;
       const today: Date = new Date();
       const minAgeDate: Date = new Date(today.getFullYear() - 16, today.getMonth(), today.getDate());
 
-      if(this.birthDate>today) {
-        resolve({'worngBirthDate':true})
+      if (this.birthDate > today) {
+        resolve({ 'worngBirthDate': true })
       }
-       else if (this.birthDate > minAgeDate) {
+      else if (this.birthDate > minAgeDate) {
         resolve({ 'tooYoung': true });
-        
+
       }
       else resolve(null)
     });
@@ -150,8 +135,8 @@ export class AddEmployeeComponent implements OnInit {
         resolve(null);
       }
       if (this.birthDate > this.startOfWorkDate)
-      resolve({ 'tooEarlyToWork': true });
-   
+        resolve({ 'tooEarlyToWork': true });
+
       const minAgeDate: Date = new Date(this.birthDate.getFullYear() + 16, this.birthDate.getMonth(), this.birthDate.getDate());
       console.log("minAgeDate", minAgeDate)
       if (this.startOfWorkDate < minAgeDate) {
@@ -163,20 +148,6 @@ export class AddEmployeeComponent implements OnInit {
       }
     });
   };
-
-  // private beforDateOfBirth: ValidatorFn = (control: AbstractControl): Promise<ValidationErrors | null> => {
-  //   return new Promise((resolve) => {
-  //     this.startOfWorkDate = control.value;
-  //     if (!this.birthDate || !this.startOfWorkDate) {
-  //       resolve(null);
-  //     }
-  //     if (this.birthDate < this.startOfWorkDate)
-  //       resolve({ 'tooEarlyToWork': true });
-  //     resolve(null);
-  //   });
-  // };
-
-
   validateIdentity(control: AbstractControl): ValidationErrors | null {
     const identityNumber: string = control.value;
     // בודק אם המזהה הוא מחרוזת ספרות בדיוק באורך של 9 תווים
@@ -185,7 +156,7 @@ export class AddEmployeeComponent implements OnInit {
     }
     return null;
   }
-  
+
   createForm(): void {
     this.addForm = this.fb.group({
       identity: ['', [Validators.required, this.validateIdentity]],
@@ -194,9 +165,9 @@ export class AddEmployeeComponent implements OnInit {
       dateOfBirth: ['', Validators.required, this.minAgeValidator],
       startOfWorkDate: ['', Validators.required, this.startOfWorkValidator],
       maleOrFemale: [false, Validators.required],
-      roleEmployees: this.fb.array([]) // Initialize form array for employee roles
+      employeePositions: this.fb.array([]) // Initialize form array for employee positions
     });
-    this.addRole(); // Add initial role field
+    this.addPosition();
 
     const dateOfBirthControl = this.addForm.get('dateOfBirth');
     if (dateOfBirthControl) {
@@ -204,42 +175,30 @@ export class AddEmployeeComponent implements OnInit {
         this.addForm.get('startOfWorkDate')?.updateValueAndValidity(); // Trigger re-validation
       });
     }
-
-
     this.addForm.get('startOfWorkDate')?.valueChanges.subscribe(() => {
-      // Trigger re-validation of the dateOfStartingWork field for each roleEmployee
-      const roleEmployeesArray = this.addForm.get('roleEmployees') as FormArray;
-      roleEmployeesArray.controls.forEach(control => {
+
+      const employeePositionsArray = this.addForm.get('employeePositions') as FormArray;
+      employeePositionsArray.controls.forEach(control => {
         control.get('dateOfStartingWork')?.updateValueAndValidity();
       });
     });
-    // const startOfWorkDateControl = this.addForm.get('startOfWorkDate');
-   
-    // if (startOfWorkDateControl) {
-    //   console.log("startOfWorkDate update")
-    //   startOfWorkDateControl.valueChanges.subscribe(() => {
-    //     this.addForm.get('roleEmployees')?.updateValueAndValidity(); // Trigger re-validation
-    //   });
-    // }
-  
+
+
+  }
+  get employeePositionsFormArray(): FormArray {
+    return this.addForm.get('employeePositions') as FormArray;
   }
 
 
 
-  get roleEmployeesFormArray(): FormArray {
-    return this.addForm.get('roleEmployees') as FormArray;
-  }
-
-
-
-  addRole(): void {
-    const roleGroup = this.fb.group({
-      roleNameId: ['', Validators.required], // שורה 57: הוספת Validators.required
+  addPosition(): void {
+    const positionGroup = this.fb.group({
+      positionId: ['', Validators.required], // שורה 57: הוספת Validators.required
       managerialPosition: ['', Validators.required],
       dateOfStartingWork: ['', Validators.required, this.dateOfStartPosition]
     });
-    this.roleEmployeesFormArray.push(roleGroup);
-    
+    this.employeePositionsFormArray.push(positionGroup);
+
   }
 
   private dateOfStartPosition: ValidatorFn = (control: AbstractControl): Promise<ValidationErrors | null> => {
@@ -250,20 +209,20 @@ export class AddEmployeeComponent implements OnInit {
       const dateOfStartingWork: Date = control.value;
       console.log("dateOfStartingWork", dateOfStartingWork)
       console.log("startOfWorkDate", this.startOfWorkDate)
-      if ( !this.startOfWorkDate) {
+      if (!this.startOfWorkDate) {
         console.log("null")
         resolve(null);
       }
-      if (dateOfStartingWork< this.startOfWorkDate){
-      console.log("dateOfStartingWork < this.startOfWorkDate",dateOfStartingWork< this.startOfWorkDate)
+      if (dateOfStartingWork < this.startOfWorkDate) {
+        console.log("dateOfStartingWork < this.startOfWorkDate", dateOfStartingWork < this.startOfWorkDate)
         resolve({ 'beforStartTheWork': true });
       }
       else resolve(null);
     });
   };
 
-  removeRole(index: number): void {
-    this.roleEmployeesFormArray.removeAt(index);
+  removePosition(index: number): void {
+    this.employeePositionsFormArray.removeAt(index);
   }
   // formatDate(date: Date): string {
   //   return date.toISOString();
@@ -273,7 +232,7 @@ export class AddEmployeeComponent implements OnInit {
     if (data instanceof Date) {
       return data.toISOString();
     } else if (data instanceof Object && data.hasOwnProperty('dateOfStartingWork')) {
-      // Assuming 'dateOfStartingWork' is a property within data (EmployeeRole)
+
       return new Date(data.dateOfStartingWork).toISOString();
     }
     // Handle other data types if needed
@@ -294,10 +253,10 @@ export class AddEmployeeComponent implements OnInit {
       startOfWorkDate: this.formatDate(this.addForm.get('startOfWorkDate')?.value),
       maleOrFemale: this.addForm.get('maleOrFemale')!.value === 'true',
       status: true,
-      roleEmployees: this.addForm.get('roleEmployees')?.value.map((role: EmployeeRole) => ({
-        ...role,
-        managerialPosition: Boolean(role.managerialPosition),
-        dateOfStartingWork: this.formatDate(role.dateOfStartingWork) // Call formatDate here
+      employeePositions: this.addForm.get('employeePositions')?.value.map((position: EmployeePosition) => ({
+        ...position,
+        managerialPosition: Boolean(position.managerialPosition),
+        dateOfStartingWork: this.formatDate(position.dateOfStartingWork) // Call formatDate here
       })),
     };
 
@@ -306,7 +265,8 @@ export class AddEmployeeComponent implements OnInit {
     this._employeeService.addEmployee(employee).subscribe({
       next: (res) => {
         console.log(res);
-        this.openSnackBar()
+        this.openSnackBar();
+
         this.router.navigate(["allEmployees"]);
       },
       error: (err) => {
@@ -314,6 +274,7 @@ export class AddEmployeeComponent implements OnInit {
       }
     });
   }
+
   proceedToNextStep() {
     // if (this.addForm.invalid) {
     //   console.log("form not valid")
@@ -328,25 +289,29 @@ export class AddEmployeeComponent implements OnInit {
     //   behavior: 'smooth'
     // });
   }
-  filteredPositions(index: number): RoleName[] {
-    if (!this.roleEmployeesFormArray||!this.allPositions) {
+  filteredPositions(index: number): Position[] {
+    if (!this.employeePositionsFormArray || !this.allPositions) {
+      console.log("filter empty");
+      console.log(this.allPositions);
+      console.log(this.employeePositionsFormArray);
+
       return [];
     }
-    const selectedRoles = this.roleEmployeesFormArray.controls
+    const selectedPosition = this.employeePositionsFormArray.controls
       .filter((control, i) => i !== index) // סנן את התפקידים שאינם שווים לאינדקס שנמצא בפרמטר
-      .map(roleGroup => roleGroup.get('roleNameId')?.value);
-    return this.allPositions.filter(position => !selectedRoles.includes(position.id));
+      .map(positionGroup => positionGroup.get('positionId')?.value);
+    return this.allPositions.filter(position => !selectedPosition.includes(position.id));
   }
   openSnackBar() {
-    
-    this._snackBar.open('The employee added succssid', '' ,{
+
+    this._snackBar.open('The employee was successfully added', '', {
       horizontalPosition: this.horizontalPosition,
       verticalPosition: this.verticalPosition,
       duration: this.durationInSeconds * 1000,
-      
+
     });
   }
 
- 
+
 
 }

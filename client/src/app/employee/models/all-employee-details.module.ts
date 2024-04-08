@@ -1,4 +1,4 @@
-import { EmployeeRole } from "../employee-role.module";
+import { EmployeePosition } from "./employee-position.module";
 export class Employee {
   // id: number;
   identity!: string;
@@ -8,18 +8,7 @@ export class Employee {
   dateOfBirth!: string; // Add this line
   maleOrFemale!: boolean;
   status!:boolean
-  roleEmployees!: EmployeeRole[];
+  employeePositions!: EmployeePosition[];
 
   
 }
-// constructor( identity: string, firstName: string, lastName: string, startOfWorkDate: 
-  //   string, dateOfBirth: string, maleOrFemale: boolean, roleEmployees: EmployeeRole[]) {
-  //     // this.id = id;
-  //     this.identity = identity;
-  //     this.firstName = firstName;
-  //     this.lastName = lastName;
-  //     this.startOfWorkDate = startOfWorkDate;
-  //     this.dateOfBirth = dateOfBirth;
-  //     this.maleOrFemale = maleOrFemale;
-  //     this.roleEmployees = roleEmployees;
-  // }

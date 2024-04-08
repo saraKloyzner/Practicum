@@ -23,4 +23,113 @@
       background-color: #f5f5f5;
     }
   }
+  .color{
+    background-color: #e5b813;
+  }
+  .my-fixed-button {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1000; // מבטיח שהכפתור יהיה מעל לתוכן הרגיל בדף
+  
+    @media (min-width: 768px) {
+      left: 50%;
+      transform: translateX(-50%);
+      bottom: 40px;
+    }
+  }
+
+.example-container {
+  position: relative;
+}
+
+.custom-input {
+  width: 100%;
+  padding: 8px 8px 8px 32px;
+  font-size: 16px;
+  border: 1px solid black;
+  border-radius: 4px;
+}
+.mat-icon:hover {
+  cursor: pointer;
+  transform: scale(1.1);
+  transition: transform 0.2s ease-in-out;
+}
+
+
+
+
+
+.custom-input:focus {
+  border-color: black;
+}
+
+.input-icon-container {
+  position: relative;
+}
+
+.material-icons.search-icon {
+  position: absolute;
+  top: 50%;
+  left: 8px;
+  transform: translateY(-50%);
+  color: black;
+  cursor: pointer;
+}
+.example-container {
+  margin-bottom: 20px; /* מרחק בין הטבלה לקונטיינר של ה- input */
+}
+
+.input-icon-container {
+  margin-bottom: 10px; /* מרחק בין ה- input לאייקון */
+}
+
+
+/* צבע רקע לתיבת הבחירה */
+// select.form-select {
+//   background-color: #e5b813; /* הצבע שאתה רוצה */
+//   color: black; /* צבע הטקסט בתוך התיבה */
+// }
+
+/* צבע רקע לאפשרויות בתיבת הבחירה */
+select.form-select option {
+  background-color: #e5b813; /* הצבע שאתה רוצה */
+  color: black; /* צבע הטקסט באפשרויות */
+}
+
+
+
+// .pagination-link {
+//   background-color: #e5b813 !important; /* צבע הרקע */
+//   border-color: #e5b813 !important; /* צבע הגבול */
+//   color: black !important; /* צבע הטקסט */
+// }
+
+// .pagination-link.active {
+//   background-color: #e5b813 !important; /* צבע הרקע כאשר העמוד פעיל */
+//   color: black !important; /* צבע הטקסט כאשר העמוד פעיל */
+// }
+
+// .pagination-link:hover {
+//   background-color: #e5b813 !important; /* צבע הרקע בעת מעבר עכבר */
+//   color: black !important; /* צבע הטקסט בעת מעבר עכבר */
+// }
+/* קבע את צבע הרקע והצבעים של העמודה */
+::ng-deep .page-link {
+  background-color: #e5b813;
+  border-color: #e5b813;
+  color: black;
+}
+
+/* קבע את צבע הרקע והצבעים של העמודה הפעילה */
+::ng-deep .page-item.active .page-link {
+  background-color: #e5b813;
+  border-color: #e5b813;
+  color: black;
+}
+
+
+  
+  
   

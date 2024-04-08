@@ -9,18 +9,15 @@ using System.Threading.Tasks;
 
 namespace Practicum.Core.Mapping
 {
-    public class MappingProfile :Profile
+    public class MappingProfile : Profile
     {
-      public MappingProfile()
+        public MappingProfile()
         {
-            //CreateMap<Employee,EmployeeDto>();
-            //CreateMap<EmployeeRole,EmployeeRoleDto>();
-            //CreateMap<RoleName,RoleNameDto>();
+
             CreateMap<Employee, EmployeeDto>();
-           //.ForMember(dest => dest.employeeRoles, opt => opt.MapFrom(src => src.roleEmployees));
-            CreateMap<EmployeeRole, EmployeeRoleDto>();
-            CreateMap<RoleName, RoleNameDto>()
-         .ForMember(dest => dest.RoleName, opt => opt.MapFrom(src => src.Name));
+            CreateMap<EmployeePosition, EmployeePositionDto>();
+            CreateMap<Position, PositionDto>()
+         .ForMember(dest => dest.Name, opt => opt.MapFrom(src => src.Name));
         }
     }
 }

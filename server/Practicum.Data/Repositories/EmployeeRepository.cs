@@ -28,8 +28,19 @@ namespace Practicum.Data.Repositories
 
         public async Task DeleteAsync(string employeeId)
         {
-            var employee = await GetByIdAsync(employeeId);
-            _dataContext.Employees.Remove(employee);
+
+            //var employee = await GetByIdAsync(employeeId);
+            //_dataContext.Employees.Remove(employee);
+
+            //await _dataContext.SaveChangesAsync();
+
+            var existingEmployee = _dataContext.Employees.FirstOrDefault(x => employeeId == x.Identity);
+            if (existingEmployee == null)
+            {
+                throw new InvalidOperationException($"Employee with ID {employeeId} not found.");
+            }
+            existingEmployee.Status = false;
+            //_dataContext.Employees.Remove(_dataContext.Employees.ToList().FirstOrDefault(x=>id==x.Identity));
             await _dataContext.SaveChangesAsync();
         }
 
@@ -40,13 +51,14 @@ namespace Practicum.Data.Repositories
 
         public async Task<Employee> GetByIdAsync(string employeeId)
         {
-            return await _dataContext.Employees.Include(c => c.RoleEmployees)
+            return await _dataContext.Employees.Include(c => c.EmployeePositions)
              .FirstOrDefaultAsync(c => c.Identity == employeeId);
         }
         public async Task<Employee> UpdateAsync(Employee employee)
         {
             var existEmployee = await GetByIdAsync(employee.Identity);
             _dataContext.Entry(existEmployee).CurrentValues.SetValues(existEmployee);
+            _dataContext.SaveChangesAsync();
             return employee;
         }
        

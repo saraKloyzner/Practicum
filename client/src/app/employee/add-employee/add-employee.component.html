@@ -1,152 +1,119 @@
-<div class="container">
-  <div class="form-wrapper">
-    <mat-card>
-      <mat-card-content>
-        <form *ngIf="addForm" [formGroup]="addForm" (ngSubmit)="onSubmit()" fxLayout="column" fxLayoutGap="16px">
-
-          <mat-expansion-panel expanded>
-            <mat-expansion-panel-header>
-              <mat-panel-title>
-                פרטים אישיים
-              </mat-panel-title>
-            </mat-expansion-panel-header>
-
-            <mat-form-field appearance="fill">
-              <mat-label>תעודת זהות</mat-label>
-              <input matInput type="text" formControlName="identity" required minlength="9">
-
-              <mat-error *ngIf="addForm.get('identity')?.hasError('required')">שדה זה חובה</mat-error>
-              <mat-error *ngIf="addForm.get('identity')?.hasError('invalidLength')">יש להכניס את 9 הספרות של התעודת
-                זהות</mat-error>
-
-
-            </mat-form-field>
-
-            <mat-form-field appearance="fill">
-              <mat-label>שם פרטי</mat-label>
-              <input matInput type="text" formControlName="firstName" required minlength="3">
-
-              <mat-error *ngIf="addForm.get('firstName')?.hasError('required')">שדה זה חובה</mat-error>
-              <mat-error *ngIf="addForm.get('firstName')?.hasError('minlength')">שם פרטי חייב להיות 3 תווים
-                לפחות</mat-error>
-            </mat-form-field>
-
-            <mat-form-field appearance="fill">
-              <mat-label>שם משפחה</mat-label>
-              <input matInput type="text" formControlName="lastName" required minlength="3">
-
-              <mat-error *ngIf="addForm.get('lastName')?.hasError('required')">שדה זה חובה</mat-error>
-              <mat-error *ngIf="addForm.get('lastName')?.hasError('minlength')">שם משפחה חייב להיות 3 תווים
-                לפחות</mat-error>
-            </mat-form-field>
-
-            <mat-form-field appearance="fill">
-              <mat-label>תאריך לידה</mat-label>
-              <input matInput [matDatepicker]="picker" formControlName="dateOfBirth" required>
-              <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-              <mat-datepicker #picker></mat-datepicker>
-              <mat-error *ngIf="addForm.get('dateOfBirth')?.hasError('worngBirthDate')">לא יתכן תאריך לידה שעדיין
-                לא</mat-error>
-              <mat-error *ngIf="addForm.get('dateOfBirth')?.hasError('tooYoung')">אין זה חוקי להעסיק עובד מתחת לגיל
-                16</mat-error>
-
-            </mat-form-field>
 
 
 
-            <mat-radio-group formControlName="maleOrFemale" aria-label="בחר מין">
-              <mat-radio-button value="true"
-                [checked]="addForm.value.managerialPosition === 'true'">זכר</mat-radio-button>
-              <mat-radio-button value="false"
-                [checked]="addForm.value.managerialPosition === 'false'">נקבה</mat-radio-button>
-            </mat-radio-group>
 
-          </mat-expansion-panel>
-
-          <mat-expansion-panel>
-            <mat-expansion-panel-header>
-              <mat-panel-title>
-                פרטי תעסוקה
-              </mat-panel-title>
-            </mat-expansion-panel-header>
-
-
-            <mat-form-field appearance="fill">
-              <mat-label>תאריך תחילת עבודה</mat-label>
-              <input matInput [matDatepicker]="pickerWorkDate" formControlName="startOfWorkDate" required>
-              <mat-datepicker-toggle matSuffix [for]="pickerWorkDate"></mat-datepicker-toggle>
-              <mat-datepicker #pickerWorkDate></mat-datepicker>
-
-              <mat-error *ngIf="addForm.get('startOfWorkDate')?.hasError('lessThan16Age')">
-                אין זה חוקי להעסיק עובד מתחת לגיל 16
-              </mat-error>
-              <mat-error *ngIf="addForm.get('startOfWorkDate')?.hasError('tooEarlyToWork')">
-                התאריך שגוי | בדוק את תאריך הלידה
-              </mat-error>
-
-            </mat-form-field>
-
-
-            <div formArrayName="roleEmployees">
-              <div *ngFor="let roleGroup of roleEmployeesFormArray.controls; let i=index">
-                <mat-expansion-panel>
-                  <mat-expansion-panel-header>
-                    <mat-panel-title>
-                      תפקיד {{i + 1}}
-                    </mat-panel-title>
-                  </mat-expansion-panel-header>
-
-                  <div [formGroupName]="i">
-
-
-
-                    <mat-form-field appearance="fill">
-                      <mat-label>שם תפקיד</mat-label>
-                      <mat-select formControlName="roleNameId" required>
-                        <mat-option *ngFor="let position of filteredPositions(i)" [value]="position.id">{{
-                          position.roleName }}</mat-option>
-                      </mat-select>
-                    </mat-form-field>
-
-
-                    <mat-radio-group formControlName="managerialPosition" aria-label="בחר סוג תפקיד">
-                      <mat-radio-button value="true" [checked]="roleGroup.value.managerialPosition === 'true'">תפקיד
-                        ניהולי</mat-radio-button>
-                      <mat-radio-button value="false" [checked]="roleGroup.value.managerialPosition === 'false'">תפקיד
-                        לא ניהולי</mat-radio-button>
-                    </mat-radio-group>
-
-                    <mat-form-field appearance="fill">
-                      <mat-label>תאריך תחילת עבודה בתפקיד</mat-label>
-                      <input matInput [matDatepicker]="pickerPositionDate" formControlName="dateOfStartingWork"
-                        required>
-                      <mat-datepicker-toggle matSuffix [for]="pickerPositionDate"></mat-datepicker-toggle>
-                      <mat-datepicker #pickerPositionDate></mat-datepicker>
-                      <mat-error *ngIf="roleGroup.get('dateOfStartingWork')?.hasError('beforStartTheWork')">
-                        התאריך לא יכול להיות לפני תאריך התחלת העבודה
-                      </mat-error>
-                    </mat-form-field>
-
-                    <button mat-icon-button color="warn" (click)="removeRole(i)">
-                      <mat-icon>remove_circle</mat-icon>
-                    </button>
-                  </div>
-                </mat-expansion-panel>
-
-               
+  <div class="container">
+    <div class="form-wrapper">
+      <mat-card>
+        <mat-card-content>
+          <form *ngIf="addForm" [formGroup]="addForm" (ngSubmit)="onSubmit()" fxLayout="column" fxLayoutGap="16px">
+  
+            <mat-expansion-panel expanded>
+              <mat-expansion-panel-header>
+                <mat-panel-title>
+                  Personal Information
+                </mat-panel-title>
+              </mat-expansion-panel-header>
+  
+              <mat-form-field appearance="fill">
+                <mat-label>ID Number</mat-label>
+                <input matInput type="text" formControlName="identity" required minlength="9">
+                <mat-error *ngIf="addForm.get('identity')?.hasError('required')">This field is required</mat-error>
+                <mat-error *ngIf="addForm.get('identity')?.hasError('invalidLength')">Please enter the 9 digits of the ID number</mat-error>
+              </mat-form-field>
+  
+              <mat-form-field appearance="fill">
+                <mat-label>First Name</mat-label>
+                <input matInput type="text" formControlName="firstName" required minlength="3">
+                <mat-error *ngIf="addForm.get('firstName')?.hasError('required')">This field is required</mat-error>
+                <mat-error *ngIf="addForm.get('firstName')?.hasError('minlength')">First name must be at least 3 characters</mat-error>
+              </mat-form-field>
+  
+              <mat-form-field appearance="fill">
+                <mat-label>Last Name</mat-label>
+                <input matInput type="text" formControlName="lastName" required minlength="3">
+                <mat-error *ngIf="addForm.get('lastName')?.hasError('required')">This field is required</mat-error>
+                <mat-error *ngIf="addForm.get('lastName')?.hasError('minlength')">Last name must be at least 3 characters</mat-error>
+              </mat-form-field>
+  
+              <mat-form-field appearance="fill">
+                <mat-label>Date of Birth</mat-label>
+                <input matInput [matDatepicker]="picker" formControlName="dateOfBirth" required>
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+                <mat-error *ngIf="addForm.get('dateOfBirth')?.hasError('worngBirthDate')">Invalid birth date</mat-error>
+                <mat-error *ngIf="addForm.get('dateOfBirth')?.hasError('tooYoung')">It's not legal to employ someone under 16</mat-error>
+              </mat-form-field>
+  
+              <mat-radio-group formControlName="maleOrFemale" aria-label="Select Gender">
+                <mat-radio-button value="true" [checked]="addForm.value.managerialPosition === 'true'">Male</mat-radio-button>
+                <mat-radio-button value="false" [checked]="addForm.value.managerialPosition === 'false'">Female</mat-radio-button>
+              </mat-radio-group>
+  
+            </mat-expansion-panel>
+  
+            <mat-expansion-panel>
+              <mat-expansion-panel-header>
+                <mat-panel-title>
+                  Job Details
+                </mat-panel-title>
+              </mat-expansion-panel-header>
+  
+              <mat-form-field appearance="fill">
+                <mat-label>Start Date of Work</mat-label>
+                <input matInput [matDatepicker]="pickerWorkDate" formControlName="startOfWorkDate" required>
+                <mat-datepicker-toggle matSuffix [for]="pickerWorkDate"></mat-datepicker-toggle>
+                <mat-datepicker #pickerWorkDate></mat-datepicker>
+                <mat-error *ngIf="addForm.get('startOfWorkDate')?.hasError('lessThan16Age')">It's not legal to employ someone under 16</mat-error>
+                <mat-error *ngIf="addForm.get('startOfWorkDate')?.hasError('tooEarlyToWork')">Invalid date | Check birth date</mat-error>
+              </mat-form-field>
+  
+              <div formArrayName="employeePositions">
+                <div *ngFor="let positionGroup of employeePositionsFormArray.controls; let i=index">
+                  <mat-expansion-panel>
+                    <mat-expansion-panel-header>
+                      <mat-panel-title>
+                        Position {{i + 1}}
+                      </mat-panel-title>
+                    </mat-expansion-panel-header>
+                    <div [formGroupName]="i">
+                      <mat-form-field appearance="fill">
+                        <mat-label>Position Name</mat-label>
+                        <mat-select formControlName="positionId" required>
+                          <mat-option *ngFor="let position of filteredPositions(i)" [value]="position.id">{{ position.name }}</mat-option>
+                        </mat-select>
+                      </mat-form-field>
+                      <mat-radio-group formControlName="managerialPosition" aria-label="Select Position Type">
+                        <mat-radio-button value="true" [checked]="positionGroup.value.managerialPosition === 'true'">Managerial</mat-radio-button>
+                        <mat-radio-button value="false" [checked]="positionGroup.value.managerialPosition === 'false'">Non-managerial</mat-radio-button>
+                      </mat-radio-group>
+                      <mat-form-field appearance="fill">
+                        <mat-label>Start Date of Work in Position</mat-label>
+                        <input matInput [matDatepicker]="pickerPositionDate" formControlName="dateOfStartingWork" required>
+                        <mat-datepicker-toggle matSuffix [for]="pickerPositionDate"></mat-datepicker-toggle>
+                        <mat-datepicker #pickerPositionDate></mat-datepicker>
+                        <mat-error *ngIf="positionGroup.get('dateOfStartingWork')?.hasError('beforStartTheWork')">Date cannot be before start date of work</mat-error>
+                      </mat-form-field>
+                      <button mat-icon-button color="warn" (click)="removePosition(i)">
+                        <mat-icon>remove_circle</mat-icon>
+                      </button>
+                    </div>
+                  </mat-expansion-panel>
+                </div>
               </div>
-            </div>
-            <button mat-raised-button color="primary" (click)="addRole()">הוסף תפקיד</button>
-          </mat-expansion-panel>
-
-
-
-
-
-
-          <button mat-raised-button color="primary" type="submit" [disabled]="addForm.invalid">שמור</button>
-
-        </form>
-      </mat-card-content>
-    </mat-card>
+              <button mat-raised-button class="color" (click)="addPosition()">Add Position</button>
+            </mat-expansion-panel>
+  
+            <button mat-raised-button class="color" type="submit" [disabled]="addForm.invalid">Save</button>
+  
+          </form>
+        </mat-card-content>
+      </mat-card>
+    </div>
   </div>
+  
+
+
+
+
+

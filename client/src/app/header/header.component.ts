@@ -6,6 +6,7 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 import { EmployeeService } from '../employee/employee.service';
 import * as XLSX from 'xlsx';
 import { EmployeeDto } from '../employee/models/employee-Dto';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-header',
   standalone: true,
@@ -14,7 +15,7 @@ import { EmployeeDto } from '../employee/models/employee-Dto';
   styleUrl: './header.component.scss'
 })
 export class HeaderComponent {
-  constructor(private _employeeService:EmployeeService){}
+  constructor(private _employeeService:EmployeeService,private router: Router){}
   exportDataToExcel() {
     this._employeeService.getEmployeesFromServer().subscribe({
       next: (res) => {
@@ -34,5 +35,11 @@ export class HeaderComponent {
     const wb: XLSX.WorkBook = XLSX.utils.book_new();
     XLSX.utils.book_append_sheet(wb, ws, 'Sheet1');
     XLSX.writeFile(wb, `${filename}.xlsx`);
+  }
+  addEmployee(){
+    this.router.navigate(["addEmployee"]);
+  }
+  allEmployees(){
+    this.router.navigate(["allEmployees"]);
   }
 }

@@ -8,10 +8,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
-
 import { MatFormFieldModule } from '@angular/material/form-field';
-
-
 @Component({
   selector: 'app-employee-details',
   standalone: true,
@@ -22,7 +19,6 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 export class EmployeeDetailsComponent implements OnInit {
 
   canAddEmployee = true;
-
   page = 1;
   pageSize = 8;
   public collectionSize: number=0;
@@ -40,23 +36,7 @@ export class EmployeeDetailsComponent implements OnInit {
   ngOnInit(): void {
     this.loadEmployees();
   }
-  // loadEmployees() {
-  //   this._employeeService.getEmployeesFromServer().subscribe({
-  //     next: (res) => {
-  //       // this.employees = res;
-        
-  //       this.employees = res.filter(employee => employee.status === true); // Filter employees based on status
 
-  //       // this.filteredEmployees = this.employees.filter(employee => employee.status === true); // Filter employees based on status
-  //       this.collectionSize = this.employees.length;
-  //       console.log(this.employees);
-  //     },
-  //     error: (err) => {
-  //       console.log(err);
-
-  //     }
-  //   });
-  // }
   loadEmployees() {
     this._employeeService.getEmployeesFromServer().subscribe({
       next: (res: EmployeeDto[]) => {
@@ -68,15 +48,6 @@ export class EmployeeDetailsComponent implements OnInit {
       }
     });
   }
-
-  // filterEmployees() {
-  //   this.filteredEmployees = this.employees.filter(employee => employee.status === true && 
-  //     (employee.firstName.includes(this.searchQuery)) || 
-  //      employee.lastName.includes(this.searchQuery)||
-  //     employee.identity.includes(this.searchQuery)||
-  //     employee.startOfWorkDate.getDate().toString;
-  //   this.collectionSize = this.filteredEmployees.length;
-  // }
   filterEmployees() {
     const searchQuery = this.searchQuery.toLowerCase();
     this.filteredEmployees = this.employees.filter(employee =>
@@ -114,8 +85,6 @@ trackByEmployee(index: number, employee: EmployeeDto): string {
     console.log(this.employees.find(employee => employee.identity !== identity)?.status === false)
   
     
-
-
   }
   showIcons(employee: EmployeeDto) {
     this.showEditIcon[employee.identity] = true;
@@ -134,25 +103,4 @@ trackByEmployee(index: number, employee: EmployeeDto): string {
       this.hideIcons(employee);
     }
   }
-  // filterEmployees() {
-  //   if (!this.searchQuery) {
-  //     this.filteredEmployees = this.employees;
-  //     return;
-  //   }
-  
-  //   this.filteredEmployees = this.employees.filter(employee =>
-  //     employee.identity.toLowerCase().includes(this.searchQuery.toLowerCase()) ||
-  //     employee.firstName.toLowerCase().includes(this.searchQuery.toLowerCase()) ||
-  //     employee.lastName.toLowerCase().includes(this.searchQuery.toLowerCase()) ||
-  //     (employee.startOfWorkDate instanceof Date && employee.startOfWorkDate.toLocaleDateString().includes(this.searchQuery.toLowerCase()))
-  //   );
-  // }
-  
-  
 }
-
-  // del(identity: string): void {
-  //   // Update status locally instead of server
-  //   this.employees = this.employees.filter(employee => employee.identity !== identity);
-  // }
-

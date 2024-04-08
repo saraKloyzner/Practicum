@@ -1,18 +1,46 @@
+<!-- 
 
-<p>
-    <mat-toolbar class="color" >
+  <p>
+    <mat-toolbar class="color">
       <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
         <mat-icon>menu</mat-icon>
       </button>
-      <span>management</span>
+      <span>Management</span>
       <span class="example-spacer"></span>
-      <!-- <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon"> -->
-        <!-- <mat-icon>favorite</mat-icon> -->
-      <!-- </button> -->
-      <!-- <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon"> -->
-        <!-- <mat-icon>share</mat-icon> -->
-      <!-- </button> -->
-      <button mat-raised-button  id="color" (click)="exportDataToExcel()">ייצא לאקסל</button>
-
+  
+      <button mat-raised-button id="color" (click)="exportDataToExcel()">
+       <mat-icon>file_download</mat-icon>
+        Export to Excel
+      </button>
     </mat-toolbar>
   </p>
+   -->
+
+   <p>
+    <mat-toolbar class="color">
+      <button mat-icon-button class="example-icon" aria-label="Menu">
+        <mat-icon>menu</mat-icon>
+      </button>
+      <span>Management</span>
+      <span class="example-spacer"></span>
+  
+     
+  
+      <!-- קישורים עם אייקונים שמסבירים לאן ניתן לנווט -->
+      <a mat-icon-button (click)="addEmployee()" aria-label="Add Employee">
+        <mat-icon>person_add</mat-icon>
+      </a>
+      <!-- <a mat-icon-button (click)="editEmployee()" aria-label="Edit Employee">
+        <mat-icon>edit</mat-icon>
+      </a> -->
+      <a mat-icon-button (click)="allEmployees()" aria-label="Employees List">
+        <mat-icon>list</mat-icon>
+      </a>
+      <button mat-raised-button id="color" (click)="exportDataToExcel()">
+        <mat-icon>file_download</mat-icon>
+        Export to Excel
+      </button>
+    </mat-toolbar>
+  </p>
+  
+  
