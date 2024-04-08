@@ -25,7 +25,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { FormsModule } from '@angular/forms';
 import { EmployeePosition } from '../models/employee-position.module';
 
-
+import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatCardModule } from '@angular/material/card';
 
@@ -37,6 +37,8 @@ import {
 
 
 import { Router } from '@angular/router';
+import { Observable, catchError, identity, map, of } from 'rxjs';
+import { EmployeeDto } from '../models/employee-Dto';
 
 
 
@@ -53,7 +55,7 @@ import { Router } from '@angular/router';
     ReactiveFormsModule,
     MatFormFieldModule,
     MatInputModule,
-
+    MatTooltipModule,
     MatRadioModule,
     MatButtonModule,
     MatDatepicker,
@@ -74,13 +76,14 @@ import { Router } from '@angular/router';
 export class AddEmployeeComponent implements OnInit {
   [x: string]: any;
   public addForm!: FormGroup;
-  public allPositions!: Position[];
+  public allPositions: Position[] = [];
   showWorkDetails: boolean = false;
   private birthDate!: Date
   private startOfWorkDate!: Date
   durationInSeconds = 1.5;
   horizontalPosition: MatSnackBarHorizontalPosition = 'center';
   verticalPosition: MatSnackBarVerticalPosition = 'bottom';
+  allEmployees: EmployeeDto[] = []
   constructor(
     private router: Router,
     private _employeeService: EmployeeService,
@@ -88,13 +91,28 @@ export class AddEmployeeComponent implements OnInit {
     private fb: FormBuilder,
     private _snackBar: MatSnackBar
   ) {
+    // this.returnAllEmployees()
     this.createForm();
 
   }
 
   ngOnInit(): void {
+
     this.returnAllPositions()
     console.log("----------allPosition--------", this.allPositions)
+  }
+  returnAllEmployees() {
+    this._employeeService.getEmployeesFromServer().subscribe({
+      next: (res) => {
+        console.log(res);
+        this.allEmployees = res;
+        console.log("allEmployees", this.allEmployees)
+
+      },
+      error: (err) => {
+        console.log(err)
+      }
+    })
   }
   returnAllPositions() {
     this._positionService.getPositions().subscribe({
@@ -108,7 +126,7 @@ export class AddEmployeeComponent implements OnInit {
       }
     });
   }
-  private minAgeValidator: ValidatorFn = (control: AbstractControl): Promise<ValidationErrors | null> => {
+  private dateOfBirthVaidator: ValidatorFn = (control: AbstractControl): Promise<ValidationErrors | null> => {
     return new Promise((resolve) => {
       this.birthDate = control.value;
       const today: Date = new Date();
@@ -156,13 +174,34 @@ export class AddEmployeeComponent implements OnInit {
     }
     return null;
   }
-
+  // ifExsistSameIdentity(control: AbstractControl): ValidationErrors | null {
+  //   if (control.value === null)
+  //     return null
+  //   console.log("allEmployees",this.allEmployees)
+  //   this.allEmployees?.forEach(element => {
+  //     element.identity === control.value
+  //     return { 'sameIdentities': true }
+  //   });
+  //   return null
+  // }
+  //  validateIdentitySame(control: AbstractControl): Promise<ValidationErrors | null> | Observable<ValidationErrors | null> {
+  //   const identity = control.value;
+  //   return this._employeeService.getEmployeeByIdentity(identity).pipe(
+  //     map(employee => {
+  //       return employee ? { validateIdentitySame: true } : null;
+  //     }),
+  //     catchError(() => {
+  //       // אם יש שגיאה בביצוע הבדיקה, נחזיר null כדי שהערך יחשב כתקין
+  //       return of(null);
+  //     })
+  //   );
+  // }
   createForm(): void {
     this.addForm = this.fb.group({
       identity: ['', [Validators.required, this.validateIdentity]],
       firstName: ['', [Validators.required, Validators.minLength(3)]],
       lastName: ['', [Validators.required, Validators.minLength(3)]],
-      dateOfBirth: ['', Validators.required, this.minAgeValidator],
+      dateOfBirth: ['', Validators.required, this.dateOfBirthVaidator],
       startOfWorkDate: ['', Validators.required, this.startOfWorkValidator],
       maleOrFemale: [false, Validators.required],
       employeePositions: this.fb.array([]) // Initialize form array for employee positions
@@ -199,6 +238,18 @@ export class AddEmployeeComponent implements OnInit {
     });
     this.employeePositionsFormArray.push(positionGroup);
 
+  }
+  isAddPositionDisabled(): boolean {
+    if (this.allPositions.length === 0)
+      return true;
+    else {
+      console.log(this.allPositions)
+      return this.employeePositionsFormArray.length >= this.allPositions.length;
+    }
+  }
+
+  isAtLeastOnePositionRequired(): boolean {
+    return this.employeePositionsFormArray.length ===1;
   }
 
   private dateOfStartPosition: ValidatorFn = (control: AbstractControl): Promise<ValidationErrors | null> => {
@@ -255,12 +306,12 @@ export class AddEmployeeComponent implements OnInit {
       status: true,
       employeePositions: this.addForm.get('employeePositions')?.value.map((position: EmployeePosition) => ({
         ...position,
-        managerialPosition: Boolean(position.managerialPosition),
+        managerialPosition: (position.managerialPosition),
         dateOfStartingWork: this.formatDate(position.dateOfStartingWork) // Call formatDate here
       })),
     };
 
-    console.log("employee", employee);
+    console.log("employee--------", employee);
 
     this._employeeService.addEmployee(employee).subscribe({
       next: (res) => {

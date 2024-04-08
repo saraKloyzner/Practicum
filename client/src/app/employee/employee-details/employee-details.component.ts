@@ -9,10 +9,12 @@ import { MatButtonModule } from '@angular/material/button';
 import { Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatTooltipModule } from '@angular/material/tooltip';
+import * as XLSX from 'xlsx';
 @Component({
   selector: 'app-employee-details',
   standalone: true,
-  imports: [DecimalPipe, FormsModule, NgbTypeaheadModule, NgbPaginationModule, MatIconModule, MatButtonModule,CommonModule,MatFormFieldModule],
+  imports: [DecimalPipe, FormsModule, NgbTypeaheadModule,MatTooltipModule, NgbPaginationModule, MatIconModule, MatButtonModule,CommonModule,MatFormFieldModule],
   templateUrl: './employee-details.component.html',
   styleUrl: './employee-details.component.scss'
 })
@@ -102,5 +104,17 @@ trackByEmployee(index: number, employee: EmployeeDto): string {
     } else if (event.key === 'ArrowLeft') {
       this.hideIcons(employee);
     }
+  }
+  exportDataToExcel() {
+        this.ToExcel(this.filteredEmployees);
+  }
+  ToExcel(data: EmployeeDto[]): void {
+    this.exportToExcel(data, 'employees_data');
+  }
+  private exportToExcel(data: EmployeeDto[], filename: string): void {
+    const ws: XLSX.WorkSheet = XLSX.utils.json_to_sheet(data);
+    const wb: XLSX.WorkBook = XLSX.utils.book_new();
+    XLSX.utils.book_append_sheet(wb, ws, 'Sheet1');
+    XLSX.writeFile(wb, `${filename}.xlsx`);
   }
 }

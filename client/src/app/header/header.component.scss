@@ -31,8 +31,27 @@ mat-toolbar {
   mat-expansion-panel {
     flex: 1;
   }
+  :host {
+    display: block;
+    padding-top: 10vh; /* כדי למנוע חפיפה עם ההידר */
+    // padding-bottom: 12vh;
+    padding-bottom: 0vh;
+  }
+  /* עיצוב עבור תוכן הדף כאשר יש גלילה */
+  :host.scrolled {
+    padding-top: 12vh; /* כדי להציג את ההידר כאשר הוא קבוע במעלה */
+  }
   
   
+  
+  .mat-toolbar {
+    height: 10vh;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000; /* כדי שההידר יהיה מעל כל שאר האלמנטים */
+    
+  }
   
   
   

@@ -3,6 +3,7 @@
 .search-field {
     width: 100%;
     margin-bottom: 20px;
+    
   }
   
   .employee-list {
@@ -53,10 +54,16 @@
 }
 .mat-icon:hover {
   cursor: pointer;
-  transform: scale(1.1);
+  transform: scale(1.2);
   transition: transform 0.2s ease-in-out;
 }
 
+mat-icon[click] {
+  cursor: pointer;
+}
+.clickable-icon {
+  cursor: pointer !important;
+}
 
 
 
@@ -100,22 +107,11 @@ select.form-select option {
 
 
 
-// .pagination-link {
-//   background-color: #e5b813 !important; /* צבע הרקע */
-//   border-color: #e5b813 !important; /* צבע הגבול */
-//   color: black !important; /* צבע הטקסט */
-// }
-
-// .pagination-link.active {
-//   background-color: #e5b813 !important; /* צבע הרקע כאשר העמוד פעיל */
-//   color: black !important; /* צבע הטקסט כאשר העמוד פעיל */
-// }
-
-// .pagination-link:hover {
-//   background-color: #e5b813 !important; /* צבע הרקע בעת מעבר עכבר */
-//   color: black !important; /* צבע הטקסט בעת מעבר עכבר */
-// }
-/* קבע את צבע הרקע והצבעים של העמודה */
+.colorBack{
+background-color: rgb(245, 244, 244);
+margin-top: 10px;
+margin-bottom: 20px;
+}
 ::ng-deep .page-link {
   background-color: #e5b813;
   border-color: #e5b813;

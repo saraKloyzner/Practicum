@@ -1,38 +1,18 @@
 <!-- 
 
-  <p>
-    <mat-toolbar class="color">
-      <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
-        <mat-icon>menu</mat-icon>
-      </button>
-      <span>Management</span>
-      <span class="example-spacer"></span>
-  
-      <button mat-raised-button id="color" (click)="exportDataToExcel()">
-       <mat-icon>file_download</mat-icon>
-        Export to Excel
-      </button>
-    </mat-toolbar>
-  </p>
-   -->
-
-   <p>
     <mat-toolbar class="color">
       <button mat-icon-button class="example-icon" aria-label="Menu">
-        <mat-icon>menu</mat-icon>
+        <mat-icon matToolTip="menu">menu</mat-icon>
       </button>
       <span>Management</span>
       <span class="example-spacer"></span>
   
      
   
-      <!-- קישורים עם אייקונים שמסבירים לאן ניתן לנווט -->
       <a mat-icon-button (click)="addEmployee()" aria-label="Add Employee">
         <mat-icon>person_add</mat-icon>
       </a>
-      <!-- <a mat-icon-button (click)="editEmployee()" aria-label="Edit Employee">
-        <mat-icon>edit</mat-icon>
-      </a> -->
+     
       <a mat-icon-button (click)="allEmployees()" aria-label="Employees List">
         <mat-icon>list</mat-icon>
       </a>
@@ -41,6 +21,30 @@
         Export to Excel
       </button>
     </mat-toolbar>
-  </p>
+
   
+   -->
+
+   <mat-toolbar class="color">
+    <button mat-icon-button class="example-icon" aria-label="Menu" matTooltip="Menu">
+      <mat-icon>menu</mat-icon>
+    </button>
+    <span>Management</span>
+    <span class="example-spacer"></span>
+  
+    <!-- אייקונים שמסבירים לאן ניתן לנווט -->
+    <a mat-icon-button (click)="addEmployee()" aria-label="Add Employee" matTooltip="Add Employee">
+      <mat-icon>person_add</mat-icon>
+    </a>
+    <!-- <a mat-icon-button (click)="editEmployee()" aria-label="Edit Employee" matTooltip="Edit Employee">
+      <mat-icon>edit</mat-icon>
+    </a> -->
+    <a mat-icon-button (click)="allEmployees()" aria-label="Employees List" matTooltip="Employees List">
+      <mat-icon>list</mat-icon>
+    </a>
+    <button mat-raised-button id="color" (click)="exportDataToExcel()" matTooltip="Export to Excel all the Employees">
+      <mat-icon>file_download</mat-icon>
+      Export to Excel
+    </button>
+  </mat-toolbar>
   

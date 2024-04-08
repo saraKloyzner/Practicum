@@ -20,6 +20,7 @@ import { EmployeePosition } from '../models/employee-position.module';
 import { PositionService } from '../../position.service';
 import { ValidatorFn } from '@angular/forms';
 import { MatDatepicker } from '@angular/material/datepicker';
+import { MatTooltipModule } from '@angular/material/tooltip';
 import {
   MatSnackBar,
   MatSnackBarHorizontalPosition,
@@ -28,6 +29,62 @@ import {
 import { Router } from '@angular/router';
 
 
+export class MyValidator {
+  private birthDate!:Date
+  private startOfWorkDate!:Date;
+  private dateOfStartingWork!:Date;
+  public dateOfBirthVaidator(): ValidatorFn {
+    return (control: AbstractControl): ValidationErrors | null => {
+       this.birthDate = control.value;
+      const today: Date = new Date();
+      const minAgeDate: Date = new Date(today.getFullYear() - 16, today.getMonth(), today.getDate());
+
+      if (this.birthDate > today) {
+        return { 'worngBirthDate': true };
+      } else if (this.birthDate > minAgeDate) {
+        return { 'tooYoung': true };
+      }
+
+      return null;
+    };
+  }
+  public startOfWorkValidator(): ValidatorFn {
+    return (control: AbstractControl): ValidationErrors | null => {
+       this.startOfWorkDate = control.value;
+      if (!this.birthDate || !this.startOfWorkDate) {
+        console.log("null")
+        return (null);
+      }
+      if (this.birthDate > this.startOfWorkDate)
+        return({ 'tooEarlyToWork': true });
+      const minAgeDate: Date = new Date(this.birthDate.getFullYear() + 16, this.birthDate.getMonth(), this.birthDate.getDate());
+
+      if (this.startOfWorkDate < minAgeDate) {
+        console.log("startOfWorkDate", this.startOfWorkDate, "minAgeDate", minAgeDate)
+        return({ 'lessThan16Age': true });
+      } else {
+        return(null);
+
+      }
+    }
+  }
+
+   dateOfStartPosition(): ValidatorFn{
+    return (control: AbstractControl): ValidationErrors | null => {
+      this.dateOfStartingWork = control.value;
+      if (!this.startOfWorkDate) {
+        return null;
+      }
+      if (this.dateOfStartingWork < this.startOfWorkDate) {
+        return { 'beforStartTheWork': true };
+      } else {
+        return null;
+      }
+    };
+  }
+  
+  
+}
 
 
 
@@ -46,7 +103,7 @@ import { Router } from '@angular/router';
     CommonModule,
     MatCardModule, FormsModule,
     ReactiveFormsModule,
-    MatDatepicker
+    MatDatepicker,MatTooltipModule
   ],
   templateUrl: './edit-employee.component.html',
   styleUrl: './edit-employee.component.scss'
@@ -67,6 +124,7 @@ export class EditEmployeeComponent implements OnInit {
   editPositionForm!: FormGroup;
   position: number = 0;
 
+
   constructor(
     private router: Router,
     private _employeeService: EmployeeService,
@@ -74,11 +132,12 @@ export class EditEmployeeComponent implements OnInit {
     private _positionService: PositionService,
     private _snackBar: MatSnackBar,
     private fb: FormBuilder,) { }
-  ngOnInit(): void {
-    this.route.params.subscribe(params => {
-      this.identity = +params['identity'];
-      console.log(this.identity);
-    });
+    ngOnInit(): void {
+      this.route.params.subscribe(params => {
+        this.identity = params['identity'] as number;
+        console.log(this.identity);
+      });
+  
     this.returnAllPositions()
     this.loadEmployee();
 
@@ -105,81 +164,84 @@ export class EditEmployeeComponent implements OnInit {
     }
     return null;
   }
-  private minAgeValidator: ValidatorFn = (control: AbstractControl): Promise<ValidationErrors | null> => {
-    return new Promise((resolve) => {
-    debugger;
-      this.birthDate = control.value;
-      const today: Date = new Date();
-      const minAgeDate: Date = new Date(today.getFullYear() - 16, today.getMonth(), today.getDate());
+  onDateOfBirthChange(): void {
+    this.editForm.get('dateOfBirth')?.updateValueAndValidity();
+  }
 
-      if (this.birthDate > today) {
-        return resolve({ 'wrongBirthDate': true })
-      }
-      else if (this.birthDate > minAgeDate) {
-       return resolve({ 'tooYoung': true });
-
-      }
-      else resolve(null)
-    });
-  };
-
-
-  private startOfWorkValidator: ValidatorFn = (control: AbstractControl): Promise<ValidationErrors | null> => {
-
-    return new Promise((resolve) => {
-      this.startOfWorkDate = control.value;
-      if (!this.birthDate || !this.startOfWorkDate) {
-        console.log("null")
-        resolve(null);
-      }
-      if (this.birthDate > this.startOfWorkDate)
-        resolve({ 'tooEarlyToWork': true });
-
-      const minAgeDate: Date = new Date(this.birthDate.getFullYear() + 16, this.birthDate.getMonth(), this.birthDate.getDate());
-      console.log("minAgeDate", minAgeDate)
-      if (this.startOfWorkDate < minAgeDate) {
-        console.log("startOfWorkDate", this.startOfWorkDate, "minAgeDate", minAgeDate)
-        resolve({ 'lessThan16Age': true });
-      } else {
-        resolve(null);
-
-      }
-    });
-  };
-
-
- 
   initForm(): void {
+    const myValidator = new MyValidator();
     this.editForm = this.fb.group({
       identity: [this.employee.identity, [Validators.required, this.validateIdentity]],
       firstName: [this.employee.firstName, [Validators.required, Validators.minLength(3)]],
       lastName: [this.employee.lastName, [Validators.required, Validators.minLength(3)]],
-      dateOfBirth: [new Date(this.employee.dateOfBirth), [Validators.required, this.minAgeValidator]],
-      startOfWorkDate: [new Date(this.employee.startOfWorkDate), [Validators.required, this.startOfWorkValidator]],
+      dateOfBirth: [new Date(this.employee.dateOfBirth), [Validators.required,  myValidator.dateOfBirthVaidator()]],
+      startOfWorkDate: [new Date(this.employee.startOfWorkDate), [Validators.required, myValidator.startOfWorkValidator()]],
       //dateOfBirth: [new Date(this.employee.dateOfBirth), [Validators.required]],
       //startOfWorkDate: [new Date(this.employee.startOfWorkDate), [Validators.required]],
-     
+
       maleOrFemale: [this.employee.maleOrFemale.toString(), Validators.required],
       employeePositions: this.fb.array([]) // Initialize form array for employee positions
     });
-console.log("editForm",this.editForm)
+    console.log("editForm", this.editForm)
     // Populate the positions form array with the employee's positions
     this.employee.employeePositions.forEach(position => {
       console.log("positionDatails", position)
       this.addPosition(position);
     });
+    // this.editForm.get('dateOfBirth')?.updateValueAndValidity();
+    const dateOfBirthControl = this.editForm.get('dateOfBirth');
+    if (dateOfBirthControl) {
+      dateOfBirthControl.valueChanges.subscribe(() => {
+        this.editForm.get('startOfWorkDate')?.updateValueAndValidity(); // Trigger re-validation
+      });
+    }
+    // this.editForm.get('startOfWorkDate')?.valueChanges.subscribe(() => {
+
+    //   const employeePositionsArray = this.editForm.get('employeePositions') as FormArray;
+    //   employeePositionsArray.controls.forEach(control => {
+    //     control.get('dateOfStartingWork')?.updateValueAndValidity();
+    //   });
+    // });
   }
+  isAddPositionDisabled(): boolean {
+    if (this.allPositions.length === 0)
+      return true;
+    else {
+      console.log(this.allPositions)
+      return this.employeePositionsFormArray.length >= this.allPositions.length;
+    }
+  }
+  isAtLeastOnePositionRequired(): boolean {
+    return this.employeePositionsFormArray.length ===1;
+  }
+
   editAddPosition(): void {
+    // const valid=new MyValidator()
     const positionGroup = this.fb.group({
       positionId: ['', Validators.required], // שורה 57: הוספת Validators.required
       managerialPosition: ['', Validators.required],
-      dateOfStartingWork: ['', Validators.required, this.dateOfStartPosition]
+      //dateOfStartingWork: ['', Validators.required, valid.dateOfStartPosition()]
+      dateOfStartingWork: ['', Validators.required]
     });
     this.employeePositionsFormArray.push(positionGroup);
   }
-  private dateOfStartPosition: ValidatorFn = (control: AbstractControl): Promise<ValidationErrors | null> => {
 
-    return new Promise((resolve) => {
+
+  addPosition(position: EmployeePosition): void {
+    // const valid=new MyValidator()
+    console.log("position", position)
+    this.employeePositionsFormArray.push(this.fb.group({
+      positionId: [position.positionId, Validators.required],
+      managerialPosition: [position ? position.managerialPosition : '', Validators.required],
+      //dateOfStartingWork: [position ? new Date(position.dateOfStartingWork) : '', Validators.required, valid.dateOfStartPosition()]
+      dateOfStartingWork: [position ? new Date(position.dateOfStartingWork) : '', Validators.required]
+
+    }));
+  }
+  dateOfStartPosition(): ValidatorFn {
+    return (control:AbstractControl) : ValidationErrors | null => {
+
+  
 
       //  this.birthDate = control.get('dateOfBirth')?.value;
       const dateOfStartingWork: Date = control.value;
@@ -187,32 +249,23 @@ console.log("editForm",this.editForm)
       console.log("startOfWorkDate", this.startOfWorkDate)
       if (!this.startOfWorkDate) {
         console.log("null")
-        resolve(null);
+        return(null);
       }
       if (dateOfStartingWork < this.startOfWorkDate) {
         console.log("dateOfStartingWork < this.startOfWorkDate", dateOfStartingWork < this.startOfWorkDate)
-        resolve({ 'beforStartTheWork': true });
+        return({ 'beforStartTheWork': true });
       }
-      else resolve(null);
-    });
-  };
-  addPosition(position: EmployeePosition): void {
-    console.log("position", position)
-    this.employeePositionsFormArray.push(this.fb.group({
-      positionId: [position.positionId, Validators.required],
-      managerialPosition: [position ? position.managerialPosition : '', Validators.required],
-      dateOfStartingWork: [position ? new Date(position.dateOfStartingWork) : '', Validators.required]
+      else return(null);
     
-    }));
   }
+}
   getNameOfPosition(positionId: number): any {
-    console.log("positionId",positionId)
+    console.log("positionId", positionId)
     for (let po of this.allPositions)
-      if (po.id === positionId)
-      {
-        console.log("po.Name",po.name)
+      if (po.id === positionId) {
+        console.log("po.Name", po.name)
         return po.name
-        
+
       }
     console.log("error")
   }
@@ -246,7 +299,7 @@ console.log("editForm",this.editForm)
     console.log("positions", this.positions)
     return this.positions;
   }
- 
+
   filteredPositions(index: number): Position[] {
     if (!this.employeePositionsFormArray || !this.allPositions) {
       return [];
@@ -256,8 +309,9 @@ console.log("editForm",this.editForm)
       .map(positionGroup => positionGroup.get('positionId')?.value);
     return this.allPositions.filter(position => !selectedposition.includes(position.id));
   }
+  
   onSubmit(): void {
-   
+
     // Gather edited positions data
     const editedEmployee: Employee = {
       identity: this.editForm.value.identity,

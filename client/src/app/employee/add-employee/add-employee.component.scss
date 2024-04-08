@@ -2,7 +2,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+   
   }
   
   .form-wrapper {
@@ -22,10 +22,25 @@
     margin-top: 16px;
   }
   .color{
+    background-color: black;
+    color:  white;
+  }
+  .color1{
     background-color: #e5b813;
   }
   mat-expansion-panel {
     box-sizing: border-box;
     overflow: hidden;
   }
+  .width{
+    width: 100%;
+  }
+ 
+  // ::ng-deep .mat-radio-button.mat-primary .mat-radio-outer-circle {
+  //   background-color: #e5b813;
+  // }
+  
+  // ::ng-deep .mat-radio-button.mat-primary.mat-checked .mat-radio-inner-circle {
+  //   background-color: #e5b813; 
+  // }
   

@@ -7,10 +7,11 @@ import { EmployeeService } from '../employee/employee.service';
 import * as XLSX from 'xlsx';
 import { EmployeeDto } from '../employee/models/employee-Dto';
 import { Router } from '@angular/router';
+import { MatTooltipModule } from '@angular/material/tooltip';
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [MatToolbarModule,MatButtonModule,MatIconModule],
+  imports: [MatToolbarModule,MatButtonModule,MatIconModule,MatTooltipModule],
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss'
 })
