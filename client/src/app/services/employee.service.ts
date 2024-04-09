@@ -1,8 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { EmployeeDto } from './models/employee-Dto';
+import { EmployeeDto } from '../models/employee-Dto';
 import { Observable, identity } from 'rxjs';
-import { Employee } from './models/all-employee-details.module';
+import { Employee } from '../models/all-employee-details.module';
 @Injectable({
   providedIn: 'root'
 })

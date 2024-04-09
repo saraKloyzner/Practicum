@@ -1,0 +1,17 @@
+<!-- 
+<form (ngSubmit)="addPosition()">
+    <mat-form-field>
+      <input matInput placeholder="Position Name" [(ngModel)]="newPositionName" name="positionName" required>
+    </mat-form-field>
+    
+    <button mat-raised-button color="primary" type="submit">Add Position</button>
+  </form> -->
+
+  <form [formGroup]="AddPositionForm" (ngSubmit)="onSubmit()">
+    <mat-form-field>
+      <mat-label>Position Name</mat-label>
+      <input matInput formControlName="positionName">
+    </mat-form-field>
+  
+    <button mat-raised-button color="primary" type="submit">Submit</button>
+  </form>

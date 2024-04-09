@@ -32,8 +32,8 @@ namespace Practicum.Data
 
             // Seed initial data
             modelBuilder.Entity<User>().HasData(
-                new User { Id = 1, Name = "David", Password = "123456" },
-                new User { Id = 2, Name = "Samuel", Password = "654321" }
+                new User { Id = 1, Name = "admin", Password = "123456" },
+                new User { Id = 2, Name = "user", Password = "654321" }
             );
 
             modelBuilder.Entity<Position>().HasData(

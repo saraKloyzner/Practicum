@@ -35,6 +35,7 @@ namespace Practicum.API.Controllers
 
         // POST api/<PositinsController>
         [HttpPost]
+        [Authorize]
         public async Task<ActionResult> Post([FromBody] PositionPostModel name)
         {
             var position = await _position.AddAsync(_mapper.Map<Position>(name));

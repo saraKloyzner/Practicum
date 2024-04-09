@@ -50,3 +50,20 @@ E:\practicum\server\Practicum.Data\obj\Debug\net6.0\refint\Practicum.Data.dll
 E:\practicum\server\Practicum.Data\obj\Debug\net6.0\Practicum.Data.pdb
 E:\practicum\server\Practicum.Data\obj\Debug\net6.0\Practicum.Data.genruntimeconfig.cache
 E:\practicum\server\Practicum.Data\obj\Debug\net6.0\ref\Practicum.Data.dll
+Y:\Groups\Group_3\קלויזנר  שרה לאה\פרקטיקום\git\Practicum\server\Practicum.Data\bin\Debug\net6.0\Practicum.Data.deps.json
+Y:\Groups\Group_3\קלויזנר  שרה לאה\פרקטיקום\git\Practicum\server\Practicum.Data\bin\Debug\net6.0\Practicum.Data.runtimeconfig.json
+Y:\Groups\Group_3\קלויזנר  שרה לאה\פרקטיקום\git\Practicum\server\Practicum.Data\bin\Debug\net6.0\Practicum.Data.dll
+Y:\Groups\Group_3\קלויזנר  שרה לאה\פרקטיקום\git\Practicum\server\Practicum.Data\bin\Debug\net6.0\Practicum.Data.pdb
+Y:\Groups\Group_3\קלויזנר  שרה לאה\פרקטיקום\git\Practicum\server\Practicum.Data\bin\Debug\net6.0\Practicum.Core.dll
+Y:\Groups\Group_3\קלויזנר  שרה לאה\פרקטיקום\git\Practicum\server\Practicum.Data\bin\Debug\net6.0\Practicum.Core.pdb
+Y:\Groups\Group_3\קלויזנר  שרה לאה\פרקטיקום\git\Practicum\server\Practicum.Data\obj\Debug\net6.0\Practicum.Data.csproj.AssemblyReference.cache
+Y:\Groups\Group_3\קלויזנר  שרה לאה\פרקטיקום\git\Practicum\server\Practicum.Data\obj\Debug\net6.0\Practicum.Data.GeneratedMSBuildEditorConfig.editorconfig
+Y:\Groups\Group_3\קלויזנר  שרה לאה\פרקטיקום\git\Practicum\server\Practicum.Data\obj\Debug\net6.0\Practicum.Data.AssemblyInfoInputs.cache
+Y:\Groups\Group_3\קלויזנר  שרה לאה\פרקטיקום\git\Practicum\server\Practicum.Data\obj\Debug\net6.0\Practicum.Data.AssemblyInfo.cs
+Y:\Groups\Group_3\קלויזנר  שרה לאה\פרקטיקום\git\Practicum\server\Practicum.Data\obj\Debug\net6.0\Practicum.Data.csproj.CoreCompileInputs.cache
+Y:\Groups\Group_3\קלויזנר  שרה לאה\פרקטיקום\git\Practicum\server\Practicum.Data\obj\Debug\net6.0\Practicum.Data.csproj.CopyComplete
+Y:\Groups\Group_3\קלויזנר  שרה לאה\פרקטיקום\git\Practicum\server\Practicum.Data\obj\Debug\net6.0\Practicum.Data.dll
+Y:\Groups\Group_3\קלויזנר  שרה לאה\פרקטיקום\git\Practicum\server\Practicum.Data\obj\Debug\net6.0\refint\Practicum.Data.dll
+Y:\Groups\Group_3\קלויזנר  שרה לאה\פרקטיקום\git\Practicum\server\Practicum.Data\obj\Debug\net6.0\Practicum.Data.pdb
+Y:\Groups\Group_3\קלויזנר  שרה לאה\פרקטיקום\git\Practicum\server\Practicum.Data\obj\Debug\net6.0\Practicum.Data.genruntimeconfig.cache
+Y:\Groups\Group_3\קלויזנר  שרה לאה\פרקטיקום\git\Practicum\server\Practicum.Data\obj\Debug\net6.0\ref\Practicum.Data.dll
