@@ -1,5 +1,5 @@
 
-![Employee-List](https://github.com/saraKloyzner/Practicum/assets/148892103/1a44beeb-c6af-4f6f-95d4-61442dd9973f)
+
 
 # Employee Management Application
 
