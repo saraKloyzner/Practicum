@@ -12,7 +12,7 @@ using Practicum.Data;
 namespace Practicum.Data.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20240408233211_creatDB")]
+    [Migration("20240409170505_creatDB")]
     partial class creatDB
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -283,13 +283,13 @@ namespace Practicum.Data.Migrations
                         new
                         {
                             Id = 1,
-                            Name = "David",
+                            Name = "admin",
                             Password = "123456"
                         },
                         new
                         {
                             Id = 2,
-                            Name = "Samuel",
+                            Name = "user",
                             Password = "654321"
                         });
                 });

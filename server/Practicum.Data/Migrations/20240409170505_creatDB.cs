@@ -110,8 +110,8 @@ namespace Practicum.Data.Migrations
                 columns: new[] { "Id", "Name", "Password" },
                 values: new object[,]
                 {
-                    { 1, "David", "123456" },
-                    { 2, "Samuel", "654321" }
+                    { 1, "admin", "123456" },
+                    { 2, "user", "654321" }
                 });
 
             migrationBuilder.InsertData(

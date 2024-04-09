@@ -1,1 +1,38 @@
-<p>login works!</p>
+<!-- 
+
+ <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+    <mat-form-field>
+      <mat-label>Enter your password</mat-label>
+      <input matInput formControlName="password" required [type]="hide ? 'password' : 'text'">
+      <button mat-icon-button matSuffix (click)="togglePasswordVisibility()" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+        <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+      </button>
+    </mat-form-field>
+  
+    <mat-form-field>
+      <mat-label>User name</mat-label>
+      <input matInput formControlName="userName" required>
+    </mat-form-field>
+  
+    <button mat-raised-button color="primary" type="submit">Submit</button>
+  </form> -->
+  <mat-card>
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+      <mat-form-field>
+        <mat-label>User name</mat-label>
+        <input matInput formControlName="userName" required>
+      </mat-form-field>
+  
+      <mat-form-field>
+        <mat-label>Enter your password</mat-label>
+        <input matInput formControlName="password" required [type]="hide ? 'password' : 'text'">
+        <button mat-icon-button matSuffix (click)="togglePasswordVisibility()" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+          <mat-icon class="black">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+        </button>
+      </mat-form-field>
+  
+      <button mat-raised-button color="primary" type="submit">Login</button>
+    </form>
+  </mat-card>
+  
+  

@@ -3,9 +3,9 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatButtonModule} from '@angular/material/button';
 import {MatToolbarModule} from '@angular/material/toolbar';
 
-import { EmployeeService } from '../employee/employee.service';
+import { EmployeeService } from '../services/employee.service';
 import * as XLSX from 'xlsx';
-import { EmployeeDto } from '../employee/models/employee-Dto';
+import { EmployeeDto } from '../models/employee-Dto';
 import { Router } from '@angular/router';
 import { MatTooltipModule } from '@angular/material/tooltip';
 @Component({

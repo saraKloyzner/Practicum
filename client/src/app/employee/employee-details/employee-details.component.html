@@ -1,24 +1,7 @@
 
   
 
-  <div class="d-flex justify-content-between p-2 colorBack" >
-	
-	<button mat-raised-button class="color" (click)="exportDataToExcel()" matTooltip="Export to Excel filtered employees">
-		<mat-icon>file_download</mat-icon>
-		Export to Excel
-	  </button>
-	  <button mat-raised-button class="color " [disabled]="!canAddEmployee" (click)="addEmployee()" matTooltip="Add employee">
-		<mat-icon>group_add</mat-icon>
-		Add Employee
-	  </button>
-	  <ngb-pagination [collectionSize]="collectionSize" [(page)]="page" [pageSize]="pageSize">
-	</ngb-pagination>
-	<select class="form-select" style="width: auto" [(ngModel)]="pageSize">
-	  <option [ngValue]="8">8 items per page</option>
-	  <option [ngValue]="15">15 items per page</option>
-	  <option [ngValue]="20">20 items per page</option>
-	</select>
-  </div>
+
 
   <div class="example-container">
 	<div class="input-icon-container">
@@ -55,6 +38,22 @@
   </table>
   
 
-  
-
-  
+ 
+  <div class="d-flex justify-content-between p-2 colorBack" >
+	
+	<button mat-raised-button class="color" (click)="exportDataToExcel()" matTooltip="Export to Excel filtered employees">
+		<mat-icon>file_download</mat-icon>
+		Export to Excel
+	  </button>
+	  <button mat-raised-button class="color " [disabled]="!canAddEmployee" (click)="addEmployee()" matTooltip="Add employee">
+		<mat-icon>person_add</mat-icon>
+		Add Employee
+	  </button>
+	  <ngb-pagination [collectionSize]="collectionSize" [(page)]="page" [pageSize]="pageSize">
+	</ngb-pagination>
+	<select class="form-select" style="width: auto" [(ngModel)]="pageSize">
+	  <option [ngValue]="8">8 items per page</option>
+	  <option [ngValue]="15">15 items per page</option>
+	  <option [ngValue]="20">20 items per page</option>
+	</select>
+  </div>

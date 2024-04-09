@@ -7,11 +7,17 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CommonModule,MatInputModule, MatFormFieldModule,RouterOutlet,HeaderComponent,FooterComponent],
+  imports: [CommonModule,MatInputModule,
+     MatFormFieldModule,
+     RouterOutlet,
+     HeaderComponent,
+     FooterComponent,
+    ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })

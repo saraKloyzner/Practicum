@@ -281,13 +281,13 @@ namespace Practicum.Data.Migrations
                         new
                         {
                             Id = 1,
-                            Name = "David",
+                            Name = "admin",
                             Password = "123456"
                         },
                         new
                         {
                             Id = 2,
-                            Name = "Samuel",
+                            Name = "user",
                             Password = "654321"
                         });
                 });

@@ -1,0 +1,28 @@
+footer {
+    height: 30px; // גובה רגל העמוד
+    background-color: #333; // צבע רקע של רגל העמוד
+    color: #ccc; // צבע טקסט ברגל העמוד
+    text-align: center; // יישור הטקסט למרכז
+    width: 100%; // רגל העמוד תימפר על כל הרוחב של העמוד
+    position: fixed; // הפיקוד הוסר מהמסמך
+    bottom: 0; // הרגל שוקע לתחתית העמוד
+    left: 0; // הרגל מתחיל מהשמאל
+    font-size: 10px; // גודל הטקסט ברגל העמוד
+    z-index: 100;
+    // position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+  
+  
+    p {
+      line-height: 30px; // יישור אנכי של הטקסט ברגל העמוד
+      margin: 0; // מרווחים אפסיים לטקסט ברגל העמוד
+    }
+  
+    a {
+      color: #666; // צבע קישור רגל העמוד
+      text-decoration: underline; // קו תחתון לקישור
+    }
+  }
+  

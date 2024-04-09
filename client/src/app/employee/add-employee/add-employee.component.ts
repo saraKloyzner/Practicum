@@ -7,8 +7,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators, FormArray, AbstractControl, ValidationErrors } from '@angular/forms';
 import { ValidatorFn } from '@angular/forms';
-import { EmployeeService } from '../employee.service';
-import { Employee } from '../models/all-employee-details.module';
+import { EmployeeService } from '../../services/employee.service';
+import { Employee } from '../../models/all-employee-details.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
@@ -19,11 +19,11 @@ import { MatDatepicker } from '@angular/material/datepicker';
 import { MatIconModule } from '@angular/material/icon';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { provideNativeDateAdapter } from '@angular/material/core';
-import { PositionService } from '../../position.service';
-import { Position } from '../models/position';
+import { PositionService } from '../../services/position.service';
+import { Position } from '../../models/position';
 import { MatSelectModule } from '@angular/material/select';
 import { FormsModule } from '@angular/forms';
-import { EmployeePosition } from '../models/employee-position.module';
+import { EmployeePosition } from '../../models/employee-position.module';
 
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatExpansionModule } from '@angular/material/expansion';
@@ -38,7 +38,7 @@ import {
 
 import { Router } from '@angular/router';
 import { Observable, catchError, identity, map, of } from 'rxjs';
-import { EmployeeDto } from '../models/employee-Dto';
+import { EmployeeDto } from '../../models/employee-Dto';
 
 
 
