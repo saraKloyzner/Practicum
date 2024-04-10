@@ -4,7 +4,7 @@ footer {
     color: #ccc; // צבע טקסט ברגל העמוד
     text-align: center; // יישור הטקסט למרכז
     width: 100%; // רגל העמוד תימפר על כל הרוחב של העמוד
-    position: fixed; // הפיקוד הוסר מהמסמך
+    // position: fixed; // הפיקוד הוסר מהמסמך
     bottom: 0; // הרגל שוקע לתחתית העמוד
     left: 0; // הרגל מתחיל מהשמאל
     font-size: 10px; // גודל הטקסט ברגל העמוד
@@ -24,5 +24,29 @@ footer {
       color: #666; // צבע קישור רגל העמוד
       text-decoration: underline; // קו תחתון לקישור
     }
+    :host {
+      display: block;
+      padding-bottom: 15vh;
   }
+  }
+// :host {
+//   display: block;
+//   padding-bottom: 15vh; /* יצירת מרווח בתחתית העמוד */
+// }
+
+// .mat-card {
+//   height: calc(100vh - 30px); /* גובה דינמי עבור המסך, עם מיקום יחסי */
+//   display: flex;
+//   flex-direction: column;
+//   justify-content: space-between; /* יישור כלפי החלק העליון של ה-<mat-card> */
+// }
+
+// .form-container {
+//   flex-grow: 1; /* ממלא את השטח הפנוי בתוך ה-<mat-card> */
+// }
+
+// .footer {
+//   width: 100%;
+// }
+
   

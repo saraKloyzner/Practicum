@@ -26,7 +26,7 @@
    -->
 
    <mat-toolbar class="color">
-    <button mat-icon-button class="example-icon" aria-label="Add positon" matTooltip="Add position">
+    <button mat-icon-button class="example-icon" aria-label="Add positon" matTooltip="Add position" (click)="addPosition()">
      <mat-icon>assignment_ind</mat-icon>
     </button>
     <span>Management</span>
@@ -41,6 +41,12 @@
     </a> -->
     <a mat-icon-button (click)="allEmployees()" aria-label="Employees List" matTooltip="Employees List">
       <mat-icon>list</mat-icon>
+    </a>
+    <a mat-icon-button (click)="logout()" aria-label="logout" matTooltip="logout">
+      <mat-icon>logout</mat-icon>
+    </a>
+    <a mat-icon-button (click)="login()" aria-label="login" matTooltip="login">
+      <mat-icon>input</mat-icon>
     </a>
     <button mat-raised-button id="color" (click)="exportDataToExcel()" matTooltip="Export to Excel all the Employees">
       <mat-icon>file_download</mat-icon>

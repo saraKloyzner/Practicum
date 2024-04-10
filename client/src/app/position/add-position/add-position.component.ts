@@ -9,6 +9,12 @@ import { UserService } from '../../services/user.service';
 import { Router } from '@angular/router';
 import { MatCardModule } from '@angular/material/card';
 import { CommonModule } from '@angular/common';
+// import { MatSnackBar } from '@angular/material/snack-bar';
+import {
+  MatSnackBar,
+  MatSnackBarHorizontalPosition,
+  MatSnackBarVerticalPosition,
+} from '@angular/material/snack-bar';
 @Component({
   selector: 'app-add-position',
   standalone: true,
@@ -23,14 +29,19 @@ import { CommonModule } from '@angular/common';
   styleUrl: './add-position.component.scss'
 })
 export class AddPositionComponent implements OnInit {
+  durationInSeconds = 2.5;
+  horizontalPosition: MatSnackBarHorizontalPosition = 'center';
+  verticalPosition: MatSnackBarVerticalPosition = 'bottom';
   constructor(private _positionService: PositionService,
     private formBuilder: FormBuilder,
     private _userService: UserService,
-    private router: Router) { this.valid() }
+    private router: Router,
+    private _snackBar: MatSnackBar) { this.valid() }
   AddPositionForm!: FormGroup;
   ngOnInit(): void {
 
     if (localStorage.getItem('token') === null){ 
+      this.openSnackBar("Takes you to login")
       this.router.navigate(['login'])
     return;
     }
@@ -81,13 +92,25 @@ export class AddPositionComponent implements OnInit {
     this._positionService.addPosition(user).subscribe({
       next: (res) => {
         console.log("post position", res);
+        this.openSnackBar("The position was successfully added")
+        this.router.navigate(["allEmployees"])
       },
       error: (err) => {
         console.log(err);
+
       }
     })
     // Add logic to send the new position data to the backend or handle as needed
     console.log('New Position Name:', user.name);
     user.name = ''; // Clear the input field after adding
+  }
+  openSnackBar(value:string) {
+
+    this._snackBar.open(value, '', {
+      horizontalPosition: this.horizontalPosition,
+      verticalPosition: this.verticalPosition,
+      duration: this.durationInSeconds * 1000,
+
+    });
   }
 }

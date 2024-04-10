@@ -118,3 +118,24 @@ trackByEmployee(index: number, employee: EmployeeDto): string {
     XLSX.writeFile(wb, `${filename}.xlsx`);
   }
 }
+import { Directive, ElementRef, HostListener } from '@angular/core';
+
+@Directive({
+  selector: '[scrollTracker]'
+})
+export class ScrollTrackerDirective {
+  constructor(private el: ElementRef) {}
+
+  @HostListener('window:scroll', ['$event'])
+  onWindowScroll(event: any) {
+    const windowHeight = window.innerHeight;
+    const documentHeight = document.body.scrollHeight;
+    const scrollTop = window.pageYOffset;
+
+    if (windowHeight + scrollTop === documentHeight) {
+      this.el.nativeElement.style.display = 'block';
+    } else {
+      this.el.nativeElement.style.display = 'none';
+    }
+  }
+}

@@ -216,15 +216,14 @@ export class EditEmployeeComponent implements OnInit {
   }
 
   editAddPosition(): void {
-    // const valid=new MyValidator()
     const positionGroup = this.fb.group({
-      positionId: ['', Validators.required], // שורה 57: הוספת Validators.required
+      positionId: ['', Validators.required], 
       managerialPosition: ['', Validators.required],
-      //dateOfStartingWork: ['', Validators.required, valid.dateOfStartPosition()]
       dateOfStartingWork: ['', Validators.required]
     });
     this.employeePositionsFormArray.push(positionGroup);
   }
+  
 
 
   addPosition(position: EmployeePosition): void {
@@ -232,7 +231,7 @@ export class EditEmployeeComponent implements OnInit {
     console.log("position", position)
     this.employeePositionsFormArray.push(this.fb.group({
       positionId: [position.positionId, Validators.required],
-      managerialPosition: [position ? position.managerialPosition : '', Validators.required],
+      managerialPosition: [position ? position.managerialPosition : false, Validators.required],
       //dateOfStartingWork: [position ? new Date(position.dateOfStartingWork) : '', Validators.required, valid.dateOfStartPosition()]
       dateOfStartingWork: [position ? new Date(position.dateOfStartingWork) : '', Validators.required]
 

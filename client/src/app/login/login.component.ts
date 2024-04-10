@@ -9,6 +9,11 @@ import { UserModule } from '../models/user.module';
 import { UserService } from '../services/user.service';
 import { Router } from '@angular/router';
 import { MatCardModule } from '@angular/material/card';
+import {
+  MatSnackBar,
+  MatSnackBarHorizontalPosition,
+  MatSnackBarVerticalPosition,
+} from '@angular/material/snack-bar';
 @Component({
   selector: 'app-login',
   standalone: true,
@@ -26,8 +31,12 @@ export class LoginComponent {
   loginForm!: FormGroup;
   hide = true;
 
-  constructor(private formBuilder: FormBuilder, private _userService: UserService, private router: Router) { }
-
+  constructor(private formBuilder: FormBuilder,
+    private _snackBar: MatSnackBar, private _userService: UserService, private router: Router) { }
+  durationInSeconds = 2.5;
+  horizontalPosition: MatSnackBarHorizontalPosition = 'center';
+  verticalPosition: MatSnackBarVerticalPosition = 'bottom';
+ 
   ngOnInit(): void {
     this.loginForm = this.formBuilder.group({
       password: ['', Validators.required],
@@ -57,8 +66,20 @@ export class LoginComponent {
       },
       error: (err) => {
         console.log(err)
+        this.openSnackBar("Username or password is incorrect")
+        
+
       }
     })
 
+  }
+  openSnackBar(value:string) {
+
+    this._snackBar.open(value, '', {
+      horizontalPosition: this.horizontalPosition,
+      verticalPosition: this.verticalPosition,
+      duration: this.durationInSeconds * 1000,
+
+    });
   }
 }

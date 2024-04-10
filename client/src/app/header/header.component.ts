@@ -43,4 +43,13 @@ export class HeaderComponent {
   allEmployees(){
     this.router.navigate(["allEmployees"]);
   }
+  addPosition(){
+    this.router.navigate(['addPosition']);
+  }
+  login(){
+    this.router.navigate(["login"])
+  }
+  logout(){
+    this.router.navigate(['logout'])
+  }
 }

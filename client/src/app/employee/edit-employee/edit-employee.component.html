@@ -80,9 +80,10 @@
                       </mat-select>
                     </mat-form-field>
                     <mat-radio-group formControlName="managerialPosition" aria-label="Select Position Type">
-                      <mat-radio-button [value]="true" [checked]="positionGroup.value.managerialPosition === 'true'">Managerial</mat-radio-button>
-                      <mat-radio-button [value]="false" [checked]="positionGroup.value.managerialPosition === 'false'">Non-managerial</mat-radio-button>
+                      <mat-radio-button [value]="true" [checked]="positionGroup.value.managerialPosition === true">Managerial</mat-radio-button>
+                      <mat-radio-button [value]="false" [checked]="positionGroup.value.managerialPosition === false">Non-managerial</mat-radio-button>
                     </mat-radio-group>
+                    
                     <mat-form-field appearance="fill">
                       <mat-label>Start Date of Work in Position</mat-label>
                       <input matInput [matDatepicker]="pickerPositionDate" formControlName="dateOfStartingWork" required [value]="positionGroup.value.dateOfStartingWork">
@@ -97,7 +98,7 @@
                 </mat-expansion-panel>
               </div>
             </div>
-            <button mat-raised-button class="color1 width" (click)="editAddPosition()" [disabled]="isAddPositionDisabled()">Add Position</button>
+            <button mat-raised-button class="color1 width" type="button" (click)="editAddPosition()" [disabled]="isAddPositionDisabled()">Add Position</button>
           </mat-expansion-panel>
           <button mat-raised-button class="color width" type="submit" [disabled]="editForm.invalid">Save</button>
         </form>
