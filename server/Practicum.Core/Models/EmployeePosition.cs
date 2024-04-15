@@ -11,7 +11,7 @@ namespace Practicum.Core.Models
 
         public int PositionId { get; set; }
         public int EmployeeId { get; set; }
-        public bool ManagerialPosition { get; set; }//ניהולי?
+        public bool ManagerialPosition { get; set; }
         public DateTime DateOfStartingWork { get; set; }
     }
 }

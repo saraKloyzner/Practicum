@@ -38,6 +38,11 @@ namespace Practicum.API.Controllers
         [Authorize]
         public async Task<ActionResult> Post([FromBody] PositionPostModel name)
         {
+            if(name==null||string.IsNullOrEmpty(name.Name))
+                return BadRequest(new
+                {
+                    error = "Invalid data",
+                });
             var position = await _position.AddAsync(_mapper.Map<Position>(name));
             return Ok(_mapper.Map<PositionDto>(position));
         }

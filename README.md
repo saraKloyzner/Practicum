@@ -1,7 +1,6 @@
-
-
-
 # Employee Management Application
+
+![Employee-List](https://github.com/saraKloyzner/Practicum/assets/148892103/75ab7584-8fdb-45eb-adb8-6a02dedb5882)
 
 This project is an Employee Management Application consisting of a server written in .NET and a client written in Angular 17. The server connects to a database to store and retrieve data.
 

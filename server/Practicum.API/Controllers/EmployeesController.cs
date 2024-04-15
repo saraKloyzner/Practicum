@@ -49,27 +49,40 @@ namespace Practicum.API.Controllers
 
         // POST api/<EmployeeController>
         [HttpPost]
-        //[Authorize]
         public async Task<ActionResult> Post([FromBody] EmployeePostModel employee)
         {
-            //if (!ModelState.IsValid)
-            //{
-            //    return BadRequest(new { errors = ModelState.Values.SelectMany(v => v.Errors.Select(e => e.ErrorMessage)) });
-            //}
-            var newEmployee=await _employeeService.AddAsync(_mapper.Map<Employee>(employee));
+
+            var validator = new EmployeePostModelValidator();
+            if (!validator.Validate(employee))
+            {
+                return BadRequest(new
+                {
+                    error = "Invalid data",
+                    details = "Some fields are missing or have invalid values"
+                });
+            }
+            var newEmployee = await _employeeService.AddAsync(_mapper.Map<Employee>(employee));
             return Ok(_mapper.Map<EmployeeDto>(newEmployee));
-          
+
         }
 
         // PUT api/<EmployeeController>/5
         [HttpPut("{identity}")]
-        //[Authorize]
         public async Task<ActionResult> Put(string identity, [FromBody] EmployeePostModel employee)
         {
             var putEmployee = await _employeeService.GetByIdAsync(identity);
             if (putEmployee is null)
             {
                 return NotFound();
+            }
+            var validator = new EmployeePostModelValidator();
+            if (!validator.Validate(employee))
+            {
+                return BadRequest(new
+                {
+                    error = "Invalid data",
+                    details = "Some fields are missing or have invalid values"
+                });
             }
             _mapper.Map(employee, putEmployee);
             await _employeeService.UpdateAsync(putEmployee);
@@ -92,5 +105,34 @@ namespace Practicum.API.Controllers
             await _employeeService.DeleteAsync(identity);
             return NoContent();
         }
+        public class EmployeePostModelValidator
+        {
+            public bool Validate(EmployeePostModel employee)
+            {
+                if (employee == null ||
+                    string.IsNullOrEmpty(employee.Identity) ||
+                    string.IsNullOrEmpty(employee.FirstName) ||
+                    string.IsNullOrEmpty(employee.LastName) ||
+                    employee.StartOfWorkDate == default(DateTime) ||
+                    employee.DateOfBirth == default(DateTime) ||
+                    employee.EmployeePositions == null)
+                {
+                    return false;
+                }
+
+                foreach (var position in employee.EmployeePositions)
+                {
+                    if (position == null ||
+                        position.PositionId <= 0 ||
+                        position.DateOfStartingWork == default(DateTime))
+                    {
+                        return false;
+                    }
+                }
+
+                return true;
+            }
+        }
+
     }
 }

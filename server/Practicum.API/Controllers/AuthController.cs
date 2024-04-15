@@ -50,33 +50,7 @@ namespace Practicum.API.Controllers
             }
             return Unauthorized();
         }
-        //[HttpGet("verifyToken")]
-        //public IActionResult VerifyToken()
-        //{
-        //    var tokenString = HttpContext.Request.Headers["Authorization"].ToString().Split(" ")[1]; // Assuming the token is sent in the "Authorization" header
-        //    var tokenHandler = new JwtSecurityTokenHandler();
-        //    var key = Encoding.UTF8.GetBytes(_configuration.GetValue<string>("JWT:Key"));
-        //    var tokenValidationParameters = new TokenValidationParameters
-        //    {
-        //        ValidateIssuerSigningKey = true,
-        //        IssuerSigningKey = new SymmetricSecurityKey(key),
-        //        ValidateIssuer = true,
-        //        ValidIssuer = _configuration.GetValue<string>("JWT:Issuer"),
-        //        ValidateAudience = true,
-        //        ValidAudience = _configuration.GetValue<string>("JWT:Audience"),
-        //        ValidateLifetime = true
-        //    };
-
-        //    try
-        //    {
-        //        tokenHandler.ValidateToken(tokenString, tokenValidationParameters, out SecurityToken validatedToken);
-        //        return Ok(true); // Respond with true indicating the token is valid
-        //    }
-        //    catch
-        //    {
-        //        return Ok(false); // Respond with false indicating the token is invalid
-        //    }
-        //}
+       
         [HttpGet("verifyToken")]
         public IActionResult VerifyToken()
         {

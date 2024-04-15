@@ -3,12 +3,67 @@
   "WorkspaceRootPath": "E:\\practicum\\server\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|E:\\practicum\\server\\Practicum.Data\\Migrations\\20240409170505_creatDB.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Practicum.Data\\Migrations\\20240409170505_creatDB.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{E178FB55-E7A5-408C-945D-3FB2CA8A5519}|Practicum.API\\Practicum.API.csproj|e:\\practicum\\server\\practicum.api\\controllers\\positionscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E178FB55-E7A5-408C-945D-3FB2CA8A5519}|Practicum.API\\Practicum.API.csproj|solutionrelative:practicum.api\\controllers\\positionscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E178FB55-E7A5-408C-945D-3FB2CA8A5519}|Practicum.API\\Practicum.API.csproj|e:\\practicum\\server\\practicum.api\\controllers\\employeescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E178FB55-E7A5-408C-945D-3FB2CA8A5519}|Practicum.API\\Practicum.API.csproj|solutionrelative:practicum.api\\controllers\\employeescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0A715B52-E588-4A3A-9AB3-AC1A3460204F}|Practicum.Service\\Practicum.Service.csproj|e:\\practicum\\server\\practicum.service\\services\\employeeservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0A715B52-E588-4A3A-9AB3-AC1A3460204F}|Practicum.Service\\Practicum.Service.csproj|solutionrelative:practicum.service\\services\\employeeservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E178FB55-E7A5-408C-945D-3FB2CA8A5519}|Practicum.API\\Practicum.API.csproj|e:\\practicum\\server\\practicum.api\\models\\employeepositionpostmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E178FB55-E7A5-408C-945D-3FB2CA8A5519}|Practicum.API\\Practicum.API.csproj|solutionrelative:practicum.api\\models\\employeepositionpostmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BC1FD1BC-4320-4BD7-9054-CD8884F4D036}|Practicum.Core\\Practicum.Core.csproj|e:\\practicum\\server\\practicum.core\\repositories\\iemployeerepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BC1FD1BC-4320-4BD7-9054-CD8884F4D036}|Practicum.Core\\Practicum.Core.csproj|solutionrelative:practicum.core\\repositories\\iemployeerepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{CC41A672-ED8F-4814-AD18-8FA67CC48765}|Practicum.Data\\Practicum.Data.csproj|e:\\practicum\\server\\practicum.data\\datacontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{CC41A672-ED8F-4814-AD18-8FA67CC48765}|Practicum.Data\\Practicum.Data.csproj|solutionrelative:practicum.data\\datacontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CC41A672-ED8F-4814-AD18-8FA67CC48765}|Practicum.Data\\Practicum.Data.csproj|e:\\practicum\\server\\practicum.data\\repositories\\positionrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CC41A672-ED8F-4814-AD18-8FA67CC48765}|Practicum.Data\\Practicum.Data.csproj|solutionrelative:practicum.data\\repositories\\positionrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CC41A672-ED8F-4814-AD18-8FA67CC48765}|Practicum.Data\\Practicum.Data.csproj|e:\\practicum\\server\\practicum.data\\repositories\\employeerepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CC41A672-ED8F-4814-AD18-8FA67CC48765}|Practicum.Data\\Practicum.Data.csproj|solutionrelative:practicum.data\\repositories\\employeerepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0A715B52-E588-4A3A-9AB3-AC1A3460204F}|Practicum.Service\\Practicum.Service.csproj|e:\\practicum\\server\\practicum.service\\services\\userserviece.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0A715B52-E588-4A3A-9AB3-AC1A3460204F}|Practicum.Service\\Practicum.Service.csproj|solutionrelative:practicum.service\\services\\userserviece.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0A715B52-E588-4A3A-9AB3-AC1A3460204F}|Practicum.Service\\Practicum.Service.csproj|e:\\practicum\\server\\practicum.service\\services\\positionservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0A715B52-E588-4A3A-9AB3-AC1A3460204F}|Practicum.Service\\Practicum.Service.csproj|solutionrelative:practicum.service\\services\\positionservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E178FB55-E7A5-408C-945D-3FB2CA8A5519}|Practicum.API\\Practicum.API.csproj|e:\\practicum\\server\\practicum.api\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E178FB55-E7A5-408C-945D-3FB2CA8A5519}|Practicum.API\\Practicum.API.csproj|solutionrelative:practicum.api\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BC1FD1BC-4320-4BD7-9054-CD8884F4D036}|Practicum.Core\\Practicum.Core.csproj|e:\\practicum\\server\\practicum.core\\models\\position.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BC1FD1BC-4320-4BD7-9054-CD8884F4D036}|Practicum.Core\\Practicum.Core.csproj|solutionrelative:practicum.core\\models\\position.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BC1FD1BC-4320-4BD7-9054-CD8884F4D036}|Practicum.Core\\Practicum.Core.csproj|e:\\practicum\\server\\practicum.core\\models\\employeeposition.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BC1FD1BC-4320-4BD7-9054-CD8884F4D036}|Practicum.Core\\Practicum.Core.csproj|solutionrelative:practicum.core\\models\\employeeposition.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BC1FD1BC-4320-4BD7-9054-CD8884F4D036}|Practicum.Core\\Practicum.Core.csproj|e:\\practicum\\server\\practicum.core\\models\\employee.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BC1FD1BC-4320-4BD7-9054-CD8884F4D036}|Practicum.Core\\Practicum.Core.csproj|solutionrelative:practicum.core\\models\\employee.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|ViewDataWindow_MSSQL__/_localdb__MSSQLLocalDB/my_db1/True/SqlTable/dbo.Positions.sql||{0058A1F7-65F3-4DB9-B3D0-CA7E64DD73CD}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CC41A672-ED8F-4814-AD18-8FA67CC48765}|Practicum.Data\\Practicum.Data.csproj|e:\\practicum\\server\\practicum.data\\migrations\\20240409170505_creatdb.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CC41A672-ED8F-4814-AD18-8FA67CC48765}|Practicum.Data\\Practicum.Data.csproj|solutionrelative:practicum.data\\migrations\\20240409170505_creatdb.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|ViewDataWindow_MSSQL__/_localdb__MSSQLLocalDB/my_d_b2/True/SqlTable/dbo.Employees.sql||{0058A1F7-65F3-4DB9-B3D0-CA7E64DD73CD}"
@@ -20,26 +75,6 @@
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|ViewDataWindow_MSSQL__/_localdb__MSSQLLocalDB/my_d_b/True/SqlTable/dbo.Employees.sql||{0058A1F7-65F3-4DB9-B3D0-CA7E64DD73CD}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{E178FB55-E7A5-408C-945D-3FB2CA8A5519}|Practicum.API\\Practicum.API.csproj|e:\\practicum\\server\\practicum.api\\controllers\\positionscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E178FB55-E7A5-408C-945D-3FB2CA8A5519}|Practicum.API\\Practicum.API.csproj|solutionrelative:practicum.api\\controllers\\positionscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E178FB55-E7A5-408C-945D-3FB2CA8A5519}|Practicum.API\\Practicum.API.csproj|e:\\practicum\\server\\practicum.api\\controllers\\employeescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E178FB55-E7A5-408C-945D-3FB2CA8A5519}|Practicum.API\\Practicum.API.csproj|solutionrelative:practicum.api\\controllers\\employeescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{BC1FD1BC-4320-4BD7-9054-CD8884F4D036}|Practicum.Core\\Practicum.Core.csproj|e:\\practicum\\server\\practicum.core\\models\\employeeposition.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BC1FD1BC-4320-4BD7-9054-CD8884F4D036}|Practicum.Core\\Practicum.Core.csproj|solutionrelative:practicum.core\\models\\employeeposition.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{BC1FD1BC-4320-4BD7-9054-CD8884F4D036}|Practicum.Core\\Practicum.Core.csproj|e:\\practicum\\server\\practicum.core\\models\\position.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BC1FD1BC-4320-4BD7-9054-CD8884F4D036}|Practicum.Core\\Practicum.Core.csproj|solutionrelative:practicum.core\\models\\position.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{BC1FD1BC-4320-4BD7-9054-CD8884F4D036}|Practicum.Core\\Practicum.Core.csproj|e:\\practicum\\server\\practicum.core\\models\\employee.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BC1FD1BC-4320-4BD7-9054-CD8884F4D036}|Practicum.Core\\Practicum.Core.csproj|solutionrelative:practicum.core\\models\\employee.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{BC1FD1BC-4320-4BD7-9054-CD8884F4D036}|Practicum.Core\\Practicum.Core.csproj|e:\\practicum\\server\\practicum.core\\dtos\\positiondto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{BC1FD1BC-4320-4BD7-9054-CD8884F4D036}|Practicum.Core\\Practicum.Core.csproj|solutionrelative:practicum.core\\dtos\\positiondto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -48,20 +83,8 @@
       "RelativeMoniker": "D:0:0:{BC1FD1BC-4320-4BD7-9054-CD8884F4D036}|Practicum.Core\\Practicum.Core.csproj|solutionrelative:practicum.core\\mapping\\mappingprofile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{CC41A672-ED8F-4814-AD18-8FA67CC48765}|Practicum.Data\\Practicum.Data.csproj|e:\\practicum\\server\\practicum.data\\repositories\\employeerepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{CC41A672-ED8F-4814-AD18-8FA67CC48765}|Practicum.Data\\Practicum.Data.csproj|solutionrelative:practicum.data\\repositories\\employeerepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{0A715B52-E588-4A3A-9AB3-AC1A3460204F}|Practicum.Service\\Practicum.Service.csproj|e:\\practicum\\server\\practicum.service\\services\\positionservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0A715B52-E588-4A3A-9AB3-AC1A3460204F}|Practicum.Service\\Practicum.Service.csproj|solutionrelative:practicum.service\\services\\positionservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{BC1FD1BC-4320-4BD7-9054-CD8884F4D036}|Practicum.Core\\Practicum.Core.csproj|e:\\practicum\\server\\practicum.core\\services\\ipositionserviece.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{BC1FD1BC-4320-4BD7-9054-CD8884F4D036}|Practicum.Core\\Practicum.Core.csproj|solutionrelative:practicum.core\\services\\ipositionserviece.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{CC41A672-ED8F-4814-AD18-8FA67CC48765}|Practicum.Data\\Practicum.Data.csproj|e:\\practicum\\server\\practicum.data\\repositories\\positionrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{CC41A672-ED8F-4814-AD18-8FA67CC48765}|Practicum.Data\\Practicum.Data.csproj|solutionrelative:practicum.data\\repositories\\positionrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{BC1FD1BC-4320-4BD7-9054-CD8884F4D036}|Practicum.Core\\Practicum.Core.csproj|e:\\practicum\\server\\practicum.core\\dtos\\employeedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -76,24 +99,12 @@
       "RelativeMoniker": "D:0:0:{BC1FD1BC-4320-4BD7-9054-CD8884F4D036}|Practicum.Core\\Practicum.Core.csproj|solutionrelative:practicum.core\\repositories\\ipositionrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{E178FB55-E7A5-408C-945D-3FB2CA8A5519}|Practicum.API\\Practicum.API.csproj|e:\\practicum\\server\\practicum.api\\models\\employeepositionpostmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E178FB55-E7A5-408C-945D-3FB2CA8A5519}|Practicum.API\\Practicum.API.csproj|solutionrelative:practicum.api\\models\\employeepositionpostmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{E178FB55-E7A5-408C-945D-3FB2CA8A5519}|Practicum.API\\Practicum.API.csproj|e:\\practicum\\server\\practicum.api\\models\\employeepostmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{E178FB55-E7A5-408C-945D-3FB2CA8A5519}|Practicum.API\\Practicum.API.csproj|solutionrelative:practicum.api\\models\\employeepostmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{0A715B52-E588-4A3A-9AB3-AC1A3460204F}|Practicum.Service\\Practicum.Service.csproj|e:\\practicum\\server\\practicum.service\\practicum.service.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
       "RelativeMoniker": "D:0:0:{0A715B52-E588-4A3A-9AB3-AC1A3460204F}|Practicum.Service\\Practicum.Service.csproj|solutionrelative:practicum.service\\practicum.service.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{BC1FD1BC-4320-4BD7-9054-CD8884F4D036}|Practicum.Core\\Practicum.Core.csproj|e:\\practicum\\server\\practicum.core\\repositories\\iemployeerepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BC1FD1BC-4320-4BD7-9054-CD8884F4D036}|Practicum.Core\\Practicum.Core.csproj|solutionrelative:practicum.core\\repositories\\iemployeerepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{0A715B52-E588-4A3A-9AB3-AC1A3460204F}|Practicum.Service\\Practicum.Service.csproj|e:\\practicum\\server\\practicum.service\\services\\employeeservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0A715B52-E588-4A3A-9AB3-AC1A3460204F}|Practicum.Service\\Practicum.Service.csproj|solutionrelative:practicum.service\\services\\employeeservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{E178FB55-E7A5-408C-945D-3FB2CA8A5519}|Practicum.API\\Practicum.API.csproj|e:\\practicum\\server\\practicum.api\\models\\positionpostmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -134,10 +145,6 @@
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Practicum.Data\\Migrations\\20240407101705_creatDB5.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|E:\\practicum\\server\\Practicum.Data\\Migrations\\DataContextModelSnapshot.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Practicum.Data\\Migrations\\DataContextModelSnapshot.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|E:\\practicum\\server\\Practicum.Data\\Migrations\\20240401163138_createDB4.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Practicum.Data\\Migrations\\20240401163138_createDB4.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -148,33 +155,72 @@
     {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|E:\\practicum\\server\\Practicum.Data\\Migrations\\20240401155947_createDB2.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Practicum.Data\\Migrations\\20240401155947_createDB2.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CC41A672-ED8F-4814-AD18-8FA67CC48765}|Practicum.Data\\Practicum.Data.csproj|e:\\practicum\\server\\practicum.data\\migrations\\datacontextmodelsnapshot.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CC41A672-ED8F-4814-AD18-8FA67CC48765}|Practicum.Data\\Practicum.Data.csproj|solutionrelative:practicum.data\\migrations\\datacontextmodelsnapshot.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
-      "VerticalTabListWidth": 100,
+      "VerticalTabListWidth": 222,
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 27,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 8,
+              "Title": "UserServiece.cs",
+              "DocumentMoniker": "E:\\practicum\\server\\Practicum.Service\\Services\\UserServiece.cs",
+              "RelativeDocumentMoniker": "Practicum.Service\\Services\\UserServiece.cs",
+              "ToolTip": "E:\\practicum\\server\\Practicum.Service\\Services\\UserServiece.cs",
+              "RelativeToolTip": "Practicum.Service\\Services\\UserServiece.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-15T23:19:27.871Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "dbo.Positions [Data]",
+              "DocumentMoniker": "ViewDataWindow_MSSQL__/_localdb__MSSQLLocalDB/my_db1/True/SqlTable/dbo.Positions.sql",
+              "ToolTip": "dbo.Positions [Data]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000826|",
+              "WhenOpened": "2024-04-10T00:07:01.781Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "AuthController.cs",
+              "DocumentMoniker": "E:\\practicum\\server\\Practicum.API\\Controllers\\AuthController.cs",
+              "RelativeDocumentMoniker": "Practicum.API\\Controllers\\AuthController.cs",
+              "ToolTip": "E:\\practicum\\server\\Practicum.API\\Controllers\\AuthController.cs",
+              "RelativeToolTip": "Practicum.API\\Controllers\\AuthController.cs",
+              "ViewState": "AQIAAB0AAAAAAAAAAAAAADIAAAAiAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-09T23:15:57.52Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
               "Title": "20240409170505_creatDB.cs",
               "DocumentMoniker": "E:\\practicum\\server\\Practicum.Data\\Migrations\\20240409170505_creatDB.cs",
               "RelativeDocumentMoniker": "Practicum.Data\\Migrations\\20240409170505_creatDB.cs",
               "ToolTip": "E:\\practicum\\server\\Practicum.Data\\Migrations\\20240409170505_creatDB.cs",
               "RelativeToolTip": "Practicum.Data\\Migrations\\20240409170505_creatDB.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "ViewState": "AQIAABUAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-09T17:05:05.253Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-04-09T17:05:05.253Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 16,
               "Title": "dbo.Employees [Data]",
               "DocumentMoniker": "ViewDataWindow_MSSQL__/_localdb__MSSQLLocalDB/my_d_b2/True/SqlTable/dbo.Employees.sql",
               "ToolTip": "dbo.Employees [Data]",
@@ -183,7 +229,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 17,
               "Title": "dbo.Employees [Data]",
               "DocumentMoniker": "ViewDataWindow_MSSQL__/_localdb__MSSQLLocalDB/my_d_b1/True/SqlTable/dbo.Employees.sql",
               "ToolTip": "dbo.Employees [Data]",
@@ -192,7 +238,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 18,
               "Title": "dbo.Employees [Data]",
               "DocumentMoniker": "ViewDataWindow_MSSQL__/_localdb__MSSQLLocalDB/my_d_b/True/SqlTable/dbo.Employees.sql",
               "ToolTip": "dbo.Employees [Data]",
@@ -201,7 +247,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 32,
+              "DocumentIndex": 35,
               "Title": "20240407101716_creatDB6.cs",
               "DocumentMoniker": "E:\\practicum\\server\\Practicum.Data\\Migrations\\20240407101716_creatDB6.cs",
               "RelativeDocumentMoniker": "Practicum.Data\\Migrations\\20240407101716_creatDB6.cs",
@@ -213,7 +259,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 33,
+              "DocumentIndex": 36,
               "Title": "20240407101705_creatDB5.cs",
               "DocumentMoniker": "E:\\practicum\\server\\Practicum.Data\\Migrations\\20240407101705_creatDB5.cs",
               "RelativeDocumentMoniker": "Practicum.Data\\Migrations\\20240407101705_creatDB5.cs",
@@ -225,7 +271,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 34,
+              "DocumentIndex": 40,
               "Title": "DataContextModelSnapshot.cs",
               "DocumentMoniker": "E:\\practicum\\server\\Practicum.Data\\Migrations\\DataContextModelSnapshot.cs",
               "RelativeDocumentMoniker": "Practicum.Data\\Migrations\\DataContextModelSnapshot.cs",
@@ -237,7 +283,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 20,
               "Title": "MappingProfile.cs",
               "DocumentMoniker": "E:\\practicum\\server\\Practicum.Core\\Mapping\\MappingProfile.cs",
               "RelativeDocumentMoniker": "Practicum.Core\\Mapping\\MappingProfile.cs",
@@ -249,7 +295,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 21,
+              "DocumentIndex": 26,
               "Title": "Practicum.Service.csproj",
               "DocumentMoniker": "E:\\practicum\\server\\Practicum.Service\\Practicum.Service.csproj",
               "RelativeDocumentMoniker": "Practicum.Service\\Practicum.Service.csproj",
@@ -261,7 +307,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 21,
               "Title": "IPositionServiece.cs",
               "DocumentMoniker": "E:\\practicum\\server\\Practicum.Core\\Services\\IPositionServiece.cs",
               "RelativeDocumentMoniker": "Practicum.Core\\Services\\IPositionServiece.cs",
@@ -273,7 +319,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 18,
+              "DocumentIndex": 24,
               "Title": "IPositionRepository.cs",
               "DocumentMoniker": "E:\\practicum\\server\\Practicum.Core\\Repositories\\IPositionRepository.cs",
               "RelativeDocumentMoniker": "Practicum.Core\\Repositories\\IPositionRepository.cs",
@@ -285,7 +331,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 9,
               "Title": "PositionService.cs",
               "DocumentMoniker": "E:\\practicum\\server\\Practicum.Service\\Services\\PositionService.cs",
               "RelativeDocumentMoniker": "Practicum.Service\\Services\\PositionService.cs",
@@ -293,23 +339,25 @@
               "RelativeToolTip": "Practicum.Service\\Services\\PositionService.cs",
               "ViewState": "AQIAAAQAAAAAAAAAAAAEwBIAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-07T09:45:20.036Z"
+              "WhenOpened": "2024-04-07T09:45:20.036Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 6,
               "Title": "PositionRepository.cs",
               "DocumentMoniker": "E:\\practicum\\server\\Practicum.Data\\Repositories\\PositionRepository.cs",
               "RelativeDocumentMoniker": "Practicum.Data\\Repositories\\PositionRepository.cs",
               "ToolTip": "E:\\practicum\\server\\Practicum.Data\\Repositories\\PositionRepository.cs",
               "RelativeToolTip": "Practicum.Data\\Repositories\\PositionRepository.cs",
-              "ViewState": "AQIAABEAAAAAAAAAAAAEwB0AAAAyAAAA",
+              "ViewState": "AQIAAAUAAAAAAAAAAAAEwB0AAAAyAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-07T09:44:53.354Z"
+              "WhenOpened": "2024-04-07T09:44:53.354Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 24,
+              "DocumentIndex": 27,
               "Title": "PositionPostModel.cs",
               "DocumentMoniker": "E:\\practicum\\server\\Practicum.API\\Models\\PositionPostModel.cs",
               "RelativeDocumentMoniker": "Practicum.API\\Models\\PositionPostModel.cs",
@@ -321,7 +369,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 25,
+              "DocumentIndex": 28,
               "Title": "PostModelMappingProfile.cs",
               "DocumentMoniker": "E:\\practicum\\server\\Practicum.API\\Mapping\\PostModelMappingProfile.cs",
               "RelativeDocumentMoniker": "Practicum.API\\Mapping\\PostModelMappingProfile.cs",
@@ -333,7 +381,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 26,
+              "DocumentIndex": 29,
               "Title": "UserRepository.cs",
               "DocumentMoniker": "E:\\practicum\\server\\Practicum.Data\\Repositories\\UserRepository.cs",
               "RelativeDocumentMoniker": "Practicum.Data\\Repositories\\UserRepository.cs",
@@ -345,19 +393,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 7,
               "Title": "EmployeeRepository.cs",
               "DocumentMoniker": "E:\\practicum\\server\\Practicum.Data\\Repositories\\EmployeeRepository.cs",
               "RelativeDocumentMoniker": "Practicum.Data\\Repositories\\EmployeeRepository.cs",
               "ToolTip": "E:\\practicum\\server\\Practicum.Data\\Repositories\\EmployeeRepository.cs",
               "RelativeToolTip": "Practicum.Data\\Repositories\\EmployeeRepository.cs",
-              "ViewState": "AQIAACoAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-02T15:30:45.332Z"
+              "WhenOpened": "2024-04-02T15:30:45.332Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 35,
+              "DocumentIndex": 37,
               "Title": "20240401163138_createDB4.cs",
               "DocumentMoniker": "E:\\practicum\\server\\Practicum.Data\\Migrations\\20240401163138_createDB4.cs",
               "RelativeDocumentMoniker": "Practicum.Data\\Migrations\\20240401163138_createDB4.cs",
@@ -369,7 +418,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 36,
+              "DocumentIndex": 38,
               "Title": "20240401162823_createDB3.cs",
               "DocumentMoniker": "E:\\practicum\\server\\Practicum.Data\\Migrations\\20240401162823_createDB3.cs",
               "RelativeDocumentMoniker": "Practicum.Data\\Migrations\\20240401162823_createDB3.cs",
@@ -381,7 +430,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 17,
+              "DocumentIndex": 23,
               "Title": "EmployeePositionDto.cs",
               "DocumentMoniker": "E:\\practicum\\server\\Practicum.Core\\DTOs\\EmployeePositionDto.cs",
               "RelativeDocumentMoniker": "Practicum.Core\\DTOs\\EmployeePositionDto.cs",
@@ -393,7 +442,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 37,
+              "DocumentIndex": 39,
               "Title": "20240401155947_createDB2.cs",
               "DocumentMoniker": "E:\\practicum\\server\\Practicum.Data\\Migrations\\20240401155947_createDB2.cs",
               "RelativeDocumentMoniker": "Practicum.Data\\Migrations\\20240401155947_createDB2.cs",
@@ -405,31 +454,33 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 19,
+              "DocumentIndex": 3,
               "Title": "EmployeePositionPostModel.cs",
               "DocumentMoniker": "E:\\practicum\\server\\Practicum.API\\Models\\EmployeePositionPostModel.cs",
               "RelativeDocumentMoniker": "Practicum.API\\Models\\EmployeePositionPostModel.cs",
               "ToolTip": "E:\\practicum\\server\\Practicum.API\\Models\\EmployeePositionPostModel.cs",
               "RelativeToolTip": "Practicum.API\\Models\\EmployeePositionPostModel.cs",
-              "ViewState": "AQIAAAYAAAAAAAAAAAAAAAYAAAAUAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAAUAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-03-31T17:09:19.899Z"
+              "WhenOpened": "2024-03-31T17:09:19.899Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 11,
               "Title": "Position.cs",
               "DocumentMoniker": "E:\\practicum\\server\\Practicum.Core\\Models\\Position.cs",
               "RelativeDocumentMoniker": "Practicum.Core\\Models\\Position.cs",
               "ToolTip": "E:\\practicum\\server\\Practicum.Core\\Models\\Position.cs",
               "RelativeToolTip": "Practicum.Core\\Models\\Position.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAEwAwAAAA3AAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAEwBEAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-03-31T17:17:57.668Z"
+              "WhenOpened": "2024-03-31T17:17:57.668Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 19,
               "Title": "PositionDto.cs",
               "DocumentMoniker": "E:\\practicum\\server\\Practicum.Core\\DTOs\\PositionDto.cs",
               "RelativeDocumentMoniker": "Practicum.Core\\DTOs\\PositionDto.cs",
@@ -441,31 +492,33 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 0,
               "Title": "PositionsController.cs",
               "DocumentMoniker": "E:\\practicum\\server\\Practicum.API\\Controllers\\PositionsController.cs",
               "RelativeDocumentMoniker": "Practicum.API\\Controllers\\PositionsController.cs",
               "ToolTip": "E:\\practicum\\server\\Practicum.API\\Controllers\\PositionsController.cs",
               "RelativeToolTip": "Practicum.API\\Controllers\\PositionsController.cs",
-              "ViewState": "AQIAABMAAAAAAAAAAAAEwBkAAAAnAAAA",
+              "ViewState": "AQIAAB0AAAAAAAAAAAAUwC4AAAA6AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-03-31T17:08:03.697Z"
+              "WhenOpened": "2024-03-31T17:08:03.697Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 12,
               "Title": "EmployeePosition.cs",
               "DocumentMoniker": "E:\\practicum\\server\\Practicum.Core\\Models\\EmployeePosition.cs",
               "RelativeDocumentMoniker": "Practicum.Core\\Models\\EmployeePosition.cs",
               "ToolTip": "E:\\practicum\\server\\Practicum.Core\\Models\\EmployeePosition.cs",
               "RelativeToolTip": "Practicum.Core\\Models\\EmployeePosition.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAAAbAAAA",
+              "ViewState": "AQIAAAMAAAAAAAAAAAAAABEAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-03-29T09:18:21.843Z"
+              "WhenOpened": "2024-03-29T09:18:21.843Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 28,
+              "DocumentIndex": 31,
               "Title": "dbo.Employees [Data]",
               "DocumentMoniker": "ViewDataWindow_MSSQL__/_localdb__MSSQLLocalDB/my_db/True/SqlTable/dbo.Employees.sql",
               "ToolTip": "dbo.Employees [Data]",
@@ -474,7 +527,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 30,
+              "DocumentIndex": 33,
               "Title": "dbo.employeeRoles [Data]",
               "DocumentMoniker": "ViewDataWindow_MSSQL__/_localdb__MSSQLLocalDB/my_db/True/SqlTable/dbo.employeeRoles.sql",
               "ToolTip": "dbo.employeeRoles [Data]",
@@ -483,20 +536,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 1,
               "Title": "EmployeesController.cs",
               "DocumentMoniker": "E:\\practicum\\server\\Practicum.API\\Controllers\\EmployeesController.cs",
               "RelativeDocumentMoniker": "Practicum.API\\Controllers\\EmployeesController.cs",
               "ToolTip": "E:\\practicum\\server\\Practicum.API\\Controllers\\EmployeesController.cs",
               "RelativeToolTip": "Practicum.API\\Controllers\\EmployeesController.cs",
-              "ViewState": "AQIAADYAAAAAAAAAAAAAAFwAAAAJAAAA",
+              "ViewState": "AQIAAEEAAAAAAAAAAAAqwFsAAAAJAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-03-28T17:34:28.126Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 20,
+              "DocumentIndex": 25,
               "Title": "EmployeePostModel.cs",
               "DocumentMoniker": "E:\\practicum\\server\\Practicum.API\\Models\\EmployeePostModel.cs",
               "RelativeDocumentMoniker": "Practicum.API\\Models\\EmployeePostModel.cs",
@@ -508,32 +561,33 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 23,
+              "DocumentIndex": 2,
               "Title": "EmployeeService.cs",
               "DocumentMoniker": "E:\\practicum\\server\\Practicum.Service\\Services\\EmployeeService.cs",
               "RelativeDocumentMoniker": "Practicum.Service\\Services\\EmployeeService.cs",
               "ToolTip": "E:\\practicum\\server\\Practicum.Service\\Services\\EmployeeService.cs",
               "RelativeToolTip": "Practicum.Service\\Services\\EmployeeService.cs",
-              "ViewState": "AQIAAAsAAAAAAAAAAAAMwBsAAAAxAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAADwAAAAJAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-03-28T17:26:09.359Z"
+              "WhenOpened": "2024-03-28T17:26:09.359Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 5,
               "Title": "DataContext.cs",
               "DocumentMoniker": "E:\\practicum\\server\\Practicum.Data\\DataContext.cs",
               "RelativeDocumentMoniker": "Practicum.Data\\DataContext.cs",
               "ToolTip": "E:\\practicum\\server\\Practicum.Data\\DataContext.cs",
               "RelativeToolTip": "Practicum.Data\\DataContext.cs",
-              "ViewState": "AQIAAA0AAAAAAAAAAAAmwBQAAABXAAAA",
+              "ViewState": "AQIAAAEAAAAAAAAAAAAmwBQAAABXAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-03-28T17:26:09.449Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 27,
+              "DocumentIndex": 30,
               "Title": "IEmployeeServiece.cs",
               "DocumentMoniker": "E:\\practicum\\server\\Practicum.Core\\Services\\IEmployeeServiece.cs",
               "RelativeDocumentMoniker": "Practicum.Core\\Services\\IEmployeeServiece.cs",
@@ -545,7 +599,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 22,
+              "DocumentIndex": 4,
               "Title": "IEmployeeRepository.cs",
               "DocumentMoniker": "E:\\practicum\\server\\Practicum.Core\\Repositories\\IEmployeeRepository.cs",
               "RelativeDocumentMoniker": "Practicum.Core\\Repositories\\IEmployeeRepository.cs",
@@ -553,23 +607,25 @@
               "RelativeToolTip": "Practicum.Core\\Repositories\\IEmployeeRepository.cs",
               "ViewState": "AQIAAAYAAAAAAAAAAAAAABMAAAABAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-03-28T17:26:09.453Z"
+              "WhenOpened": "2024-03-28T17:26:09.453Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 13,
               "Title": "Employee.cs",
               "DocumentMoniker": "E:\\practicum\\server\\Practicum.Core\\Models\\Employee.cs",
               "RelativeDocumentMoniker": "Practicum.Core\\Models\\Employee.cs",
               "ToolTip": "E:\\practicum\\server\\Practicum.Core\\Models\\Employee.cs",
               "RelativeToolTip": "Practicum.Core\\Models\\Employee.cs",
-              "ViewState": "AQIAAAcAAAAAAAAAAAAEwBcAAAAFAAAA",
+              "ViewState": "AQIAAAcAAAAAAAAAAAAEwBIAAAAkAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-03-28T17:26:09.459Z"
+              "WhenOpened": "2024-03-28T17:26:09.459Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
+              "DocumentIndex": 22,
               "Title": "EmployeeDto.cs",
               "DocumentMoniker": "E:\\practicum\\server\\Practicum.Core\\DTOs\\EmployeeDto.cs",
               "RelativeDocumentMoniker": "Practicum.Core\\DTOs\\EmployeeDto.cs",
@@ -581,7 +637,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 29,
+              "DocumentIndex": 32,
               "Title": "Program.cs",
               "DocumentMoniker": "E:\\practicum\\server\\Practicum.API\\Program.cs",
               "RelativeDocumentMoniker": "Practicum.API\\Program.cs",
@@ -593,7 +649,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 31,
+              "DocumentIndex": 34,
               "Title": "appsettings.json",
               "DocumentMoniker": "E:\\practicum\\server\\Practicum.API\\appsettings.json",
               "RelativeDocumentMoniker": "Practicum.API\\appsettings.json",
