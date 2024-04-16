@@ -127,10 +127,10 @@ namespace Practicum.Service.Services
 
 
 
-                if (position.DateOfStartingWork < employee.StartOfWorkDate)
-                {
-                    throw new ArgumentException("Date of starting work for employee position cannot be before start date of employee.", nameof(position.DateOfStartingWork));
-                }
+                //if (position.DateOfStartingWork < employee.StartOfWorkDate)
+                //{
+                //    throw new ArgumentException("Date of starting work for employee position cannot be before start date of employee.", nameof(position.DateOfStartingWork));
+                //}
             }
         }
     }

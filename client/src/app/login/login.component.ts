@@ -9,11 +9,9 @@ import { UserModule } from '../models/user.module';
 import { UserService } from '../services/user.service';
 import { Router } from '@angular/router';
 import { MatCardModule } from '@angular/material/card';
-import {
-  MatSnackBar,
-  MatSnackBarHorizontalPosition,
-  MatSnackBarVerticalPosition,
-} from '@angular/material/snack-bar';
+import { snackBar } from '../snack-bar';
+import { DialogComponentComponent } from '../dialog-component/dialog-component.component';
+import { MatDialog } from '@angular/material/dialog';
 @Component({
   selector: 'app-login',
   standalone: true,
@@ -23,7 +21,9 @@ import {
     MatButtonModule,
     MatIconModule,
     ReactiveFormsModule,
-    MatCardModule],
+    MatCardModule,
+    DialogComponentComponent,
+    ],
   templateUrl: './login.component.html',
   styleUrl: './login.component.scss'
 })
@@ -32,10 +32,11 @@ export class LoginComponent {
   hide = true;
 
   constructor(private formBuilder: FormBuilder,
-    private _snackBar: MatSnackBar, private _userService: UserService, private router: Router) { }
-  durationInSeconds = 2.5;
-  horizontalPosition: MatSnackBarHorizontalPosition = 'center';
-  verticalPosition: MatSnackBarVerticalPosition = 'bottom';
+    // private _snackBar: MatSnackBar, 
+    private _userService: UserService,
+     private router: Router,
+     private dialog: MatDialog,
+  private _snack:snackBar) { }
  
   ngOnInit(): void {
     this.loginForm = this.formBuilder.group({
@@ -62,24 +63,26 @@ export class LoginComponent {
         console.log(res);
         const token = res.token;
         localStorage.setItem('token', token);
-        this.router.navigate(['addPosition'])
+        // this.router.navigate(['addPosition'])
+        this.openDialog()
       },
       error: (err) => {
         console.log(err)
-        this.openSnackBar("Username or password is incorrect")
-        
+        this._snack.openSnackBar("Username or password is incorrect")
 
       }
     })
 
   }
-  openSnackBar(value:string) {
+  openDialog(): void {
+    const dialogRef = this.dialog.open(DialogComponentComponent);
 
-    this._snackBar.open(value, '', {
-      horizontalPosition: this.horizontalPosition,
-      verticalPosition: this.verticalPosition,
-      duration: this.durationInSeconds * 1000,
-
+    dialogRef.afterClosed().subscribe(result => {
+      if (result === 'employeeList') {
+        this.router.navigate(['employee/allEmployees']); // Navigate to employee list page
+      } else if (result === 'addPosition') {
+        this.router.navigate(['addPosition']); // Navigate to add position page
+      }
     });
   }
 }

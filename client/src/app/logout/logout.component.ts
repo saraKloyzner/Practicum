@@ -14,7 +14,7 @@ export class LogoutComponent  implements OnInit{
   ngOnInit(): void {
     localStorage.removeItem('token');
     setTimeout(() => {
-      this.router.navigate(['/allEmployees']); // הכנס את הנתיב הנכון לקומפוננטת AllEmployees
+      this.router.navigate(['employee/allEmployees']); // הכנס את הנתיב הנכון לקומפוננטת AllEmployees
     }, 2000);
   }
 

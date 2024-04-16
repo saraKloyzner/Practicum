@@ -38,10 +38,10 @@ export class HeaderComponent {
     XLSX.writeFile(wb, `${filename}.xlsx`);
   }
   addEmployee(){
-    this.router.navigate(["addEmployee"]);
+    this.router.navigate(["employee/addEmployee"]);
   }
   allEmployees(){
-    this.router.navigate(["allEmployees"]);
+    this.router.navigate(["employee/allEmployees"]);
   }
   addPosition(){
     this.router.navigate(['addPosition']);

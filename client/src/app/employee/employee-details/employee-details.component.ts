@@ -1,20 +1,21 @@
 import { Component, OnInit } from '@angular/core';
-import { DecimalPipe } from '@angular/common';
-import { FormsModule } from '@angular/forms';
-import { NgbPaginationModule, NgbTypeaheadModule } from '@ng-bootstrap/ng-bootstrap';
+// import { DecimalPipe } from '@angular/common';
+// import { FormsModule } from '@angular/forms';
+// import { NgbPaginationModule, NgbTypeaheadModule } from '@ng-bootstrap/ng-bootstrap';
 import { EmployeeDto } from '../../models/employee-Dto';
 import { EmployeeService } from '../../services/employee.service';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { Router } from '@angular/router';
-import { CommonModule } from '@angular/common';
-import { MatFormFieldModule } from '@angular/material/form-field';
+// import { CommonModule } from '@angular/common';
+// import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatTooltipModule } from '@angular/material/tooltip';
+import { EmployeeModule } from '../employee.module';
 import * as XLSX from 'xlsx';
 @Component({
   selector: 'app-employee-details',
-  standalone: true,
-  imports: [DecimalPipe, FormsModule, NgbTypeaheadModule,MatTooltipModule, NgbPaginationModule, MatIconModule, MatButtonModule,CommonModule,MatFormFieldModule],
+  // standalone: true,
+  // imports: [DecimalPipe, FormsModule, NgbTypeaheadModule,MatTooltipModule, NgbPaginationModule, MatIconModule, MatButtonModule,CommonModule,MatFormFieldModule],
   templateUrl: './employee-details.component.html',
   styleUrl: './employee-details.component.scss'
 })
@@ -68,10 +69,10 @@ trackByEmployee(index: number, employee: EmployeeDto): string {
 
   edit(identity:string){
     console.log("identity",identity)
-    this.router.navigate(["editEmployee", identity]);
+    this.router.navigate(["employee/editEmployee", identity]);
   }
   addEmployee() {
-    this.router.navigate(["addEmployee"]);
+    this.router.navigate(["employee/addEmployee"]);
   }
   del(identity: string) {
     this._employeeService.deleteById(identity).subscribe({

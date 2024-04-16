@@ -3,16 +3,16 @@
   "WorkspaceRootPath": "E:\\practicum\\server\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{E178FB55-E7A5-408C-945D-3FB2CA8A5519}|Practicum.API\\Practicum.API.csproj|e:\\practicum\\server\\practicum.api\\controllers\\positionscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E178FB55-E7A5-408C-945D-3FB2CA8A5519}|Practicum.API\\Practicum.API.csproj|solutionrelative:practicum.api\\controllers\\positionscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{0A715B52-E588-4A3A-9AB3-AC1A3460204F}|Practicum.Service\\Practicum.Service.csproj|e:\\practicum\\server\\practicum.service\\services\\employeeservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0A715B52-E588-4A3A-9AB3-AC1A3460204F}|Practicum.Service\\Practicum.Service.csproj|solutionrelative:practicum.service\\services\\employeeservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{E178FB55-E7A5-408C-945D-3FB2CA8A5519}|Practicum.API\\Practicum.API.csproj|e:\\practicum\\server\\practicum.api\\controllers\\employeescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{E178FB55-E7A5-408C-945D-3FB2CA8A5519}|Practicum.API\\Practicum.API.csproj|solutionrelative:practicum.api\\controllers\\employeescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{0A715B52-E588-4A3A-9AB3-AC1A3460204F}|Practicum.Service\\Practicum.Service.csproj|e:\\practicum\\server\\practicum.service\\services\\employeeservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0A715B52-E588-4A3A-9AB3-AC1A3460204F}|Practicum.Service\\Practicum.Service.csproj|solutionrelative:practicum.service\\services\\employeeservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{E178FB55-E7A5-408C-945D-3FB2CA8A5519}|Practicum.API\\Practicum.API.csproj|e:\\practicum\\server\\practicum.api\\controllers\\positionscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E178FB55-E7A5-408C-945D-3FB2CA8A5519}|Practicum.API\\Practicum.API.csproj|solutionrelative:practicum.api\\controllers\\positionscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{E178FB55-E7A5-408C-945D-3FB2CA8A5519}|Practicum.API\\Practicum.API.csproj|e:\\practicum\\server\\practicum.api\\models\\employeepositionpostmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -164,11 +164,11 @@
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
-      "VerticalTabListWidth": 222,
+      "VerticalTabListWidth": 476,
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 27,
+          "SelectedChildIndex": 33,
           "Children": [
             {
               "$type": "Document",
@@ -180,8 +180,7 @@
               "RelativeToolTip": "Practicum.Service\\Services\\UserServiece.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-15T23:19:27.871Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-04-15T23:19:27.871Z"
             },
             {
               "$type": "Document",
@@ -190,8 +189,7 @@
               "DocumentMoniker": "ViewDataWindow_MSSQL__/_localdb__MSSQLLocalDB/my_db1/True/SqlTable/dbo.Positions.sql",
               "ToolTip": "dbo.Positions [Data]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000826|",
-              "WhenOpened": "2024-04-10T00:07:01.781Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-04-10T00:07:01.781Z"
             },
             {
               "$type": "Document",
@@ -203,8 +201,7 @@
               "RelativeToolTip": "Practicum.API\\Controllers\\AuthController.cs",
               "ViewState": "AQIAAB0AAAAAAAAAAAAAADIAAAAiAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-09T23:15:57.52Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-04-09T23:15:57.52Z"
             },
             {
               "$type": "Document",
@@ -339,8 +336,7 @@
               "RelativeToolTip": "Practicum.Service\\Services\\PositionService.cs",
               "ViewState": "AQIAAAQAAAAAAAAAAAAEwBIAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-07T09:45:20.036Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-04-07T09:45:20.036Z"
             },
             {
               "$type": "Document",
@@ -352,8 +348,7 @@
               "RelativeToolTip": "Practicum.Data\\Repositories\\PositionRepository.cs",
               "ViewState": "AQIAAAUAAAAAAAAAAAAEwB0AAAAyAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-07T09:44:53.354Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-04-07T09:44:53.354Z"
             },
             {
               "$type": "Document",
@@ -401,8 +396,7 @@
               "RelativeToolTip": "Practicum.Data\\Repositories\\EmployeeRepository.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-02T15:30:45.332Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-04-02T15:30:45.332Z"
             },
             {
               "$type": "Document",
@@ -462,8 +456,7 @@
               "RelativeToolTip": "Practicum.API\\Models\\EmployeePositionPostModel.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAAUAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-03-31T17:09:19.899Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-03-31T17:09:19.899Z"
             },
             {
               "$type": "Document",
@@ -475,8 +468,7 @@
               "RelativeToolTip": "Practicum.Core\\Models\\Position.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAEwBEAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-03-31T17:17:57.668Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-03-31T17:17:57.668Z"
             },
             {
               "$type": "Document",
@@ -492,13 +484,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 2,
               "Title": "PositionsController.cs",
               "DocumentMoniker": "E:\\practicum\\server\\Practicum.API\\Controllers\\PositionsController.cs",
               "RelativeDocumentMoniker": "Practicum.API\\Controllers\\PositionsController.cs",
               "ToolTip": "E:\\practicum\\server\\Practicum.API\\Controllers\\PositionsController.cs",
               "RelativeToolTip": "Practicum.API\\Controllers\\PositionsController.cs",
-              "ViewState": "AQIAAB0AAAAAAAAAAAAUwC4AAAA6AAAA",
+              "ViewState": "AQIAACcAAAAAAAAAAAAAABsAAAAUAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-03-31T17:08:03.697Z",
               "EditorCaption": ""
@@ -513,8 +505,7 @@
               "RelativeToolTip": "Practicum.Core\\Models\\EmployeePosition.cs",
               "ViewState": "AQIAAAMAAAAAAAAAAAAAABEAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-03-29T09:18:21.843Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-03-29T09:18:21.843Z"
             },
             {
               "$type": "Document",
@@ -542,7 +533,7 @@
               "RelativeDocumentMoniker": "Practicum.API\\Controllers\\EmployeesController.cs",
               "ToolTip": "E:\\practicum\\server\\Practicum.API\\Controllers\\EmployeesController.cs",
               "RelativeToolTip": "Practicum.API\\Controllers\\EmployeesController.cs",
-              "ViewState": "AQIAAEEAAAAAAAAAAAAqwFsAAAAJAAAA",
+              "ViewState": "AQIAAF8AAAAAAAAAAAAqwFsAAAAJAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-03-28T17:34:28.126Z",
               "EditorCaption": ""
@@ -561,13 +552,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 0,
               "Title": "EmployeeService.cs",
               "DocumentMoniker": "E:\\practicum\\server\\Practicum.Service\\Services\\EmployeeService.cs",
               "RelativeDocumentMoniker": "Practicum.Service\\Services\\EmployeeService.cs",
               "ToolTip": "E:\\practicum\\server\\Practicum.Service\\Services\\EmployeeService.cs",
               "RelativeToolTip": "Practicum.Service\\Services\\EmployeeService.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAADwAAAAJAAAA",
+              "ViewState": "AQIAAGYAAAAAAAAAAAAAAHsAAAARAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-03-28T17:26:09.359Z",
               "EditorCaption": ""
@@ -582,8 +573,7 @@
               "RelativeToolTip": "Practicum.Data\\DataContext.cs",
               "ViewState": "AQIAAAEAAAAAAAAAAAAmwBQAAABXAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-03-28T17:26:09.449Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-03-28T17:26:09.449Z"
             },
             {
               "$type": "Document",
@@ -607,8 +597,7 @@
               "RelativeToolTip": "Practicum.Core\\Repositories\\IEmployeeRepository.cs",
               "ViewState": "AQIAAAYAAAAAAAAAAAAAABMAAAABAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-03-28T17:26:09.453Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-03-28T17:26:09.453Z"
             },
             {
               "$type": "Document",
@@ -620,8 +609,7 @@
               "RelativeToolTip": "Practicum.Core\\Models\\Employee.cs",
               "ViewState": "AQIAAAcAAAAAAAAAAAAEwBIAAAAkAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-03-28T17:26:09.459Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-03-28T17:26:09.459Z"
             },
             {
               "$type": "Document",

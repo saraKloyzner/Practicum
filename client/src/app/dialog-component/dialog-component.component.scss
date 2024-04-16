@@ -1,0 +1,26 @@
+/* dialog-component.component.scss */
+
+.dialog-title {
+    font-size: 20px;
+    font-weight: bold;
+    color: #333;
+  }
+  
+  .dialog-content {
+    margin-top: 15px;
+  }
+  
+  .dialog-actions {
+    margin-top: 25px;
+  }
+  
+  .action-button {
+    margin-right: 10px;
+    background-color: #e5b813;
+    color: #fff;
+  }
+  
+  .action-button:hover {
+    background-color: #121212;
+  }
+  

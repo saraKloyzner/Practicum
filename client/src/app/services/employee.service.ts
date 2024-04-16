@@ -26,7 +26,7 @@ export class EmployeeService {
     return this.http.delete(`${this.baseUrl}/${identity}`)
   }
   updateEmployeeByIdentity( employee: Employee): Observable<Employee> {
-    debugger
+
     return this.http.put<Employee>(`${this.baseUrl}/${employee.identity}`, employee)
   }
 }

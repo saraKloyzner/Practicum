@@ -9,12 +9,8 @@ import { UserService } from '../../services/user.service';
 import { Router } from '@angular/router';
 import { MatCardModule } from '@angular/material/card';
 import { CommonModule } from '@angular/common';
-// import { MatSnackBar } from '@angular/material/snack-bar';
-import {
-  MatSnackBar,
-  MatSnackBarHorizontalPosition,
-  MatSnackBarVerticalPosition,
-} from '@angular/material/snack-bar';
+import { snackBar } from '../../snack-bar';
+
 @Component({
   selector: 'app-add-position',
   standalone: true,
@@ -29,19 +25,17 @@ import {
   styleUrl: './add-position.component.scss'
 })
 export class AddPositionComponent implements OnInit {
-  durationInSeconds = 2.5;
-  horizontalPosition: MatSnackBarHorizontalPosition = 'center';
-  verticalPosition: MatSnackBarVerticalPosition = 'bottom';
+
   constructor(private _positionService: PositionService,
     private formBuilder: FormBuilder,
     private _userService: UserService,
     private router: Router,
-    private _snackBar: MatSnackBar) { this.valid() }
+    private _snack: snackBar) { this.valid() }
   AddPositionForm!: FormGroup;
   ngOnInit(): void {
 
     if (localStorage.getItem('token') === null){ 
-      this.openSnackBar("Takes you to login")
+      this._snack.openSnackBar("Takes you to login")
       this.router.navigate(['login'])
     return;
     }
@@ -53,19 +47,6 @@ export class AddPositionComponent implements OnInit {
     });
   }
   valid() {
-    
-    // this._userService.getIsTrueToken().subscribe({
-    //   next: (res) => {
-    //     console.log("isTrueToken", res)
-    //     if (res === false)
-    //       this.router.navigate(['login'])
-    //     console.log("go login")
-
-    //   },
-    //   error: (err) => {
-    //     console.log("err", err);
-    //   }
-    // })
     this._userService.getIsTrueToken().subscribe({
       next: (res) => {
         if (typeof res === 'boolean') {
@@ -78,6 +59,7 @@ export class AddPositionComponent implements OnInit {
         }
       },
       error: (err) => {
+    
         console.log("err", err);
       }
     });
@@ -85,6 +67,9 @@ export class AddPositionComponent implements OnInit {
   }
   
   onSubmit(): void {
+    if (this.AddPositionForm.invalid) {
+      return;
+    }
     const user: PositionPostModel = {
       name: this.AddPositionForm.get('positionName')?.value,
 
@@ -92,8 +77,8 @@ export class AddPositionComponent implements OnInit {
     this._positionService.addPosition(user).subscribe({
       next: (res) => {
         console.log("post position", res);
-        this.openSnackBar("The position was successfully added")
-        this.router.navigate(["allEmployees"])
+        this._snack.openSnackBar("The position was successfully added")
+        this.router.navigate(["employee/allEmployees"])
       },
       error: (err) => {
         console.log(err);
@@ -103,14 +88,5 @@ export class AddPositionComponent implements OnInit {
     // Add logic to send the new position data to the backend or handle as needed
     console.log('New Position Name:', user.name);
     user.name = ''; // Clear the input field after adding
-  }
-  openSnackBar(value:string) {
-
-    this._snackBar.open(value, '', {
-      horizontalPosition: this.horizontalPosition,
-      verticalPosition: this.verticalPosition,
-      duration: this.durationInSeconds * 1000,
-
-    });
   }
 }

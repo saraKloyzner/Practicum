@@ -1,110 +1,19 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { AbstractControl, FormArray, FormBuilder, FormGroup, ReactiveFormsModule, ValidationErrors, Validators } from '@angular/forms';
-import { FormsModule } from '@angular/forms';
+import { AbstractControl, FormArray, FormBuilder, FormGroup,
+    ValidationErrors, Validators } from '@angular/forms';
 import { EmployeeService } from '../../services/employee.service';
 import { ActivatedRoute } from '@angular/router';
 import { Employee } from '../../models/all-employee-details.module';
-import { MatInputModule } from '@angular/material/input';
-import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatButtonModule } from '@angular/material/button';
-import { MatRadioModule } from '@angular/material/radio';
-import { MatDatepickerModule } from '@angular/material/datepicker';
-import { MatSelectModule } from '@angular/material/select';
-import { MatExpansionModule } from '@angular/material/expansion';
-import { MatIconModule } from '@angular/material/icon';
-import { CommonModule } from '@angular/common';
-import { MatCardModule } from '@angular/material/card';
 import { provideNativeDateAdapter } from '@angular/material/core';
 import { Position } from '../../models/position';
 import { EmployeePosition } from '../../models/employee-position.module';
-import { PositionService } from '../../services/position.service';
 import { ValidatorFn } from '@angular/forms';
-import { MatDatepicker } from '@angular/material/datepicker';
-import { MatTooltipModule } from '@angular/material/tooltip';
-import {
-  MatSnackBar,
-  MatSnackBarHorizontalPosition,
-  MatSnackBarVerticalPosition,
-} from '@angular/material/snack-bar';
+import { Functions } from '../functions-add-edit';
+import { snackBar } from '../../snack-bar';
 import { Router } from '@angular/router';
-
-
-export class MyValidator {
-  private birthDate!:Date
-  private startOfWorkDate!:Date;
-  private dateOfStartingWork!:Date;
-  public dateOfBirthVaidator(): ValidatorFn {
-    return (control: AbstractControl): ValidationErrors | null => {
-       this.birthDate = control.value;
-      const today: Date = new Date();
-      const minAgeDate: Date = new Date(today.getFullYear() - 16, today.getMonth(), today.getDate());
-
-      if (this.birthDate > today) {
-        return { 'worngBirthDate': true };
-      } else if (this.birthDate > minAgeDate) {
-        return { 'tooYoung': true };
-      }
-
-      return null;
-    };
-  }
-  public startOfWorkValidator(): ValidatorFn {
-    return (control: AbstractControl): ValidationErrors | null => {
-       this.startOfWorkDate = control.value;
-      if (!this.birthDate || !this.startOfWorkDate) {
-        console.log("null")
-        return (null);
-      }
-      if (this.birthDate > this.startOfWorkDate)
-        return({ 'tooEarlyToWork': true });
-      const minAgeDate: Date = new Date(this.birthDate.getFullYear() + 16, this.birthDate.getMonth(), this.birthDate.getDate());
-
-      if (this.startOfWorkDate < minAgeDate) {
-        console.log("startOfWorkDate", this.startOfWorkDate, "minAgeDate", minAgeDate)
-        return({ 'lessThan16Age': true });
-      } else {
-        return(null);
-
-      }
-    }
-  }
-
-   dateOfStartPosition(): ValidatorFn{
-    return (control: AbstractControl): ValidationErrors | null => {
-      this.dateOfStartingWork = control.value;
-      if (!this.startOfWorkDate) {
-        return null;
-      }
-      if (this.dateOfStartingWork < this.startOfWorkDate) {
-        return { 'beforStartTheWork': true };
-      } else {
-        return null;
-      }
-    };
-  }
-  
-  
-}
-
-
-
 @Component({
   selector: 'app-edit-employee',
-  standalone: true,
   providers: [provideNativeDateAdapter()],
-  imports: [MatInputModule,
-    MatIconModule,
-    MatExpansionModule,
-    MatSelectModule,
-    MatDatepickerModule,
-    MatRadioModule,
-    MatButtonModule,
-    MatFormFieldModule,
-    CommonModule,
-    MatCardModule, FormsModule,
-    ReactiveFormsModule,
-    MatDatepicker,MatTooltipModule
-  ],
   templateUrl: './edit-employee.component.html',
   styleUrl: './edit-employee.component.scss'
 })
@@ -112,73 +21,40 @@ export class EditEmployeeComponent implements OnInit {
   identity!: number
   employee!: Employee
   editForm!: FormGroup;
-  public allPositions!: Position[];
   @Input() availablePositions: Position[] = [];
   @Input() employeePositions: EmployeePosition[] = [];
   showWorkDetails: boolean = false;
-  private birthDate!: Date
   private startOfWorkDate!: Date
-  durationInSeconds = 1.5;
-  horizontalPosition: MatSnackBarHorizontalPosition = 'center';
-  verticalPosition: MatSnackBarVerticalPosition = 'bottom';
   editPositionForm!: FormGroup;
   position: number = 0;
-
-
   constructor(
     private router: Router,
     private _employeeService: EmployeeService,
     private route: ActivatedRoute,
-    private _positionService: PositionService,
-    private _snackBar: MatSnackBar,
-    private fb: FormBuilder,) { }
+    private _snack: snackBar,
+    private fb: FormBuilder,
+    private _function:Functions,
+    ) { }
     ngOnInit(): void {
       this.route.params.subscribe(params => {
         this.identity = params['identity'] as number;
         console.log(this.identity);
       });
   
-    this.returnAllPositions()
+    this._function.returnAllPositions()
     this.loadEmployee();
-
-    // this.initForm();
-  }
-
-  returnAllPositions() {
-    this._positionService.getPositions().subscribe({
-      next: (res) => {
-        this.allPositions = res;
-        console.log("allPositions", this.allPositions)
-        // this.createForm();
-      },
-      error: (err) => {
-        console.log(err);
-      }
-    });
-  }
-  validateIdentity(control: AbstractControl): ValidationErrors | null {
-    const identityNumber: string = control.value;
-    // בודק אם המזהה הוא מחרוזת ספרות בדיוק באורך של 9 תווים
-    if (!/^\d{9}$/.test(identityNumber)) {
-      return { 'invalidLength': true };
-    }
-    return null;
   }
   onDateOfBirthChange(): void {
     this.editForm.get('dateOfBirth')?.updateValueAndValidity();
   }
 
   initForm(): void {
-    const myValidator = new MyValidator();
     this.editForm = this.fb.group({
-      identity: [this.employee.identity, [Validators.required, this.validateIdentity]],
+      identity: [this.employee.identity, [Validators.required, this._function.validateIdentity]],
       firstName: [this.employee.firstName, [Validators.required, Validators.minLength(3)]],
       lastName: [this.employee.lastName, [Validators.required, Validators.minLength(3)]],
-      dateOfBirth: [new Date(this.employee.dateOfBirth), [Validators.required,  myValidator.dateOfBirthVaidator()]],
-      startOfWorkDate: [new Date(this.employee.startOfWorkDate), [Validators.required, myValidator.startOfWorkValidator()]],
-      //dateOfBirth: [new Date(this.employee.dateOfBirth), [Validators.required]],
-      //startOfWorkDate: [new Date(this.employee.startOfWorkDate), [Validators.required]],
-
+      dateOfBirth: [new Date(this.employee.dateOfBirth), [Validators.required,  this._function.dateOfBirthVaidator()]],
+      startOfWorkDate: [new Date(this.employee.startOfWorkDate), [Validators.required, this._function.startOfWorkValidator()]],
       maleOrFemale: [this.employee.maleOrFemale.toString(), Validators.required],
       employeePositions: this.fb.array([]) // Initialize form array for employee positions
     });
@@ -204,11 +80,11 @@ export class EditEmployeeComponent implements OnInit {
     // });
   }
   isAddPositionDisabled(): boolean {
-    if (this.allPositions.length === 0)
+    if (this._function.allPositions.length === 0)
       return true;
     else {
-      console.log(this.allPositions)
-      return this.employeePositionsFormArray.length >= this.allPositions.length;
+      console.log(this._function.allPositions)
+      return this.employeePositionsFormArray.length >= this._function.allPositions.length;
     }
   }
   isAtLeastOnePositionRequired(): boolean {
@@ -260,7 +136,7 @@ export class EditEmployeeComponent implements OnInit {
 }
   getNameOfPosition(positionId: number): any {
     console.log("positionId", positionId)
-    for (let po of this.allPositions)
+    for (let po of this._function.allPositions)
       if (po.id === positionId) {
         console.log("po.Name", po.name)
         return po.name
@@ -276,21 +152,24 @@ export class EditEmployeeComponent implements OnInit {
     // this.PositionsFormArray.removeAt(index);
     this.employeePositionsFormArray.removeAt(index)
   }
-
-
   loadEmployee(): void {
+    if (this.identity == null) {
+        console.log('Identity is not defined yet.');
+        return;
+    }
+
     this._employeeService.getEmployeeByIdentity(this.identity.toString()).subscribe({
-      next: (res) => {
-        console.log("employee", res);
-        this.employee = res;
-        this.initForm();
-        // this.createForm();
-      },
-      error: (err) => {
-        console.log(err);
-      }
+        next: (res) => {
+            console.log("employee", res);
+            this.employee = res;
+            this.initForm();
+        },
+        error: (err) => {
+            console.log(err);
+        }
     });
-  }
+}
+
 
   private positions!: FormArray
   get employeePositionsFormArray(): FormArray {
@@ -300,13 +179,13 @@ export class EditEmployeeComponent implements OnInit {
   }
 
   filteredPositions(index: number): Position[] {
-    if (!this.employeePositionsFormArray || !this.allPositions) {
+    if (!this.employeePositionsFormArray || !this._function.allPositions) {
       return [];
     }
     const selectedposition = this.employeePositionsFormArray.controls
       .filter((control, i) => i !== index) // סנן את התפקידים שאינם שווים לאינדקס שנמצא בפרמטר
       .map(positionGroup => positionGroup.get('positionId')?.value);
-    return this.allPositions.filter(position => !selectedposition.includes(position.id));
+    return this._function.allPositions.filter(position => !selectedposition.includes(position.id));
   }
   
   onSubmit(): void {
@@ -327,21 +206,12 @@ export class EditEmployeeComponent implements OnInit {
     this._employeeService.updateEmployeeByIdentity(editedEmployee).subscribe({
       next: (res) => {
         console.log(res);
-        this.openSnackBar();
-        this.router.navigate(["allEmployees"]);
+        this._snack.openSnackBar('The employee details have been successfully updated');
+        this.router.navigate(["employee/allEmployees"]);
       },
       error: (err) => {
         console.log(err);
       }
     })
-  }
-  openSnackBar() {
-
-    this._snackBar.open('The employee details have been successfully updated', '', {
-      horizontalPosition: this.horizontalPosition,
-      verticalPosition: this.verticalPosition,
-      duration: this.durationInSeconds * 1000,
-
-    });
   }
 }

@@ -1,14 +1,16 @@
 
 
   <mat-card>
-    <form *ngIf="AddPositionForm" [formGroup]="AddPositionForm" (ngSubmit)="onSubmit()">
-      <mat-form-field>
-        <mat-label>Position Name</mat-label>
-        <input matInput formControlName="positionName">
-      </mat-form-field>
-    
-
-      <button mat-raised-button color="primary" type="submit">Add Position</button>
-    </form>
+    <mat-card-title>Add Position</mat-card-title>
+    <mat-card-content>
+      <form *ngIf="AddPositionForm" [formGroup]="AddPositionForm" (ngSubmit)="onSubmit()">
+        <mat-form-field>
+          <mat-label>Position Name</mat-label>
+          <input matInput formControlName="positionName">
+        </mat-form-field>
+  
+        <button mat-raised-button  type="submit">Add Position</button>
+      </form>
+    </mat-card-content>
   </mat-card>
   
